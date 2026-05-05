@@ -709,6 +709,50 @@
     .footer { padding: 40px 32px; }
     .manifesto-stat-row { gap: 32px; }
   }
+  /* ── MODAL ── */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: var(--cream);
+    font-size: 40px;
+    cursor: pointer;
+    font-family: sans-serif;
+    line-height: 1;
+    z-index: 1001;
+  }
+
+  .modal-content-wrapper {
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .modal-content {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 </style>
 </head>
 <body>
@@ -796,9 +840,9 @@
   <!-- ROW 1 -->
   <div class="project-grid">
     <!-- Brand Identity -->
-    <div class="project-card">
+    <div class="project-card" onclick="openModal('cricket_news.png')">
       <div class="card-bg" style="background: #E13B04;">
-        <img src="cricket_news.png" alt="Cricket News Brand Identity" style="width: 100%; height: 100%; object-fit: cover;" />
+        <img src="cricket_news.png" alt="Cricket News Brand Identity" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
       </div>
       <div class="card-overlay"></div>
       <div class="floating-label">Brand Identity</div>
@@ -982,6 +1026,28 @@
   <div class="footer-logo">Abhinandna's Portfolio</div>
   <div class="footer-copy">Graphic Design · Brand Identity · Visual Communication</div>
 </footer>
+
+<!-- IMAGE MODAL -->
+<div class="modal" id="imageModal" onclick="closeModal(event)">
+  <div class="modal-close" onclick="closeModal(event)">&times;</div>
+  <div class="modal-content-wrapper" onclick="event.stopPropagation()">
+    <img class="modal-content" id="modalImage" src="" alt="Full view">
+  </div>
+</div>
+
+<script>
+  function openModal(imageSrc) {
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('imageModal').classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  }
+
+  function closeModal(event) {
+    if (event) event.stopPropagation();
+    document.getElementById('imageModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
 
 </body>
 </html>

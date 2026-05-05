@@ -762,6 +762,33 @@
     height: auto;
     object-fit: contain;
   }
+
+  /* ── GALLERY MODAL ── */
+  .gallery-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .gallery-modal-content {
+    width: 90vw;
+    height: 90vh;
+    background: #0D0D1A;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 </style>
 </head>
 <body>
@@ -864,19 +891,9 @@
     </div>
 
     <!-- Navras -->
-    <div class="project-card">
-      <div class="card-bg bg-navras">
-        <div class="navras-strips">
-          <div class="navras-strip" style="background: url('navras_shringar.jpg') center/cover;" onclick="openModal('navras_shringar.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shringar</div></div>
-          <div class="navras-strip" style="background: url('navras_hasya.jpg') center/cover;" onclick="openModal('navras_hasya.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Hasya</div></div>
-          <div class="navras-strip" style="background: url('navras_raudra.jpg') center/cover;" onclick="openModal('navras_raudra.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Raudra</div></div>
-          <div class="navras-strip" style="background: url('navras_karuna.png') center/cover;" onclick="openModal('navras_karuna.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Karuna</div></div>
-          <div class="navras-strip" style="background: url('navras_bhayanaka.png') center/cover;" onclick="openModal('navras_bhayanaka.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bhayanaka</div></div>
-          <div class="navras-strip" style="background: url('navras_bibhatsa.jpg') center/cover;" onclick="openModal('navras_bibhatsa.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bibhatsa</div></div>
-          <div class="navras-strip" style="background: url('navras_adbhuta.jpg') center/cover;" onclick="openModal('navras_adbhuta.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Adbhuta</div></div>
-          <div class="navras-strip" style="background: url('navras_vira.jpg') center/cover;" onclick="openModal('navras_vira.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Vira</div></div>
-          <div class="navras-strip" style="background: url('navras_shanta.png') center/cover;" onclick="openModal('navras_shanta.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shanta</div></div>
-        </div>
+    <div class="project-card" onclick="openGalleryModal()">
+      <div class="card-bg" style="background: #FADADD;">
+        <img src="navras_shringar.jpg" alt="Navras Project" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
       </div>
       <div class="card-overlay"></div>
       <div class="floating-label">Concept Series</div>
@@ -1019,6 +1036,24 @@
   <div class="footer-copy">Graphic Design · Brand Identity · Visual Communication</div>
 </footer>
 
+<!-- GALLERY MODAL -->
+<div class="gallery-modal" id="galleryModal" onclick="closeGalleryModal(event)">
+  <div class="modal-close" onclick="closeGalleryModal(event)">&times;</div>
+  <div class="gallery-modal-content" onclick="event.stopPropagation()">
+    <div class="navras-strips" style="height: 100%;">
+      <div class="navras-strip" style="background: url('navras_shringar.jpg') center/cover;" onclick="openModal('navras_shringar.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shringar</div></div>
+      <div class="navras-strip" style="background: url('navras_hasya.jpg') center/cover;" onclick="openModal('navras_hasya.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Hasya</div></div>
+      <div class="navras-strip" style="background: url('navras_raudra.jpg') center/cover;" onclick="openModal('navras_raudra.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Raudra</div></div>
+      <div class="navras-strip" style="background: url('navras_karuna.png') center/cover;" onclick="openModal('navras_karuna.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Karuna</div></div>
+      <div class="navras-strip" style="background: url('navras_bhayanaka.png') center/cover;" onclick="openModal('navras_bhayanaka.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bhayanaka</div></div>
+      <div class="navras-strip" style="background: url('navras_bibhatsa.jpg') center/cover;" onclick="openModal('navras_bibhatsa.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bibhatsa</div></div>
+      <div class="navras-strip" style="background: url('navras_adbhuta.jpg') center/cover;" onclick="openModal('navras_adbhuta.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Adbhuta</div></div>
+      <div class="navras-strip" style="background: url('navras_vira.jpg') center/cover;" onclick="openModal('navras_vira.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Vira</div></div>
+      <div class="navras-strip" style="background: url('navras_shanta.png') center/cover;" onclick="openModal('navras_shanta.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shanta</div></div>
+    </div>
+  </div>
+</div>
+
 <!-- IMAGE MODAL -->
 <div class="modal" id="imageModal" onclick="closeModal(event)">
   <div class="modal-close" onclick="closeModal(event)">&times;</div>
@@ -1028,6 +1063,17 @@
 </div>
 
 <script>
+  function openGalleryModal() {
+    document.getElementById('galleryModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeGalleryModal(event) {
+    if (event) event.stopPropagation();
+    document.getElementById('galleryModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   function openModal(imageSrc) {
     document.getElementById('modalImage').src = imageSrc;
     document.getElementById('imageModal').classList.add('active');

@@ -1211,12 +1211,14 @@
             justify-content: center;
             padding: 2rem;
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .modal-overlay.active {
             opacity: 1;
+            visibility: visible;
             pointer-events: auto;
         }
 
@@ -2022,41 +2024,16 @@
 
     <!-- ── JAVASCRIPT LOGIC ── -->
     <script>
-        // ── 1. THEME SWITCHER ──
+        // ── 0. DOM ELEMENTS & APPLICATION STATE ──
+        const root = document.documentElement;
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
-        const root = document.documentElement;
 
-        // Default to dark theme for maximum graphic impact
-        const savedTheme = localStorage.getItem('av_theme') || 'dark';
-        applyTheme(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme') || 'dark';
-            const nextTheme = current === 'dark' ? 'light' : 'dark';
-            applyTheme(nextTheme);
-        });
-
-        function applyTheme(theme) {
-            root.setAttribute('data-theme', theme);
-            localStorage.setItem('av_theme', theme);
-            if (theme === 'dark') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light Mode';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark Mode';
-            }
-            if (typeof updateCanvasDrawingColor === 'function') {
-                updateCanvasDrawingColor();
-            }
-        }
-
-        // ── 2. INTERACTIVE WHITEBOARD SANDBOX ──
+        // Interactive Whiteboard Elements & State
         const canvasArea = document.getElementById('canvasArea');
         const canvas = document.getElementById('drawCanvas');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas ? canvas.getContext('2d') : null;
         const canvasHint = document.getElementById('canvasHint');
         const clearBtn = document.getElementById('clearCanvas');
         const eraserBtn = document.getElementById('eraserBtn');
@@ -2069,6 +2046,67 @@
         let currentColor = '#FF3850';
         let currentSize = 4;
         let hasDrawn = false;
+
+        function updateCanvasDrawingColor() {
+            if (!ctx) return;
+            if (isEraser) {
+                ctx.globalCompositeOperation = 'destination-out';
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = currentColor;
+            }
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+
+        // ── 1. THEME SWITCHER ──
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            try {
+                localStorage.setItem('av_theme', theme);
+            } catch (e) {}
+
+            if (themeToggle) {
+                if (theme === 'dark') {
+                    if (themeIcon) themeIcon.textContent = '☀️';
+                    if (themeText) themeText.textContent = 'Light Mode';
+                } else {
+                    if (themeIcon) themeIcon.textContent = '🌙';
+                    if (themeText) themeText.textContent = 'Dark Mode';
+                }
+            }
+            updateCanvasDrawingColor();
+
+            if (!hasDrawn && canvas && ctx && canvas.width > 0) {
+                ctx.save();
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.restore();
+                if (typeof drawWelcomeDoodle === 'function') {
+                    drawWelcomeDoodle();
+                }
+                updateCanvasDrawingColor();
+            }
+        }
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const current = root.getAttribute('data-theme') || 'dark';
+                const nextTheme = current === 'dark' ? 'light' : 'dark';
+                applyTheme(nextTheme);
+            });
+        }
+
+        // Apply saved theme safely
+        const savedTheme = (() => {
+            try {
+                return localStorage.getItem('av_theme') || 'dark';
+            } catch (e) {
+                return 'dark';
+            }
+        })();
+        applyTheme(savedTheme);
 
         function resizeCanvas() {
             const rect = canvasArea.getBoundingClientRect();
@@ -2154,22 +2192,10 @@
             ctx.restore();
         }
 
-        function updateCanvasDrawingColor() {
-            if (isEraser) {
-                ctx.globalCompositeOperation = 'destination-out';
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.strokeStyle = currentColor;
-            }
-            ctx.lineWidth = currentSize;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-        }
-
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : (e.clientX || 0);
+            const clientY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : (e.clientY || 0);
             return {
                 x: clientX - rect.left,
                 y: clientY - rect.top
@@ -2466,18 +2492,41 @@
         }
 
         function closeProjectModal() {
+            if (!modal) return;
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         function closeModalOnBackdrop(e) {
-            if (e.target === modal) {
+            if (e && e.target === modal) {
                 closeProjectModal();
             }
         }
 
+        // Expose functions globally to window for guaranteed inline onclick execution
+        window.openProject = openProject;
+        window.closeProjectModal = closeProjectModal;
+        window.switchModalHero = switchModalHero;
+        window.closeModalOnBackdrop = closeModalOnBackdrop;
+        window.applyTheme = applyTheme;
+        window.showToast = showToast;
+
+        // Enhance all cards with keyboard accessibility
+        if (cards) {
+            cards.forEach(card => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        card.click();
+                    }
+                });
+            });
+        }
+
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
                 closeProjectModal();
             }
         });

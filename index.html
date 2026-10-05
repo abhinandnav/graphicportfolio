@@ -1,1103 +1,2206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Graphic Design Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --acid: #D4FF00;
-    --ink: #0A0A0A;
-    --rust: #E13B04;
-    --blush: #FADADD;
-    --midnight: #0D0D1A;
-    --cream: #F5F0E8;
-    --teal: #1EBBA3;
-  }
-
-  html { scroll-behavior: smooth; }
-  body { background: var(--ink); font-family: 'Space Mono', monospace; overflow-x: hidden; }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    background: var(--ink);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-tag {
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--acid);
-    text-transform: uppercase;
-    margin-bottom: 28px;
-    border: 1px solid var(--acid);
-    display: inline-block;
-    padding: 8px 16px;
-    width: fit-content;
-  }
-
-  .hero-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(80px, 10vw, 150px);
-    line-height: 0.85;
-    color: var(--cream);
-    letter-spacing: -2px;
-  }
-
-  .hero-name .accent { color: var(--acid); }
-  .hero-name .stroke {
-    -webkit-text-stroke: 2px var(--cream);
-    color: transparent;
-  }
-
-  .hero-desc {
-    margin-top: 36px;
-    font-size: 13px;
-    line-height: 1.9;
-    color: #777;
-    max-width: 360px;
-  }
-  .hero-desc em { color: var(--acid); font-style: normal; font-weight: 700; }
-
-  .hero-right {
-    position: relative;
-    background: var(--rust);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .hero-right::before {
-    content: "DESIGN\AVISUAL\ASTORY";
-    white-space: pre;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 90px;
-    color: rgba(0,0,0,0.12);
-    line-height: 1;
-    position: absolute;
-    text-align: center;
-  }
-
-  .hero-circle {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    border: 3px solid var(--acid);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    animation: spin-slow 24s linear infinite;
-  }
-
-  .hero-circle-inner {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 58px;
-    color: var(--cream);
-    line-height: 1;
-  }
-
-  .hero-circle-sub {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--acid);
-    text-transform: uppercase;
-    margin-top: 10px;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 36px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #444;
-    text-transform: uppercase;
-    z-index: 10;
-    animation: blink 2s ease-in-out infinite;
-  }
-
-  /* ── TICKER ── */
-  .ticker {
-    background: var(--acid);
-    color: var(--ink);
-    padding: 16px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-  }
-
-  .ticker-inner {
-    display: inline-block;
-    animation: ticker 20s linear infinite;
-  }
-  .ticker-inner span { margin: 0 44px; }
-
-  /* ── MANIFESTO ── */
-  .manifesto {
-    background: var(--cream);
-    color: var(--ink);
-    padding: 100px 80px;
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .manifesto-label {
-    font-size: 11px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #aaa;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    padding-top: 8px;
-  }
-
-  .manifesto-text {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(28px, 3.5vw, 48px);
-    line-height: 1.25;
-    color: var(--ink);
-  }
-  .manifesto-text em { font-style: italic; color: var(--rust); }
-
-  .manifesto-stat-row {
-    display: flex;
-    gap: 60px;
-    margin-top: 60px;
-    padding-top: 48px;
-    border-top: 1px solid #ddd;
-    flex-wrap: wrap;
-  }
-
-  .stat-item .num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    color: var(--rust);
-    line-height: 1;
-  }
-  .stat-item .label {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #999;
-    margin-top: 6px;
-  }
-
-  /* ── WORK SECTION ── */
-  .work-section {
-    background: var(--ink);
-    padding: 100px 0 0;
-  }
-
-  .section-header {
-    padding: 0 80px 60px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 58px;
-    color: var(--cream);
-    letter-spacing: 2px;
-  }
-  .section-title .line {
-    width: 60px;
-    height: 3px;
-    background: var(--acid);
-    margin-bottom: 14px;
-  }
-
-  .section-tag {
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: var(--acid);
-    text-transform: uppercase;
-  }
-
-  /* ── PROJECT CARDS ── */
-  .project-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4px;
-  }
-
-  .project-card {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    min-height: 480px;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  .project-card:hover .card-overlay { opacity: 1; }
-  .project-card:hover .card-content { transform: translateY(0); }
-  .project-card:hover .card-bg { transform: scale(1.05); }
-  .project-card:hover .card-desc { opacity: 1; }
-  .project-card:hover .card-arrow { opacity: 1; }
-
-  .card-bg {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.6s ease;
-  }
-
-  .card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.72);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
-  .card-content {
-    position: relative;
-    z-index: 2;
-    padding: 40px;
-    transform: translateY(24px);
-    transition: transform 0.4s ease;
-    width: 100%;
-    pointer-events: none;
-  }
-
-  .card-cat {
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--acid);
-    margin-bottom: 12px;
-  }
-
-  .card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-
-  .card-desc {
-    font-size: 12px;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.72);
-    max-width: 340px;
-    opacity: 0;
-    transition: opacity 0.4s ease 0.1s;
-  }
-
-  .card-arrow {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--acid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 24px;
-    font-size: 20px;
-    color: var(--acid);
-    opacity: 0;
-    transition: opacity 0.3s ease 0.15s;
-  }
-
-  .floating-label {
-    position: absolute;
-    top: 28px;
-    right: 28px;
-    background: var(--acid);
-    color: var(--ink);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 7px 14px;
-    z-index: 10;
-    font-weight: 700;
-  }
-
-  /* Card BGs */
-  .bg-cricket {
-    background: #E13B04;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .cn-logo-mock {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    color: white;
-    letter-spacing: 4px;
-    text-align: center;
-  }
-
-  .cn-badge {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    background: #7C0504;
-    border: 2px dashed rgba(255,255,255,0.35);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    color: white;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    line-height: 1;
-  }
-  .cn-badge small { font-size: 10px; letter-spacing: 2px; font-family: 'Space Mono', monospace; }
-
-  .bg-navras {
-    background: #0D0D1A;
-    overflow: hidden;
-  }
-
-  .navras-strips {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-    height: 100%;
-    min-height: 480px;
-  }
-
-  .navras-strip {
-    display: flex;
-    align-items: flex-end;
-    padding: 18px 8px;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    cursor: pointer;
-    flex: 1 1 20%;
-    height: 50%;
-  }
-  .navras-strip:hover { flex: 2 1 40%; }
-
-  .navras-strip .label {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    font-family: 'Space Mono', monospace;
-    white-space: nowrap;
-  }
-
-  .bg-menstru {
-    background: #FADADD;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .menstru-mock {
-    text-align: center;
-    padding: 40px;
-    z-index: 1;
-    position: relative;
-  }
-
-  .menstru-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 56px;
-    color: #C0392B;
-    letter-spacing: 3px;
-  }
-
-  .menstru-sub {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #E07070;
-    margin-top: 10px;
-  }
-
-  .menstru-circle {
-    width: 110px; height: 110px;
-    border-radius: 50%;
-    background: rgba(192,57,43,0.12);
-    border: 2px solid rgba(192,57,43,0.28);
-    margin: 24px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 36px;
-    color: #C0392B;
-    font-style: italic;
-  }
-
-  .bg-hp {
-    background: #050510;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    position: relative;
-  }
-
-  .hp-glow {
-    position: absolute;
-    width: 240px; height: 240px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(100,120,200,0.28), transparent);
-    top: 50px; left: 50%; transform: translateX(-50%);
-  }
-
-  /* ── SKILLS ROW ── */
-  .small-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 4px;
-    margin-top: 4px;
-  }
-
-  .small-card {
-    background: var(--midnight);
-    padding: 48px 40px;
-    border-top: 3px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-    min-height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .small-card:hover { border-color: var(--acid); background: #0F0F22; }
-
-  .small-card .num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 90px;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
-  }
-
-  .small-card .skill-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    color: var(--cream);
-    letter-spacing: 1px;
-  }
-
-  .small-card .skill-desc {
-    font-size: 12px;
-    color: #555;
-    line-height: 1.8;
-    margin-top: 14px;
-  }
-
-  /* ── PROCESS ── */
-  .process {
-    background: var(--rust);
-    padding: 100px 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .process::before {
-    content: "PROCESS";
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 220px;
-    color: rgba(0,0,0,0.1);
-    position: absolute;
-    right: -20px; top: -20px;
-    line-height: 1;
-    pointer-events: none;
-  }
-
-  .process-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 58px;
-    color: var(--cream);
-    margin-bottom: 60px;
-    position: relative;
-  }
-
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    position: relative;
-  }
-
-  .process-step { position: relative; }
-
-  .step-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 90px;
-    color: rgba(255,255,255,0.09);
-    line-height: 1;
-  }
-
-  .step-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: var(--cream);
-    letter-spacing: 1px;
-    margin-top: -24px;
-  }
-
-  .step-desc {
-    font-size: 12px;
-    color: rgba(255,255,255,0.62);
-    line-height: 1.8;
-    margin-top: 14px;
-  }
-
-  /* ── MARQUEE ── */
-  .marquee-bottom {
-    background: var(--ink);
-    border-top: 1px solid #161616;
-    padding: 20px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-inner {
-    display: inline-block;
-    animation: ticker 30s linear infinite reverse;
-  }
-
-  .marquee-inner span {
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: #2A2A2A;
-    margin: 0 44px;
-  }
-  .marquee-inner span.hi { color: var(--acid); }
-
-  /* ── CTA ── */
-  .cta {
-    background: var(--acid);
-    padding: 120px 80px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 60px;
-  }
-
-  .cta-headline {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(60px, 9vw, 120px);
-    color: var(--ink);
-    line-height: 0.88;
-  }
-  .cta-headline .hollow {
-    -webkit-text-stroke: 3px var(--ink);
-    color: transparent;
-  }
-
-  .cta-right { text-align: right; }
-
-  .cta-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 18px;
-    display: block;
-  }
-
-  .cta-email {
-    font-family: 'Space Mono', monospace;
-    font-size: 15px;
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 4px;
-  }
-
-  .cta-btn {
-    display: block;
-    margin-top: 36px;
-    background: var(--ink);
-    color: var(--acid);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 3px;
-    padding: 20px 48px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.3s;
-  }
-  .cta-btn:hover { background: var(--rust); color: white; }
-
-  /* ── FOOTER ── */
-  .footer {
-    background: #040404;
-    padding: 48px 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #111;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 30px;
-    color: var(--cream);
-    letter-spacing: 2px;
-  }
-
-  .footer-copy {
-    font-size: 11px;
-    color: #333;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 3px;
-    background: linear-gradient(90deg, var(--acid), var(--rust), transparent);
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes ticker {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-right { min-height: 320px; }
-    .hero-left { padding: 60px 32px; }
-    .manifesto { grid-template-columns: 1fr; padding: 60px 32px; gap: 32px; }
-    .manifesto-label { writing-mode: horizontal-tb; transform: none; }
-    .project-grid { grid-template-columns: 1fr; }
-    .small-row { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; }
-    .cta { grid-template-columns: 1fr; padding: 60px 32px; }
-    .cta-right { text-align: left; }
-    .section-header { padding: 0 32px 40px; flex-direction: column; gap: 16px; align-items: flex-start; }
-    .footer { padding: 40px 32px; }
-    .manifesto-stat-row { gap: 32px; }
-  }
-  /* ── MODAL ── */
-  .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .modal.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .modal-close {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    color: var(--cream);
-    font-size: 40px;
-    cursor: pointer;
-    font-family: sans-serif;
-    line-height: 1;
-    z-index: 1001;
-  }
-
-  .modal-content-wrapper {
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  .modal-content {
-    display: block;
-    max-width: 100%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-  }
-
-  /* ── GALLERY MODAL ── */
-  .gallery-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.95);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-modal.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .gallery-modal-content {
-    width: 90vw;
-    height: 90vh;
-    background: #0D0D1A;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abhinandna Vaidya — Interaction Design student at UPES specializing in UI/UX design, brand identity, visual systems, and digital illustrations.">
+    <meta name="keywords" content="Abhinandna Vaidya, UI/UX Designer, Graphic Designer, UPES, Fridgmate, Navras, Interaction Design, Brand Identity">
+    <meta name="author" content="Abhinandna Vaidya">
+    <title>Abhinandna Vaidya | UI/UX & Graphic Designer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── CSS VARIABLES & THEMES ── */
+        :root {
+            --bg-color: #FFFFFF;
+            --surface-color: #F8F9FA;
+            --surface-card: #FFFFFF;
+            --surface-hover: #F1F3F5;
+            --text-primary: #111215;
+            --text-secondary: #525866;
+            --text-muted: #848C9E;
+            --brand-red: #E23744; /* Signature Brand Red */
+            --brand-red-hover: #C52C38;
+            --brand-red-subtle: rgba(226, 55, 68, 0.08);
+            --border-color: #E4E7EC;
+            --border-subtle: #EEF0F4;
+            --canvas-bg: #FFFFFF;
+            --canvas-border: #DDE2EB;
+            --card-shadow: 0 8px 24px rgba(17, 18, 21, 0.05);
+            --card-shadow-hover: 0 16px 36px rgba(226, 55, 68, 0.12);
+            --header-glass: rgba(255, 255, 255, 0.88);
+            --badge-bg: #F1F3F7;
+            --badge-text: #374151;
+            --modal-backdrop: rgba(17, 18, 21, 0.75);
+            --grid-pattern: radial-gradient(#E2E8F0 1px, transparent 1px);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0E0F12;
+            --surface-color: #15171C;
+            --surface-card: #1A1C23;
+            --surface-hover: #22252F;
+            --text-primary: #F8F9FB;
+            --text-secondary: #A3AAB8;
+            --text-muted: #6B7280;
+            --brand-red: #EF4F5F; /* Refined bright red for dark theme */
+            --brand-red-hover: #FF6676;
+            --brand-red-subtle: rgba(239, 79, 95, 0.14);
+            --border-color: #272B35;
+            --border-subtle: #1E2129;
+            --canvas-bg: #14161C;
+            --canvas-border: #2D323E;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --card-shadow-hover: 0 18px 40px rgba(239, 79, 95, 0.22);
+            --header-glass: rgba(14, 15, 18, 0.88);
+            --badge-bg: #222631;
+            --badge-text: #D1D5DB;
+            --modal-backdrop: rgba(5, 6, 8, 0.88);
+            --grid-pattern: radial-gradient(#272B35 1px, transparent 1px);
+        }
+
+        /* ── GLOBAL RESETS ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: var(--grid-pattern);
+            background-size: 28px 28px;
+        }
+
+        h1, h2, h3, h4, .logo, .brand-font {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        /* ── NAVIGATION ── */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--header-glass);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.1rem 5%;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--brand-red);
+            letter-spacing: -1.2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logo-badge {
+            background: var(--brand-red-subtle);
+            color: var(--brand-red);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 20px;
+            border: 1px solid rgba(226, 55, 68, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--brand-red);
+            transition: width 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-switch {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.55rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .theme-switch:hover {
+            transform: translateY(-1px);
+            border-color: var(--brand-red);
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .cta-btn {
+            background: var(--brand-red);
+            color: #FFFFFF !important;
+            padding: 0.55rem 1.25rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 4px 14px rgba(226, 55, 68, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: var(--brand-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(226, 55, 68, 0.4);
+        }
+
+        /* ── HERO SECTION ── */
+        .hero {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 4.5rem 5% 4rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brand-red-subtle);
+            border: 1px solid rgba(226, 55, 68, 0.25);
+            padding: 6px 14px;
+            border-radius: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-pill-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--brand-red);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--brand-red);
+            animation: pulse-dot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        .hero-pill-text {
+            color: var(--brand-red);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            line-height: 1.08;
+            margin-bottom: 1.4rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .hero-text h1 span {
+            color: var(--brand-red);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text p.lead {
+            font-size: 1.18rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.8rem;
+            max-width: 95%;
+            font-weight: 400;
+            line-height: 1.65;
+        }
+
+        /* Skills tag pills */
+        .skills-ribbon {
+            margin-bottom: 2rem;
+        }
+
+        .skills-label {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-chip {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .skill-chip:hover {
+            border-color: var(--brand-red);
+            transform: translateY(-2px);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem 1.6rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            padding: 0.75rem 1.7rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 18px rgba(226, 55, 68, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(226, 55, 68, 0.45);
+        }
+
+        /* ── INTERACTIVE CANVAS WHITEBOARD ── */
+        .canvas-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .canvas-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .canvas-header {
+            padding: 0.9rem 1.25rem;
+            background: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .canvas-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mac-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mac-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .canvas-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .canvas-status {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            background: var(--bg-color);
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .canvas-area {
+            position: relative;
+            background: var(--canvas-bg);
+            height: 380px;
+            width: 100%;
+            cursor: crosshair;
+            user-select: none;
+            touch-action: none; /* Prevents scroll on mobile drawing */
+        }
+
+        #drawCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .canvas-hint {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            pointer-events: none;
+            background: var(--surface-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px dashed var(--border-color);
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .canvas-area.active .canvas-hint {
+            opacity: 0;
+        }
+
+        /* Canvas Toolbar */
+        .canvas-toolbar {
+            padding: 0.8rem 1.1rem;
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .color-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.15);
+        }
+
+        .color-dot.active {
+            border-color: var(--text-primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .stroke-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 4px 9px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .stroke-btn.active {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            border-color: var(--brand-red);
+        }
+
+        .tool-action-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .tool-action-btn:hover {
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+        }
+
+        .tool-action-btn.danger:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+        }
+
+        /* ── SECTION STYLING & FILTERS ── */
+        .section-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.2rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .section-tag {
+            color: var(--brand-red);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.15;
+        }
+
+        /* Filter Pills */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            background: var(--surface-color);
+            padding: 6px;
+            border-radius: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
+        }
+
+        /* ── PORTFOLIO GRID & CARDS ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface-card);
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: var(--brand-red);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .card-media {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: var(--surface-color);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .card:hover .card-media img {
+            transform: scale(1.05);
+        }
+
+        /* Navras preview collage banner inside card */
+        .navras-mini-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 100%;
+            height: 100%;
+            gap: 2px;
+            background: #000;
+        }
+
+        .navras-mini-strip img {
+            width: 100%;
+            height: 125px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .tag {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            padding: 0.3rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: inline-block;
+        }
+
+        .card-year {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .card h3 {
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.1rem;
+            margin-top: auto;
+        }
+
+        .card-link-text {
+            color: var(--brand-red);
+            font-weight: 700;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .card:hover .card-link-text {
+            gap: 10px;
+        }
+
+        .card-tech-chips {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tech-chip {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--surface-color);
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ── SKILLS & TOOLKIT SHOWCASE ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-box {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-red);
+        }
+
+        .skill-icon-wrap {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--brand-red-subtle);
+            color: var(--brand-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.1rem;
+        }
+
+        .skill-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+        }
+
+        .skill-box p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .sub-tag {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        /* ── ABOUT & MANIFESTO ── */
+        .about-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .about-text h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.4rem;
+            line-height: 1.7;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h4 {
+            font-size: 2.2rem;
+            color: var(--brand-red);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .process-step {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .process-step:hover {
+            border-color: var(--brand-red);
+            transform: translateX(6px);
+        }
+
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: var(--brand-red);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-primary);
+        }
+
+        .step-content p {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* ── FOOTER & CONTACT ── */
+        footer {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            padding: 5rem 5% 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-inner {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        footer h2 {
+            font-size: 2.7rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        footer p.footer-sub {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-action-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .email-copy-pill {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.6rem;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            transition: all 0.2s ease;
+        }
+
+        .email-copy-pill:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+            transform: translateY(-2px);
+        }
+
+        .copy-icon {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-links a {
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--brand-red);
+        }
+
+        .copyright {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* ── CASE STUDY DETAIL MODAL ── */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: var(--modal-backdrop);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            transform: translateY(20px) scale(0.98);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            transform: rotate(90deg);
+        }
+
+        .modal-hero-img-wrap {
+            width: 100%;
+            height: 380px;
+            background: #000;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .modal-hero-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .modal-body {
+            padding: 2.5rem;
+        }
+
+        .modal-header-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .modal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .info-cell h5 {
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .info-cell p {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-section p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* Navras 9-Rasas Gallery Grid inside modal */
+        .navras-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .navras-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .navras-item:hover {
+            transform: scale(1.03);
+            border-color: var(--brand-red);
+        }
+
+        .navras-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .navras-caption {
+            padding: 8px 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        /* ── TOAST NOTIFICATION ── */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--text-primary);
+            color: var(--bg-color);
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            z-index: 3000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ── RESPONSIVE DESIGN ── */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 5%;
+                gap: 2.5rem;
+            }
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .about-wrap {
+                grid-template-columns: 1fr;
+                padding: 2.5rem 1.8rem;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+            .nav-links {
+                display: none; /* Mobile menu can toggle or simplify */
+            }
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .modal-container {
+                max-height: 94vh;
+                margin: 0.5rem;
+            }
+            .modal-hero-img-wrap {
+                height: 240px;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">✦ Graphic Design Portfolio</div>
-    <h1 class="hero-name" style="font-size: clamp(60px, 12vw, 110px);">
-      ABHINANDNA<br>
-      <span class="accent">VAIDYA</span>
-    </h1>
-    <p class="hero-desc" style="max-width: 600px;">
-      Curious enough to question everything, chaotic enough to explore anything—but intentional enough to turn it into meaningful design.
-    </p>
+    <!-- ── NAVIGATION BAR ── -->
+    <header>
+        <nav>
+            <div class="logo-wrap">
+                <a href="#" class="logo">AV<span>.</span></a>
+                <span class="logo-badge">Portfolio</span>
+            </div>
 
-    <div class="hero-details" style="display: flex; gap: 40px; margin-top: 40px; flex-wrap: wrap; align-items: flex-start;">
-      <div>
-        <div class="accent" style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 8px;">Education</div>
-        <div style="font-size: 16px; color: var(--cream); opacity: 0.9; line-height: 1.5;">B.Des Interaction Design<br>UPES Dehradun (2023–Present)</div>
-      </div>
-      <div>
-        <div class="accent" style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 8px;">Skills</div>
-        <div style="font-size: 16px; color: var(--cream); opacity: 0.9; line-height: 1.5;">Figma, Adobe CC,<br>After Effects, Premiere Pro</div>
-      </div>
-      <div>
-        <div class="accent" style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 8px;">Status</div>
-        <div style="font-size: 16px; color: var(--cream); opacity: 0.9; line-height: 1.5;">Open to Opportunities<br>Graphic Design Intern</div>
-      </div>
+            <ul class="nav-links">
+                <li><a href="#work" class="active">Selected Work</a></li>
+                <li><a href="#whiteboard">Canvas Playground</a></li>
+                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-switch" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+                <a href="#contact" class="cta-btn">Let's Connect</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <div class="hero-pill">
+                <span class="hero-pill-dot"></span>
+                <span class="hero-pill-text">Interaction Design @ UPES</span>
+            </div>
+            <h1>Delivering crisp <span>designs</span> & seamless <span>UX</span>.</h1>
+            <p class="lead">I am Abhinandna Vaidya, an Interaction Design student at UPES. I blend intuitive user experiences with impactful visual identities—serving up solutions that are meaningful, aesthetic, and user-centered.</p>
+            
+            <div class="skills-ribbon">
+                <span class="skills-label">Expertise & Toolset</span>
+                <div class="skills-badges">
+                    <span class="skill-chip">✨ UI/UX Design</span>
+                    <span class="skill-chip">🎯 Figma</span>
+                    <span class="skill-chip">🖌️ Adobe Photoshop</span>
+                    <span class="skill-chip">📐 Illustrator</span>
+                    <span class="skill-chip">🎬 Premiere Pro</span>
+                    <span class="skill-chip">🏷️ Brand Identity</span>
+                    <span class="skill-chip">🥽 Spatial / VR UI</span>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#work" class="btn-primary">Explore Selected Work ↓</a>
+                <a href="#whiteboard" class="btn-outline">Try Whiteboard 🎨</a>
+            </div>
+        </div>
+
+        <!-- ── INTERACTIVE WHITEBOARD ── -->
+        <div class="canvas-card" id="whiteboard">
+            <div class="canvas-header">
+                <div class="canvas-title-group">
+                    <div class="mac-dots">
+                        <span class="mac-dot dot-red"></span>
+                        <span class="mac-dot dot-yellow"></span>
+                        <span class="mac-dot dot-green"></span>
+                    </div>
+                    <span class="canvas-title">Interactive Whiteboard</span>
+                </div>
+                <span class="canvas-status">Live Canvas Sandbox</span>
+            </div>
+
+            <div class="canvas-area" id="canvasArea">
+                <canvas id="drawCanvas"></canvas>
+                <div class="canvas-hint" id="canvasHint">✏️ Click or touch & drag to draw a sketch!</div>
+            </div>
+
+            <div class="canvas-toolbar">
+                <div class="toolbar-group">
+                    <!-- Palette -->
+                    <div class="color-dot active" style="background: #E23744;" data-color="#E23744" title="Zomato Red"></div>
+                    <div class="color-dot" style="background: #111215;" data-color="#111215" title="Graphite Dark"></div>
+                    <div class="color-dot" style="background: #00E5FF;" data-color="#00E5FF" title="Cyan Accent"></div>
+                    <div class="color-dot" style="background: #FFD700;" data-color="#FFD700" title="Sun Gold"></div>
+                    <div class="color-dot" style="background: #FFFFFF; border: 1px solid #ccc;" data-color="#FFFFFF" title="Clean White"></div>
+                </div>
+
+                <div class="toolbar-group">
+                    <!-- Stroke Size -->
+                    <button class="stroke-btn" data-size="2" title="Fine (2px)">Fine</button>
+                    <button class="stroke-btn active" data-size="4" title="Medium (4px)">Med</button>
+                    <button class="stroke-btn" data-size="8" title="Bold (8px)">Bold</button>
+                </div>
+
+                <div class="toolbar-group">
+                    <button class="tool-action-btn" id="eraserBtn" title="Eraser">🧹 Erase</button>
+                    <button class="tool-action-btn danger" id="clearCanvas" title="Clear Canvas">🗑️ Clear</button>
+                    <button class="tool-action-btn" id="downloadCanvas" title="Download your sketch">💾 Save</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SELECTED WORK SECTION ── -->
+    <section class="section-container" id="work">
+        <div class="section-header">
+            <div>
+                <span class="section-tag">Featured Portfolio</span>
+                <h2 class="section-title">Selected Case Studies</h2>
+            </div>
+            
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All (6)</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+                <button class="filter-btn" data-filter="poster">Posters</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="illustration">Illustrations</button>
+                <button class="filter-btn" data-filter="vr">Spatial / VR</button>
+            </div>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+            
+            <!-- CARD 1: FRIDGMATE -->
+            <div class="card" data-category="uiux" onclick="openProject('fridgmate')">
+                <div class="card-media">
+                    <img src="fridgmate.jpg" alt="Fridgmate Concept UI/UX Display" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">UI/UX Design</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Fridgmate Concept</h3>
+                    <p>A smart magnetic display reimagining kitchen management. Features a unique sliding rail camera mechanism for accurate hidden-inventory tracking, integrating freshness monitoring to encourage sustainable habits and reduce food waste.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Read Case Study →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Hardware UI</span>
+                            <span class="tech-chip">Figma</span>
+                            <span class="tech-chip">IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: UURJA & CRIMSON RED -->
+            <div class="card" data-category="poster" onclick="openProject('crimson_red')">
+                <div class="card-media">
+                    <img src="crimson_red.png" alt="Uurja 2026 and Crimson Red Poster" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Poster Design</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Uurja 2026 & Crimson Red</h3>
+                    <p>Event branding including the Uurja cultural festival utilizing Navras aesthetics, alongside 'Crimson Red', a clean, approachable visual project encouraging open conversations about menstrual health.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Read Case Study →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Poster</span>
+                            <span class="tech-chip">Visual Identity</span>
+                            <span class="tech-chip">Photoshop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3: SPORTS IDENTITY -->
+            <div class="card" data-category="branding" onclick="openProject('sports_identity')">
+                <div class="card-media">
+                    <img src="cricket_news.png" alt="Sports Brand Identity and Logo Design" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Logofolio</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Sports Identity</h3>
+                    <p>Crafted distinctive logo designs for platforms like 'The India Cricket' and 'Times Sports News'. Built to communicate spirit, athletic energy, and passion through strong typographic and symbolic choices.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">View System →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Logo Design</span>
+                            <span class="tech-chip">Typography</span>
+                            <span class="tech-chip">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4: THE NAVRAS SERIES -->
+            <div class="card" data-category="illustration" onclick="openProject('navras')">
+                <div class="card-media">
+                    <div class="navras-mini-strip">
+                        <img src="navras_shringar.jpg" alt="Shringar Rasa" loading="lazy">
+                        <img src="navras_raudra.jpg" alt="Raudra Rasa" loading="lazy">
+                        <img src="navras_adbhuta.jpg" alt="Adbhuta Rasa" loading="lazy">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Illustrations</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>The Navras Series</h3>
+                    <p>An intricate exploration of the nine human emotions. From the uplifting sringara ras to the raw power of raudra ras, rendered through a fusion of traditional Indian patterns and contemporary visual composition.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Explore All 9 Rasas →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Digital Art</span>
+                            <span class="tech-chip">Indian Heritage</span>
+                            <span class="tech-chip">9 Pieces</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5: GATHA VR -->
+            <div class="card" data-category="vr" onclick="openProject('gatha_vr')">
+                <div class="card-media">
+                    <img src="gatha_vr.jpg" alt="Gatha VR Spatial UI Heritage Experience" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">VR / UI</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Gatha VR</h3>
+                    <p>An immersive virtual reality experience celebrating India's rich artistic heritage (Kalamkari, Madhubani). Preserves cultural narratives by making them engaging, spatial, and accessible for modern digital audiences.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Read Case Study →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Spatial UI</span>
+                            <span class="tech-chip">Virtual Reality</span>
+                            <span class="tech-chip">Heritage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6: THE BOY WHO LIVED -->
+            <div class="card" data-category="poster" onclick="openProject('boy_who_lived')">
+                <div class="card-media">
+                    <img src="boy_who_lived.jpg" alt="The Boy Who Lived Cinematic Poster" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Concept Poster</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>The Boy Who Lived</h3>
+                    <p>A dark cinematic poster featuring Hogwarts castle glimpsed through a crumbling stone aperture. Moody lighting, gothic typography, and deep atmospheric depth exploring visual storytelling.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">View Artwork →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Cinema Poster</span>
+                            <span class="tech-chip">Digital Painting</span>
+                            <span class="tech-chip">Lighting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── SKILLS & DISCIPLINES SECTION ── -->
+    <section class="section-container" id="skills">
+        <div class="section-header">
+            <div>
+                <span class="section-tag">Capabilities</span>
+                <h2 class="section-title">Design Craft & Toolkit</h2>
+            </div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-box">
+                <div class="skill-icon-wrap">🎨</div>
+                <h3>UI / UX & Product Design</h3>
+                <p>Translating user pain-points into delightful, high-fidelity interfaces and design systems with sharp hierarchy and micro-interactions.</p>
+                <div class="skill-tags-list">
+                    <span class="sub-tag">Figma</span>
+                    <span class="sub-tag">Wireframing</span>
+                    <span class="sub-tag">Design Systems</span>
+                    <span class="sub-tag">User Testing</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon-wrap">✒️</div>
+                <h3>Brand Identity & Logofolio</h3>
+                <p>Crafting memorable visual languages, logos, custom typography, color theory, and comprehensive brand guideline manuals.</p>
+                <div class="skill-tags-list">
+                    <span class="sub-tag">Adobe Illustrator</span>
+                    <span class="sub-tag">Typography</span>
+                    <span class="sub-tag">Iconography</span>
+                    <span class="sub-tag">Brand Strategy</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon-wrap">🖼️</div>
+                <h3>Graphic & Poster Design</h3>
+                <p>Impactful visual storytelling for campaigns, cultural festivals, and social causes with strong compositional focus.</p>
+                <div class="skill-tags-list">
+                    <span class="sub-tag">Photoshop</span>
+                    <span class="sub-tag">Print Production</span>
+                    <span class="sub-tag">Editorial Layout</span>
+                    <span class="sub-tag">Compositing</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-icon-wrap">🥽</div>
+                <h3>Spatial Computing & VR</h3>
+                <p>Designing immersive spatial UI interfaces that bridge traditional cultural storytelling with futuristic digital environments.</p>
+                <div class="skill-tags-list">
+                    <span class="sub-tag">Spatial UX</span>
+                    <span class="sub-tag">3D Interaction</span>
+                    <span class="sub-tag">Premiere Pro</span>
+                    <span class="sub-tag">Storyboarding</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT & DESIGN MANIFESTO ── -->
+    <section class="section-container" id="about">
+        <div class="about-wrap">
+            <div class="about-text">
+                <span class="section-tag">About Me</span>
+                <h2>Balancing user empathy with evocative visual craft.</h2>
+                <p>I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies)</strong>. My design philosophy bridges pragmatic problem-solving with artistic depth—whether that is solving real-world kitchen inventory challenges with smart IoT interfaces or celebrating Indian heritage through the 9 Rasas.</p>
+                <p>I believe every detail matters—from micro-interactions in a mobile app to typographic cadence in brand collateral. Design should not just function; it should evoke emotion and resonate.</p>
+                
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>6+</h4>
+                        <p>Key Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>9</h4>
+                        <p>Rasas Illustrated</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Passion for UX</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <span class="step-num">01</span>
+                    <div class="step-content">
+                        <h4>Discover & Empathize</h4>
+                        <p>Deep-diving into user needs, cultural context, and business constraints before putting pen to paper.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">02</span>
+                    <div class="step-content">
+                        <h4>Concept & Structure</h4>
+                        <p>Iterative sketches, wireframes, moodboards, and structural information hierarchy.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">03</span>
+                    <div class="step-content">
+                        <h4>Visual Polish & Prototype</h4>
+                        <p>Crafting high-fidelity mockups, vibrant color palettes, typography, and interactive testable flows.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <span class="step-num">04</span>
+                    <div class="step-content">
+                        <h4>Deliver & Iterate</h4>
+                        <p>Ensuring pixel-perfect execution, seamless handoff, and measuring real-world user resonance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER & CONTACT ── -->
+    <footer id="contact">
+        <div class="footer-inner">
+            <span class="section-tag">Get In Touch</span>
+            <h2>Every great experience starts with a conversation.</h2>
+            <p class="footer-sub">Whether it's UI/UX, branding, spatial design, or graphic design, I'm always open to discussing new ideas and creating work that makes an impact.</p>
+
+            <div class="contact-action-bar">
+                <div class="email-copy-pill" id="copyEmailBtn" title="Click to copy email address">
+                    <span>✉️ Abhinandna.158@gmail.com</span>
+                    <span class="copy-icon">📋 Copy</span>
+                </div>
+                <a href="mailto:Abhinandna.158@gmail.com" class="btn-primary">Send Email Directly ↗</a>
+            </div>
+
+            <div class="footer-social-links">
+                <a href="https://www.linkedin.com/in/abhinandnavaidya" target="_blank" rel="noopener noreferrer">
+                    <span>LinkedIn ↗</span>
+                </a>
+                <a href="https://github.com/abhinandnav/graphicportfolio" target="_blank" rel="noopener noreferrer">
+                    <span>GitHub Repository ↗</span>
+                </a>
+                <a href="https://abhinandnav.github.io/graphicportfolio/" target="_blank" rel="noopener noreferrer">
+                    <span>Live Portfolio URL ↗</span>
+                </a>
+            </div>
+
+            <div class="copyright">
+                <span>© 2026 Abhinandna Vaidya. Designed & built with care.</span>
+                <span>Interaction Design @ UPES</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── CASE STUDY DETAIL MODAL ── -->
+    <div class="modal-overlay" id="projectModal" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" id="closeModalBtn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
+            
+            <div class="modal-hero-img-wrap" id="modalHeroWrap">
+                <img id="modalHeroImg" src="" alt="Project Visual">
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-header-meta">
+                    <span class="tag" id="modalTag">Category</span>
+                    <span class="card-year" id="modalYear">2026</span>
+                </div>
+                <h3 class="modal-title" id="modalTitle">Project Title</h3>
+
+                <div class="modal-info-grid">
+                    <div class="info-cell">
+                        <h5>Role</h5>
+                        <p id="modalRole">UI/UX Designer</p>
+                    </div>
+                    <div class="info-cell">
+                        <h5>Discipline</h5>
+                        <p id="modalDiscipline">Product Design</p>
+                    </div>
+                    <div class="info-cell">
+                        <h5>Tools</h5>
+                        <p id="modalTools">Figma, Photoshop</p>
+                    </div>
+                    <div class="info-cell">
+                        <h5>Timeline</h5>
+                        <p id="modalTimeline">4 Weeks</p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h4>📌 Overview & Challenge</h4>
+                    <p id="modalOverview">Project overview description goes here.</p>
+                </div>
+
+                <div class="modal-section">
+                    <h4>💡 Design Solution & Key Highlights</h4>
+                    <p id="modalSolution">Solution details go here.</p>
+                </div>
+
+                <!-- Navras Gallery Section (shown only for Navras) -->
+                <div class="modal-section" id="navrasGallerySection" style="display: none;">
+                    <h4>🎭 The 9 Rasas (Click to expand artwork)</h4>
+                    <div class="navras-gallery-grid" id="navrasGalleryGrid">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-circle">
-      <div class="hero-circle-inner">GD<br>INTERN</div>
-      <div class="hero-circle-sub">Available Now</div>
-    </div>
-  </div>
-  <div class="scroll-hint">↓ Scroll to explore</div>
-</section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>Brand Identity</span><span>✦</span>
-    <span>Poster Design</span><span>✦</span>
-    <span>Campaign Creatives</span><span>✦</span>
-    <span>Visual Storytelling</span><span>✦</span>
-    <span>Typography</span><span>✦</span>
-    <span>Moodboards</span><span>✦</span>
-    <span>Late-Night Sprints</span><span>✦</span>
-    <span>Brand Identity</span><span>✦</span>
-    <span>Poster Design</span><span>✦</span>
-    <span>Campaign Creatives</span><span>✦</span>
-    <span>Visual Storytelling</span><span>✦</span>
-    <span>Typography</span><span>✦</span>
-    <span>Moodboards</span><span>✦</span>
-    <span>Late-Night Sprints</span><span>✦</span>
-  </div>
-</div>
-
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-label">Philosophy</div>
-  <div>
-    <p class="manifesto-text">
-      Design isn't decoration — it's a <em>point of view</em>.
-      Every color carries emotion. Every typeface tells a story.
-      I create work that <em>feels before it thinks</em>.
-    </p>
-    <div class="manifesto-stat-row">
-      <div class="stat-item">
-        <div class="num">3+</div>
-        <div class="label">Projects Shipped</div>
-      </div>
-      <div class="stat-item">
-        <div class="num">2</div>
-        <div class="label">Brand Identities</div>
-      </div>
-      <div class="stat-item">
-        <div class="num">∞</div>
-        <div class="label">Iterations Made</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORK SECTION -->
-<section class="work-section">
-  <div class="section-header">
-    <div class="section-title">
-      <div class="line"></div>
-      SELECTED WORK
-    </div>
-    <div class="section-tag">2024 — 2025</div>
-  </div>
-
-  <!-- ROW 1 -->
-  <div class="project-grid">
-    <!-- Brand Identity -->
-    <div class="project-card" onclick="openModal('cricket_news.png')">
-      <div class="card-bg" style="background: #E13B04;">
-        <img src="cricket_news.png" alt="Cricket News Brand Identity" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
-      </div>
-      <div class="card-overlay"></div>
-      <div class="floating-label">Brand Identity</div>
-      <div class="card-content">
-        <div class="card-cat">01 — Cricket News Times</div>
-        <div class="card-title">BRAND IDENTITY SYSTEM</div>
-        <div class="card-desc">Logo design, color palette (dominant red #E13B04), typography system, and brand collateral including business cards and brand books for a cricket news media brand.</div>
-        <div class="card-arrow">→</div>
-      </div>
+    <!-- ── TOAST NOTIFICATION ── -->
+    <div class="toast" id="toast">
+        <span>✨ Email copied to clipboard!</span>
     </div>
 
-    <!-- Navras -->
-    <div class="project-card" onclick="openGalleryModal()">
-      <div class="card-bg" style="background: #FADADD;">
-        <img src="navras_shringar.jpg" alt="Navras Project" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
-      </div>
-      <div class="card-overlay"></div>
-      <div class="floating-label">Concept Series</div>
-      <div class="card-content">
-        <div class="card-cat">02 — Navras Project</div>
-        <div class="card-title">9 EMOTIONS IN COLOR</div>
-        <div class="card-desc">Exploring how color and botanicals represent the Navarasas — 9 ancient emotions from Indian aesthetics. Each frame maps a rasa to a flower and a palette.</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
-  </div>
+    <!-- ── JAVASCRIPT LOGIC ── -->
+    <script>
+        // ── 1. THEME SWITCHER LOGIC ──
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const root = document.documentElement;
 
-  <!-- ROW 2 -->
-  <div class="project-grid" style="margin-top:4px;">
-    <!-- Crimson Red Poster -->
-    <div class="project-card" onclick="openModal('crimson_red.png')">
-      <div class="card-bg" style="background: #FADADD;">
-        <img src="crimson_red.png" alt="Crimson Red Social Poster" style="width: 100%; height: 100%; object-fit: cover; object-position: top;" />
-      </div>
-      <div class="card-overlay"></div>
-      <div class="floating-label">Social Poster</div>
-      <div class="card-content">
-        <div class="card-cat">03 — Crimson Red</div>
-        <div class="card-title">MENSTRUAL HEALTH CAMPAIGN</div>
-        <div class="card-desc">Breaking taboo through design. An informative poster that uses floral imagery and bold crimson typography to destigmatise menstrual health conversations.</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
+        // Load saved theme or default to light
+        const savedTheme = localStorage.getItem('av_theme') || 'light';
+        applyTheme(savedTheme);
 
-    <!-- Harry Potter -->
-    <div class="project-card" onclick="openModal('boy_who_lived.jpg')">
-      <div class="card-bg" style="background: #050510;">
-        <img src="boy_who_lived.jpg" alt="The Boy Who Lived Poster" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" />
-      </div>
-      <div class="card-overlay"></div>
-      <div class="floating-label">Fan Poster</div>
-      <div class="card-content">
-        <div class="card-cat">04 — Harry Potter Poster</div>
-        <div class="card-title">THE BOY WHO LIVED</div>
-        <div class="card-desc">A dark cinematic poster — Hogwarts castle glimpsed through a crumbling stone wall. Moody lighting, gothic typography, and deep atmospheric depth.</div>
-        <div class="card-arrow">→</div>
-      </div>
-    </div>
-  </div>
-</section>
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            const nextTheme = current === 'light' ? 'dark' : 'light';
+            applyTheme(nextTheme);
+        });
 
-<div class="divider"></div>
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            localStorage.setItem('av_theme', theme);
+            if (theme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            }
+            updateCanvasDrawingColor();
+        }
 
-<!-- SKILLS -->
-<div class="small-row">
-  <div class="small-card">
-    <div class="num">01</div>
-    <div>
-      <div class="skill-title">BRAND IDENTITY</div>
-      <div class="skill-desc">Logo systems, color palettes, typography hierarchies, brand collateral, and brand books built from scratch.</div>
-    </div>
-  </div>
-  <div class="small-card">
-    <div class="num">02</div>
-    <div>
-      <div class="skill-title">POSTER & CAMPAIGN</div>
-      <div class="skill-desc">Social-first posters, campaign visuals, and editorial layouts that communicate with clarity and attitude.</div>
-    </div>
-  </div>
-  <div class="small-card">
-    <div class="num">03</div>
-    <div>
-      <div class="skill-title">CONCEPTUAL DESIGN</div>
-      <div class="skill-desc">Concept-driven work that starts with a question and ends with a visual answer — like Navras and Crimson Red.</div>
-    </div>
-  </div>
-</div>
+        // ── 2. RETINA-READY INTERACTIVE WHITEBOARD ──
+        const canvasArea = document.getElementById('canvasArea');
+        const canvas = document.getElementById('drawCanvas');
+        const ctx = canvas.getContext('2d');
+        const canvasHint = document.getElementById('canvasHint');
+        const clearBtn = document.getElementById('clearCanvas');
+        const eraserBtn = document.getElementById('eraserBtn');
+        const downloadBtn = document.getElementById('downloadCanvas');
+        const colorDots = document.querySelectorAll('.color-dot');
+        const strokeBtns = document.querySelectorAll('.stroke-btn');
 
-<!-- PROCESS -->
-<section class="process">
-  <div class="process-title">HOW I WORK</div>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-num">01</div>
-      <div class="step-label">DISCOVER</div>
-      <div class="step-desc">Research the brand, audience, and context. Ask uncomfortable questions. Find the real brief underneath the brief.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">02</div>
-      <div class="step-label">DEFINE</div>
-      <div class="step-desc">Translate insights into a creative direction. Choose mood, palette, and visual language before touching Illustrator.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">03</div>
-      <div class="step-label">DESIGN</div>
-      <div class="step-desc">Explore obsessively. Save versions. Go back to old versions. Refine until the work feels inevitable.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">04</div>
-      <div class="step-label">DELIVER</div>
-      <div class="step-desc">Present with context, not just JPEGs. The story behind the work is as important as the work itself.</div>
-    </div>
-  </div>
-</section>
+        let isDrawing = false;
+        let isEraser = false;
+        let currentColor = '#E23744';
+        let currentSize = 4;
+        let hasDrawn = false;
 
-<!-- MARQUEE -->
-<div class="marquee-bottom">
-  <div class="marquee-inner">
-    <span>Brand Identity</span><span>✦</span>
-    <span class="hi">"Designers who save all the versions..."</span><span>✦</span>
-    <span>Visual Storytelling</span><span>✦</span>
-    <span>Navras · 9 Emotions</span><span>✦</span>
-    <span class="hi">Crimson Red</span><span>✦</span>
-    <span>The Boy Who Lived</span><span>✦</span>
-    <span>Cricket News Times</span><span>✦</span>
-    <span>Brand Identity</span><span>✦</span>
-    <span class="hi">"Designers who save all the versions..."</span><span>✦</span>
-    <span>Visual Storytelling</span><span>✦</span>
-    <span>Navras · 9 Emotions</span><span>✦</span>
-    <span class="hi">Crimson Red</span><span>✦</span>
-    <span>The Boy Who Lived</span><span>✦</span>
-    <span>Cricket News Times</span><span>✦</span>
-  </div>
-</div>
+        // High-DPI Canvas Setup with buffer preservation
+        function resizeCanvas() {
+            const rect = canvasArea.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            
+            // Create temporary buffer to preserve user's drawing during resize
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+            const tempCtx = tempCanvas.getContext('2d');
+            if (canvas.width > 0 && canvas.height > 0) {
+                tempCtx.drawImage(canvas, 0, 0);
+            }
 
-<!-- CTA -->
-<section class="cta">
-  <div class="cta-headline">
-    LET'S<br>
-    <span class="hollow">MAKE</span><br>
-    NOISE.
-  </div>
-  <div class="cta-right">
-    <span class="cta-label">Designing. Learning. Contributing.</span>
-    <div>
-      <a class="cta-email" href="mailto:abhinandna.158@gmail.com">abhinandna.158@gmail.com→</a>
-    </div>
-    <a class="cta-btn" href="mailto:abhinandna.158@gmail.com">Let’s Work Together↗</a>
-  </div>
-</section>
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-logo">Abhinandna's Portfolio</div>
-  <div class="footer-copy">Graphic Design · Brand Identity · Visual Communication</div>
-</footer>
+            if (tempCanvas.width > 0 && tempCanvas.height > 0) {
+                ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width / dpr, tempCanvas.height / dpr);
+            }
 
-<!-- GALLERY MODAL -->
-<div class="gallery-modal" id="galleryModal" onclick="closeGalleryModal(event)">
-  <div class="modal-close" onclick="closeGalleryModal(event)">&times;</div>
-  <div class="gallery-modal-content" onclick="event.stopPropagation()">
-    <div class="navras-strips" style="height: 100%;">
-      <div class="navras-strip" style="background: url('navras_shringar.jpg') center/cover;" onclick="openModal('navras_shringar.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shringar</div></div>
-      <div class="navras-strip" style="background: url('navras_hasya.jpg') center/cover;" onclick="openModal('navras_hasya.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Hasya</div></div>
-      <div class="navras-strip" style="background: url('navras_raudra.jpg') center/cover;" onclick="openModal('navras_raudra.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Raudra</div></div>
-      <div class="navras-strip" style="background: url('navras_karuna.png') center/cover;" onclick="openModal('navras_karuna.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Karuna</div></div>
-      <div class="navras-strip" style="background: url('navras_bhayanaka.png') center/cover;" onclick="openModal('navras_bhayanaka.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bhayanaka</div></div>
-      <div class="navras-strip" style="background: url('navras_bibhatsa.jpg') center/cover;" onclick="openModal('navras_bibhatsa.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Bibhatsa</div></div>
-      <div class="navras-strip" style="background: url('navras_adbhuta.jpg') center/cover;" onclick="openModal('navras_adbhuta.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Adbhuta</div></div>
-      <div class="navras-strip" style="background: url('navras_vira.jpg') center/cover;" onclick="openModal('navras_vira.jpg')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Vira</div></div>
-      <div class="navras-strip" style="background: url('navras_shanta.png') center/cover;" onclick="openModal('navras_shanta.png')"><div class="label" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.8); color: white;">Shanta</div></div>
-    </div>
-  </div>
-</div>
+            updateCanvasDrawingColor();
+        }
 
-<!-- IMAGE MODAL -->
-<div class="modal" id="imageModal" onclick="closeModal(event)">
-  <div class="modal-close" onclick="closeModal(event)">&times;</div>
-  <div class="modal-content-wrapper" onclick="event.stopPropagation()">
-    <img class="modal-content" id="modalImage" src="" alt="Full view">
-  </div>
-</div>
+        function updateCanvasDrawingColor() {
+            if (isEraser) {
+                const theme = root.getAttribute('data-theme');
+                ctx.strokeStyle = theme === 'dark' ? '#14161C' : '#FFFFFF';
+            } else {
+                ctx.strokeStyle = currentColor;
+            }
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
 
-<script>
-  function openGalleryModal() {
-    document.getElementById('galleryModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+        // Mouse & Touch coordinate helper
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
 
-  function closeGalleryModal(event) {
-    if (event) event.stopPropagation();
-    document.getElementById('galleryModal').classList.remove('active');
-    document.body.style.overflow = '';
-  }
+        function startDrawing(e) {
+            isDrawing = true;
+            canvasArea.classList.add('active');
+            if (!hasDrawn) {
+                hasDrawn = true;
+                canvasHint.style.opacity = '0';
+            }
+            updateCanvasDrawingColor();
+            const pos = getPos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+            if (e.type === 'touchstart') e.preventDefault();
+        }
 
-  function openModal(imageSrc) {
-    document.getElementById('modalImage').src = imageSrc;
-    document.getElementById('imageModal').classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getPos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+            if (e.type === 'touchmove') e.preventDefault();
+        }
 
-  function closeModal(event) {
-    if (event) event.stopPropagation();
-    document.getElementById('imageModal').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-</script>
+        function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+            ctx.beginPath();
+        }
 
+        // Attach Mouse Events
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        window.addEventListener('mouseup', stopDrawing);
+
+        // Attach Touch Events (with passive: false to allow e.preventDefault)
+        canvas.addEventListener('touchstart', startDrawing, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('touchcancel', stopDrawing);
+
+        // Palette Selector
+        colorDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                colorDots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                currentColor = dot.getAttribute('data-color');
+                isEraser = false;
+                eraserBtn.style.background = '';
+                eraserBtn.style.borderColor = '';
+                updateCanvasDrawingColor();
+            });
+        });
+
+        // Brush Stroke Sizes
+        strokeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                strokeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentSize = parseInt(btn.getAttribute('data-size'));
+                updateCanvasDrawingColor();
+            });
+        });
+
+        // Eraser Toggle
+        eraserBtn.addEventListener('click', () => {
+            isEraser = !isEraser;
+            if (isEraser) {
+                eraserBtn.style.background = 'var(--brand-red)';
+                eraserBtn.style.color = '#FFFFFF';
+                eraserBtn.style.borderColor = 'var(--brand-red)';
+            } else {
+                eraserBtn.style.background = '';
+                eraserBtn.style.color = '';
+                eraserBtn.style.borderColor = '';
+            }
+            updateCanvasDrawingColor();
+        });
+
+        // Clear Canvas
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvasHint.style.opacity = '0.85';
+            hasDrawn = false;
+            showToast('Whiteboard cleared! 🎨');
+        });
+
+        // Download Sketch
+        downloadBtn.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'abhinandna-portfolio-sketch.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            showToast('Sketch saved to your device! 💾');
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+        setTimeout(resizeCanvas, 150);
+
+        // ── 3. PORTFOLIO FILTERING ──
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // ── 4. CASE STUDY DETAIL MODAL DATA ──
+        const projectsData = {
+            'fridgmate': {
+                tag: 'UI/UX Design • Hardware IoT',
+                year: '2026',
+                title: 'Fridgmate: Smart Kitchen Ecosystem',
+                role: 'Lead UI/UX Designer & Product Concept',
+                discipline: 'Smart Hardware UI / Interaction Design',
+                tools: 'Figma, Protopie, Blender, Research',
+                timeline: '6 Weeks',
+                heroImg: 'fridgmate.jpg',
+                overview: 'Food waste is a trillion-dollar global problem, with over 30% of household groceries discarded simply because items get lost behind shelves and expire unnoticed. Fridgmate reimagines the modern kitchen through an ultra-sleek, magnetic smart display mounted seamlessly on refrigeration units.',
+                solution: 'Features an innovative sliding rail camera mechanism that systematically catalogs hidden inventory without requiring manual barcode scanning. Integrated with automated freshness monitoring, intelligent expiry notifications, and dynamic AI recipe generators based strictly on in-fridge ingredients.',
+                hasNavras: false
+            },
+            'crimson_red': {
+                tag: 'Poster Design • Brand Campaign',
+                year: '2026',
+                title: 'Uurja 2026 & Crimson Red Social Campaign',
+                role: 'Visual Identity & Graphic Designer',
+                discipline: 'Poster Design & Typography',
+                tools: 'Adobe Photoshop, Illustrator, InDesign',
+                timeline: '3 Weeks',
+                heroImg: 'crimson_red.png',
+                overview: 'A dual-impact visual design project. First, developing the overarching festival branding for UPES Uurja 2026 cultural fest incorporating dynamic Navras aesthetics. Second, designing "Crimson Red" — an empathetic, informative poster series engineered to de-stigmatize menstrual health conversations through botanical elegance and bold typographic hierarchy.',
+                solution: 'Applied a sophisticated crimson and pastel palette with organic floral motifs to replace clinical or taboo visuals with approachable, dignified educational art. Exhibited across campus and digital platforms with high community engagement.',
+                hasNavras: false
+            },
+            'sports_identity': {
+                tag: 'Logofolio • Visual Branding',
+                year: '2026',
+                title: 'Sports Media & Athletics Brand Identity',
+                role: 'Brand Designer & Typographer',
+                discipline: 'Identity Design & Brand Systems',
+                tools: 'Adobe Illustrator, Photoshop',
+                timeline: '4 Weeks',
+                heroImg: 'cricket_news.png',
+                overview: 'Developed dynamic, high-energy brand systems for major sports media publications including "The India Cricket" and "Times Sports News". The objective was to create an aggressive, contemporary visual identity that commands attention on digital thumbnails, live broadcast tickers, and print collateral.',
+                solution: 'Constructed sharp aerodynamic angular letterforms, paired with a dominant sports-red and ink palette. Engineered a versatile responsive logo suite ranging from app icons to dynamic motion graphics for highlight packages.',
+                hasNavras: false
+            },
+            'navras': {
+                tag: 'Digital Illustrations • Cultural Heritage',
+                year: '2026',
+                title: 'The Navras Series: Nine Expressions of Humanity',
+                role: 'Visual Artist & Illustrator',
+                discipline: 'Heritage Fusion & Digital Illustration',
+                tools: 'Adobe Photoshop, Procreate, Illustrator',
+                timeline: '8 Weeks',
+                heroImg: 'navras_shringar.jpg',
+                overview: 'The Indian aesthetic theory of Navras represents the nine fundamental human emotions (rasas) codified in ancient Indian dramatic treatises. This series represents an intricate contemporary reinterpretation of each rasa, fusing classical Indian motif frameworks with modern vector clarity and dramatic lighting.',
+                solution: 'Explored the tonal spectrum from the tender warmth of Sringara (Love) and joyous radiance of Hasya (Joy), to the tempestuous crimson fury of Raudra (Anger) and the contemplative stillness of Shanta (Peace). Click any of the nine artworks below to explore the visual breakdown.',
+                hasNavras: true
+            },
+            'gatha_vr': {
+                tag: 'Spatial UI • VR Experience',
+                year: '2026',
+                title: 'Gatha VR: Traditional Indian Art in Spatial 3D',
+                role: 'VR UX Designer & Researcher',
+                discipline: 'Spatial Interaction & Virtual Reality',
+                tools: 'Figma Spatial, Blender, Unity Concept',
+                timeline: '5 Weeks',
+                heroImg: 'gatha_vr.jpg',
+                overview: 'India’s rich folk art traditions—such as Kalamkari hand-painted cotton scrolls and Madhubani narrative tapestries—risk being forgotten by younger digital-native audiences. Gatha VR transforms static cultural relics into an interactive, multi-dimensional virtual reality museum.',
+                solution: 'Designed an ethereal spatial UI with minimal HUD elements that allows visitors to step directly into painted folklore scenes, interact with ancient motifs via spatial hand gestures, and learn historical narratives through spatial audio guided journeys.',
+                hasNavras: false
+            },
+            'boy_who_lived': {
+                tag: 'Concept Art • Cinematic Poster',
+                year: '2026',
+                title: 'The Boy Who Lived: Dark Cinematic Poster',
+                role: 'Digital Matte Artist & Designer',
+                discipline: 'Entertainment Key Art & Lighting',
+                tools: 'Photoshop, Digital Compositing',
+                timeline: '2 Weeks',
+                heroImg: 'boy_who_lived.jpg',
+                overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, viewed through a crumbling stone aperture.',
+                solution: 'Focused on textured stonework, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery and grandeur.',
+                hasNavras: false
+            }
+        };
+
+        const navrasImages = [
+            { name: 'Sringara (Love & Beauty)', file: 'navras_shringar.jpg' },
+            { name: 'Hasya (Laughter & Mirth)', file: 'navras_hasya.jpg' },
+            { name: 'Karuna (Compassion & Sorrow)', file: 'navras_karuna.png' },
+            { name: 'Raudra (Fury & Anger)', file: 'navras_raudra.jpg' },
+            { name: 'Vira (Heroism & Courage)', file: 'navras_vira.jpg' },
+            { name: 'Bhayanaka (Fear & Terror)', file: 'navras_bhayanaka.png' },
+            { name: 'Bibhatsa (Disgust & Aversion)', file: 'navras_bibhatsa.jpg' },
+            { name: 'Adbhuta (Wonder & Mystery)', file: 'navras_adbhuta.jpg' },
+            { name: 'Shanta (Peace & Serenity)', file: 'navras_shanta.png' }
+        ];
+
+        const modal = document.getElementById('projectModal');
+        const modalHeroImg = document.getElementById('modalHeroImg');
+        const modalTag = document.getElementById('modalTag');
+        const modalYear = document.getElementById('modalYear');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalRole = document.getElementById('modalRole');
+        const modalDiscipline = document.getElementById('modalDiscipline');
+        const modalTools = document.getElementById('modalTools');
+        const modalTimeline = document.getElementById('modalTimeline');
+        const modalOverview = document.getElementById('modalOverview');
+        const modalSolution = document.getElementById('modalSolution');
+        const navrasSection = document.getElementById('navrasGallerySection');
+        const navrasGrid = document.getElementById('navrasGalleryGrid');
+
+        function openProject(id) {
+            const data = projectsData[id];
+            if (!data) return;
+
+            modalHeroImg.src = data.heroImg;
+            modalTag.textContent = data.tag;
+            modalYear.textContent = data.year;
+            modalTitle.textContent = data.title;
+            modalRole.textContent = data.role;
+            modalDiscipline.textContent = data.discipline;
+            modalTools.textContent = data.tools;
+            modalTimeline.textContent = data.timeline;
+            modalOverview.textContent = data.overview;
+            modalSolution.textContent = data.solution;
+
+            if (data.hasNavras) {
+                navrasSection.style.display = 'block';
+                navrasGrid.innerHTML = navrasImages.map(item => `
+                    <div class="navras-item" onclick="modalHeroImg.src='${item.file}'">
+                        <img src="${item.file}" alt="${item.name}" loading="lazy">
+                        <div class="navras-caption">${item.name}</div>
+                    </div>
+                `).join('');
+            } else {
+                navrasSection.style.display = 'none';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeModalOnBackdrop(e) {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeProjectModal();
+            }
+        });
+
+        // ── 5. COPY EMAIL & TOAST SYSTEM ──
+        const copyEmailBtn = document.getElementById('copyEmailBtn');
+        const toast = document.getElementById('toast');
+
+        copyEmailBtn.addEventListener('click', () => {
+            const email = 'Abhinandna.158@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                showToast('Email copied to clipboard! ✨');
+            }).catch(() => {
+                showToast('Email: Abhinandna.158@gmail.com');
+            });
+        });
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Active scrollspy highlighting for nav links
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section, footer');
+
+        window.addEventListener('scroll', () => {
+            let currentSec = '';
+            sections.forEach(sec => {
+                const top = sec.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    currentSec = sec.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

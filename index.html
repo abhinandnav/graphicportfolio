@@ -3,43 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Abhinandna Vaidya — Interaction Design student at UPES specializing in UI/UX design, brand identity, visual systems, and digital illustrations.">
-    <meta name="keywords" content="Abhinandna Vaidya, UI/UX Designer, Graphic Designer, UPES, Fridgmate, Navras, Interaction Design, Brand Identity">
+    <meta name="description" content="Portfolio of Abhinandna Vaidya — Interaction Design student at UPES specializing in Brand Identity, Visual Systems, UI/UX, and Digital Art.">
+    <meta name="keywords" content="Abhinandna Vaidya, Graphic Designer, UI/UX Designer, UPES, Brand Identity, Navras, Fridgmate, Interaction Design, Poster Design">
     <meta name="author" content="Abhinandna Vaidya">
-    <title>Abhinandna Vaidya | UI/UX & Graphic Designer</title>
+    <title>Abhinandna Vaidya | Graphic & Interaction Designer</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts for Bold Graphic Design Aesthetics -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* ── CSS VARIABLES & THEMES ── */
+        /* ── DESIGN SYSTEM & COLOR TOKENS ── */
         :root {
-            --bg-color: #FFFFFF;
-            --surface-color: #F8F9FA;
-            --surface-card: #FFFFFF;
-            --surface-hover: #F1F3F5;
-            --text-primary: #111215;
-            --text-secondary: #525866;
-            --text-muted: #848C9E;
-            --brand-red: #E23744; /* Signature Brand Red */
-            --brand-red-hover: #C52C38;
-            --brand-red-subtle: rgba(226, 55, 68, 0.08);
-            --border-color: #E4E7EC;
-            --border-subtle: #EEF0F4;
-            --canvas-bg: #FFFFFF;
-            --canvas-border: #DDE2EB;
-            --card-shadow: 0 8px 24px rgba(17, 18, 21, 0.05);
-            --card-shadow-hover: 0 16px 36px rgba(226, 55, 68, 0.12);
-            --header-glass: rgba(255, 255, 255, 0.88);
-            --badge-bg: #F1F3F7;
-            --badge-text: #374151;
-            --modal-backdrop: rgba(17, 18, 21, 0.75);
-            --grid-pattern: radial-gradient(#E2E8F0 1px, transparent 1px);
-        }
-
-        [data-theme="dark"] {
             --bg-color: #0E0F12;
             --surface-color: #15171C;
             --surface-card: #1A1C23;
@@ -47,20 +23,40 @@
             --text-primary: #F8F9FB;
             --text-secondary: #A3AAB8;
             --text-muted: #6B7280;
-            --brand-red: #EF4F5F; /* Refined bright red for dark theme */
-            --brand-red-hover: #FF6676;
-            --brand-red-subtle: rgba(239, 79, 95, 0.14);
+            --brand-red: #FF3850;
+            --brand-red-hover: #FF5265;
+            --brand-red-subtle: rgba(255, 56, 80, 0.12);
+            --brand-yellow: #FFD200;
+            --brand-cyan: #00E5FF;
             --border-color: #272B35;
             --border-subtle: #1E2129;
             --canvas-bg: #14161C;
-            --canvas-border: #2D323E;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            --card-shadow-hover: 0 18px 40px rgba(239, 79, 95, 0.22);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            --card-shadow-hover: 0 18px 40px rgba(255, 56, 80, 0.22);
             --header-glass: rgba(14, 15, 18, 0.88);
-            --badge-bg: #222631;
-            --badge-text: #D1D5DB;
-            --modal-backdrop: rgba(5, 6, 8, 0.88);
             --grid-pattern: radial-gradient(#272B35 1px, transparent 1px);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #FBFBFC;
+            --surface-color: #F1F3F6;
+            --surface-card: #FFFFFF;
+            --surface-hover: #EAEFF5;
+            --text-primary: #111215;
+            --text-secondary: #4A5260;
+            --text-muted: #7A8494;
+            --brand-red: #E23744;
+            --brand-red-hover: #C52C38;
+            --brand-red-subtle: rgba(226, 55, 68, 0.08);
+            --brand-yellow: #E5A500;
+            --brand-cyan: #00B4D8;
+            --border-color: #DDE2EB;
+            --border-subtle: #EEF1F6;
+            --canvas-bg: #FFFFFF;
+            --card-shadow: 0 8px 24px rgba(17, 18, 21, 0.06);
+            --card-shadow-hover: 0 16px 36px rgba(226, 55, 68, 0.14);
+            --header-glass: rgba(251, 251, 252, 0.90);
+            --grid-pattern: radial-gradient(#D6DCE6 1px, transparent 1px);
         }
 
         /* ── GLOBAL RESETS ── */
@@ -78,17 +74,30 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             background-image: var(--grid-pattern);
             background-size: 28px 28px;
         }
 
-        h1, h2, h3, h4, .logo, .brand-font {
+        h1, h2, h3, h4, .brand-display {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             letter-spacing: -0.02em;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .serif {
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .bebas {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
         }
 
         a {
@@ -119,12 +128,12 @@
         }
 
         nav {
-            max-width: 1320px;
+            max-width: 1360px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.1rem 5%;
+            padding: 1rem 5%;
         }
 
         .logo-wrap {
@@ -134,13 +143,17 @@
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--brand-red);
-            letter-spacing: -1.2px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.85rem;
+            color: var(--text-primary);
+            letter-spacing: 1.5px;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 2px;
+        }
+
+        .logo span {
+            color: var(--brand-red);
         }
 
         .logo-badge {
@@ -150,9 +163,10 @@
             font-weight: 700;
             padding: 2px 8px;
             border-radius: 20px;
-            border: 1px solid rgba(226, 55, 68, 0.2);
+            border: 1px solid rgba(255, 56, 80, 0.25);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-family: 'Space Mono', monospace;
         }
 
         .nav-links {
@@ -193,21 +207,21 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.9rem;
         }
 
         .theme-switch {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.55rem 1rem;
+            padding: 0.5rem 0.95rem;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
@@ -215,11 +229,6 @@
         .theme-switch:hover {
             transform: translateY(-1px);
             border-color: var(--brand-red);
-        }
-
-        .theme-icon {
-            font-size: 1rem;
-            line-height: 1;
         }
 
         .cta-btn {
@@ -234,22 +243,22 @@
             align-items: center;
             gap: 6px;
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            box-shadow: 0 4px 14px rgba(226, 55, 68, 0.3);
+            box-shadow: 0 4px 14px rgba(255, 56, 80, 0.35);
         }
 
         .cta-btn:hover {
             background: var(--brand-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(226, 55, 68, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 56, 80, 0.45);
         }
 
         /* ── HERO SECTION ── */
         .hero {
-            max-width: 1320px;
+            max-width: 1360px;
             margin: 0 auto;
-            padding: 4.5rem 5% 4rem;
+            padding: 4rem 5% 3.5rem;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.15fr 0.85fr;
             gap: 3.5rem;
             align-items: center;
         }
@@ -259,10 +268,10 @@
             align-items: center;
             gap: 8px;
             background: var(--brand-red-subtle);
-            border: 1px solid rgba(226, 55, 68, 0.25);
+            border: 1px solid rgba(255, 56, 80, 0.28);
             padding: 6px 14px;
             border-radius: 30px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.4rem;
         }
 
         .hero-pill-dot {
@@ -282,73 +291,69 @@
 
         .hero-pill-text {
             color: var(--brand-red);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
         }
 
-        .hero-text h1 {
-            font-size: 3.8rem;
-            line-height: 1.08;
+        .hero-headline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.8rem, 6.5vw, 6.2rem);
+            line-height: 0.95;
             margin-bottom: 1.4rem;
-            font-weight: 800;
             color: var(--text-primary);
+            letter-spacing: 1px;
         }
 
-        .hero-text h1 span {
+        .hero-headline .accent-red {
             color: var(--brand-red);
-            position: relative;
-            display: inline-block;
         }
 
-        .hero-text p.lead {
-            font-size: 1.18rem;
+        .hero-headline .stroke-text {
+            -webkit-text-stroke: 1.5px var(--text-primary);
+            color: transparent;
+        }
+
+        .hero-lead {
+            font-size: 1.12rem;
             color: var(--text-secondary);
             margin-bottom: 1.8rem;
             max-width: 95%;
-            font-weight: 400;
             line-height: 1.65;
         }
 
-        /* Skills tag pills */
-        .skills-ribbon {
+        .hero-lead strong {
+            color: var(--text-primary);
+        }
+
+        /* Hero Specs Grid */
+        .hero-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
             margin-bottom: 2rem;
-        }
-
-        .skills-label {
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            color: var(--text-muted);
-            margin-bottom: 0.6rem;
-            display: block;
-        }
-
-        .skills-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-chip {
+            padding: 1.2rem 1.4rem;
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            border-radius: 12px;
         }
 
-        .skill-chip:hover {
-            border-color: var(--brand-red);
-            transform: translateY(-2px);
+        .spec-item h5 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-red);
+            margin-bottom: 0.35rem;
+        }
+
+        .spec-item p {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
         }
 
         .hero-actions {
@@ -358,14 +363,35 @@
             flex-wrap: wrap;
         }
 
+        .btn-primary {
+            background: var(--brand-red);
+            color: #FFFFFF !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 18px rgba(255, 56, 80, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-red-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 56, 80, 0.45);
+        }
+
         .btn-outline {
             background: var(--surface-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.75rem 1.6rem;
+            padding: 0.8rem 1.6rem;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -376,28 +402,7 @@
             border-color: var(--brand-red);
             color: var(--brand-red);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .btn-primary {
-            background: var(--brand-red);
-            color: #FFFFFF;
-            padding: 0.75rem 1.7rem;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 6px 18px rgba(226, 55, 68, 0.35);
-        }
-
-        .btn-primary:hover {
-            background: var(--brand-red-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(226, 55, 68, 0.45);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
 
         /* ── INTERACTIVE CANVAS WHITEBOARD ── */
@@ -410,21 +415,15 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .canvas-card:hover {
-            border-color: var(--border-hover);
         }
 
         .canvas-header {
-            padding: 0.9rem 1.25rem;
+            padding: 0.85rem 1.2rem;
             background: var(--surface-color);
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
         }
 
         .canvas-title-group {
@@ -449,18 +448,20 @@
         .dot-green { background: #27C93F; }
 
         .canvas-title {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
+            font-family: 'Space Mono', monospace;
             color: var(--text-primary);
         }
 
         .canvas-status {
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            background: var(--bg-color);
-            padding: 3px 8px;
+            font-size: 0.72rem;
+            color: var(--brand-red);
+            background: var(--brand-red-subtle);
+            padding: 2px 8px;
             border-radius: 6px;
-            border: 1px solid var(--border-color);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
         }
 
         .canvas-area {
@@ -470,7 +471,7 @@
             width: 100%;
             cursor: crosshair;
             user-select: none;
-            touch-action: none; /* Prevents scroll on mobile drawing */
+            touch-action: none;
         }
 
         #drawCanvas {
@@ -481,17 +482,17 @@
 
         .canvas-hint {
             position: absolute;
-            top: 14px;
-            left: 16px;
-            font-size: 0.82rem;
-            font-weight: 600;
+            bottom: 12px;
+            left: 14px;
+            font-size: 0.78rem;
+            font-family: 'Space Mono', monospace;
             color: var(--text-muted);
             pointer-events: none;
             background: var(--surface-color);
-            padding: 4px 10px;
+            padding: 4px 8px;
             border-radius: 6px;
             border: 1px dashed var(--border-color);
-            opacity: 0.85;
+            opacity: 0.9;
             transition: opacity 0.3s ease;
         }
 
@@ -499,27 +500,26 @@
             opacity: 0;
         }
 
-        /* Canvas Toolbar */
         .canvas-toolbar {
-            padding: 0.8rem 1.1rem;
+            padding: 0.75rem 1rem;
             background: var(--surface-color);
             border-top: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
 
         .toolbar-group {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
         }
 
         .color-dot {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             border: 2px solid transparent;
             cursor: pointer;
@@ -533,17 +533,18 @@
         .color-dot.active {
             border-color: var(--text-primary);
             transform: scale(1.2);
-            box-shadow: 0 0 8px rgba(0,0,0,0.2);
+            box-shadow: 0 0 6px rgba(0,0,0,0.3);
         }
 
         .stroke-btn {
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 4px 9px;
+            padding: 3px 8px;
             border-radius: 6px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
+            font-family: 'Space Mono', monospace;
         }
 
         .stroke-btn.active {
@@ -556,19 +557,20 @@
             background: var(--bg-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 6px;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
+            font-family: 'Space Mono', monospace;
             transition: all 0.2s ease;
         }
 
         .tool-action-btn:hover {
             background: var(--surface-hover);
-            border-color: var(--border-hover);
+            border-color: var(--border-color);
         }
 
         .tool-action-btn.danger:hover {
@@ -576,37 +578,130 @@
             color: var(--brand-red);
         }
 
-        /* ── SECTION STYLING & FILTERS ── */
-        .section-container {
-            max-width: 1320px;
+        /* ── DYNAMIC MARQUEE TICKER ── */
+        .ticker-strip {
+            background: var(--brand-red);
+            color: #FFFFFF;
+            padding: 14px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .ticker-inner {
+            display: inline-block;
+            animation: ticker 28s linear infinite;
+        }
+
+        .ticker-inner span {
+            margin: 0 32px;
+        }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ── PHILOSOPHY / MANIFESTO ── */
+        .manifesto-section {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 4.5rem 5%;
+        }
+
+        .manifesto-inner {
+            max-width: 1360px;
             margin: 0 auto;
-            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .manifesto-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding-top: 8px;
+        }
+
+        .manifesto-quote {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 3.2vw, 3rem);
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .manifesto-quote em {
+            color: var(--brand-red);
+            font-style: italic;
+        }
+
+        .manifesto-metrics {
+            display: flex;
+            gap: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .metric-box h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--brand-red);
+            line-height: 1;
+        }
+
+        .metric-box p {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ── SELECTED WORK SECTION ── */
+        .section-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 4.5rem 5%;
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 2.2rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
             gap: 1.5rem;
         }
 
         .section-tag {
             color: var(--brand-red);
-            font-size: 0.8rem;
-            font-weight: 800;
+            font-size: 0.78rem;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 0.4rem;
             display: block;
+            font-family: 'Space Mono', monospace;
         }
 
         .section-title {
-            font-size: 2.6rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 1px;
             color: var(--text-primary);
-            line-height: 1.15;
+            line-height: 1;
         }
 
         /* Filter Pills */
@@ -624,7 +719,7 @@
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             font-weight: 600;
             padding: 7px 16px;
             border-radius: 30px;
@@ -639,14 +734,14 @@
         .filter-btn.active {
             background: var(--brand-red);
             color: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
+            box-shadow: 0 4px 12px rgba(255, 56, 80, 0.35);
         }
 
         /* ── PORTFOLIO GRID & CARDS ── */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2.2rem;
         }
 
         .card {
@@ -663,7 +758,7 @@
         }
 
         .card:hover {
-            transform: translateY(-7px);
+            transform: translateY(-8px);
             border-color: var(--brand-red);
             box-shadow: var(--card-shadow-hover);
         }
@@ -671,8 +766,8 @@
         .card-media {
             position: relative;
             width: 100%;
-            height: 250px;
-            background: var(--surface-color);
+            height: 270px;
+            background: #000;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -691,20 +786,43 @@
             transform: scale(1.05);
         }
 
-        /* Navras preview collage banner inside card */
-        .navras-mini-strip {
+        /* 3x3 Navras Mini Grid inside Card */
+        .navras-mini-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
             width: 100%;
             height: 100%;
             gap: 2px;
             background: #000;
         }
 
-        .navras-mini-strip img {
+        .navras-tile {
+            position: relative;
+            overflow: hidden;
             width: 100%;
-            height: 125px;
+            height: 100%;
+        }
+
+        .navras-tile img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+        }
+
+        .navras-tile .tile-label {
+            position: absolute;
+            bottom: 2px;
+            left: 4px;
+            font-size: 8px;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.5px;
+            pointer-events: none;
         }
 
         .card-body {
@@ -730,6 +848,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.6px;
+            font-family: 'Space Mono', monospace;
             display: inline-block;
         }
 
@@ -737,19 +856,21 @@
             font-size: 0.78rem;
             font-weight: 600;
             color: var(--text-muted);
+            font-family: 'Space Mono', monospace;
         }
 
         .card h3 {
-            font-size: 1.45rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
             margin-bottom: 0.6rem;
             color: var(--text-primary);
-            line-height: 1.25;
+            line-height: 1.1;
         }
 
         .card p {
             color: var(--text-secondary);
-            font-size: 0.93rem;
+            font-size: 0.92rem;
             line-height: 1.6;
             margin-bottom: 1.4rem;
             flex-grow: 1;
@@ -759,6 +880,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
             border-top: 1px solid var(--border-color);
             padding-top: 1.1rem;
             margin-top: auto;
@@ -771,7 +894,9 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
             transition: gap 0.2s ease;
+            font-family: 'Space Mono', monospace;
         }
 
         .card:hover .card-link-text {
@@ -791,13 +916,14 @@
             padding: 2px 7px;
             border-radius: 4px;
             border: 1px solid var(--border-subtle);
+            font-family: 'Space Mono', monospace;
         }
 
-        /* ── SKILLS & TOOLKIT SHOWCASE ── */
+        /* ── CAPABILITIES & SKILLS ── */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.8rem;
             margin-top: 1rem;
         }
 
@@ -805,31 +931,28 @@
             background: var(--surface-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 1.8rem;
+            padding: 2rem;
             box-shadow: var(--card-shadow);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .skill-box:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: var(--brand-red);
         }
 
-        .skill-icon-wrap {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--brand-red-subtle);
-            color: var(--brand-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 1.1rem;
+        .skill-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: rgba(255, 56, 80, 0.25);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .skill-box h3 {
-            font-size: 1.25rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
             margin-bottom: 0.6rem;
             color: var(--text-primary);
         }
@@ -838,6 +961,7 @@
             font-size: 0.9rem;
             color: var(--text-secondary);
             margin-bottom: 1.2rem;
+            line-height: 1.6;
         }
 
         .skill-tags-list {
@@ -850,17 +974,18 @@
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             font-weight: 600;
             padding: 3px 8px;
             border-radius: 6px;
+            font-family: 'Space Mono', monospace;
         }
 
-        /* ── ABOUT & MANIFESTO ── */
+        /* ── ABOUT SECTION & PHOTO ── */
         .about-wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 4rem;
             align-items: center;
             background: var(--surface-card);
             border: 1px solid var(--border-color);
@@ -869,85 +994,109 @@
             box-shadow: var(--card-shadow);
         }
 
+        .about-photo-col {
+            position: relative;
+        }
+
+        .about-photo-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: #000;
+        }
+
+        .about-photo-frame img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-photo-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            background: rgba(14, 15, 18, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+        }
+
+        .about-photo-badge h5 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .about-photo-badge p {
+            font-size: 0.76rem;
+            color: var(--brand-red);
+            font-family: 'Space Mono', monospace;
+            margin: 0;
+        }
+
         .about-text h2 {
-            font-size: 2.3rem;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 1px;
             margin-bottom: 1.2rem;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .about-text p {
             color: var(--text-secondary);
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin-bottom: 1.4rem;
             line-height: 1.7;
         }
 
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .stat-item h4 {
-            font-size: 2.2rem;
-            color: var(--brand-red);
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .stat-item p {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0;
-        }
-
         .process-steps {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 1.2rem;
+            margin-top: 2rem;
         }
 
         .process-step {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            padding: 1.25rem 1.5rem;
+            padding: 1.2rem;
             border-radius: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .process-step:hover {
             border-color: var(--brand-red);
-            transform: translateX(6px);
+            transform: translateY(-3px);
         }
 
         .step-num {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
             color: var(--brand-red);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             line-height: 1;
+            margin-bottom: 4px;
+            display: block;
         }
 
         .step-content h4 {
-            font-size: 1.05rem;
-            margin-bottom: 0.2rem;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
 
         .step-content p {
-            font-size: 0.86rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
             margin: 0;
+            line-height: 1.5;
         }
 
         /* ── FOOTER & CONTACT ── */
@@ -956,18 +1105,19 @@
             border-top: 1px solid var(--border-color);
             padding: 5rem 5% 3.5rem;
             text-align: center;
-            position: relative;
         }
 
         .footer-inner {
-            max-width: 820px;
+            max-width: 860px;
             margin: 0 auto;
         }
 
         footer h2 {
-            font-size: 2.7rem;
-            margin-bottom: 1.2rem;
-            line-height: 1.2;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            line-height: 1;
             color: var(--text-primary);
         }
 
@@ -999,6 +1149,7 @@
             font-size: 0.95rem;
             cursor: pointer;
             box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            font-family: 'Space Mono', monospace;
             transition: all 0.2s ease;
         }
 
@@ -1006,11 +1157,6 @@
             border-color: var(--brand-red);
             color: var(--brand-red);
             transform: translateY(-2px);
-        }
-
-        .copy-icon {
-            font-size: 0.9rem;
-            color: var(--text-muted);
         }
 
         .footer-social-links {
@@ -1024,10 +1170,11 @@
         .footer-social-links a {
             color: var(--text-secondary);
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            font-family: 'Space Mono', monospace;
             transition: color 0.2s ease;
         }
 
@@ -1036,7 +1183,7 @@
         }
 
         .copyright {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             padding-top: 2rem;
@@ -1045,6 +1192,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
+            font-family: 'Space Mono', monospace;
         }
 
         /* ── CASE STUDY DETAIL MODAL ── */
@@ -1054,9 +1202,9 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: var(--modal-backdrop);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -1077,11 +1225,11 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1060px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
             transform: translateY(20px) scale(0.98);
             transition: transform 0.3s ease;
         }
@@ -1092,21 +1240,21 @@
 
         .modal-close-btn {
             position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            width: 38px;
-            height: 38px;
+            top: 1.2rem;
+            right: 1.2rem;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             z-index: 10;
-            transition: background-color 0.2s ease, transform 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .modal-close-btn:hover {
@@ -1117,7 +1265,7 @@
 
         .modal-hero-img-wrap {
             width: 100%;
-            height: 380px;
+            height: 420px;
             background: #000;
             overflow: hidden;
             display: flex;
@@ -1131,6 +1279,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
+            transition: opacity 0.3s ease;
         }
 
         .modal-body {
@@ -1145,10 +1294,12 @@
         }
 
         .modal-title {
-            font-size: 2.2rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
             margin-bottom: 1.2rem;
             color: var(--text-primary);
+            line-height: 1;
         }
 
         .modal-info-grid {
@@ -1163,10 +1314,11 @@
         }
 
         .info-cell h5 {
-            font-size: 0.74rem;
+            font-size: 0.72rem;
+            font-family: 'Space Mono', monospace;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-muted);
+            color: var(--brand-red);
             margin-bottom: 0.3rem;
         }
 
@@ -1182,8 +1334,9 @@
         }
 
         .modal-section h4 {
-            font-size: 1.2rem;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
             margin-bottom: 0.6rem;
             color: var(--text-primary);
             display: flex;
@@ -1197,40 +1350,41 @@
             line-height: 1.7;
         }
 
-        /* Navras 9-Rasas Gallery Grid inside modal */
-        .navras-gallery-grid {
+        /* Modal Gallery Strips */
+        .modal-gallery-row {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 12px;
             margin-top: 1rem;
         }
 
-        .navras-item {
+        .gallery-thumb-item {
             background: var(--surface-color);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        .navras-item:hover {
-            transform: scale(1.03);
+        .gallery-thumb-item:hover, .gallery-thumb-item.active {
             border-color: var(--brand-red);
+            transform: translateY(-2px);
         }
 
-        .navras-item img {
+        .gallery-thumb-item img {
             width: 100%;
-            height: 150px;
+            height: 120px;
             object-fit: cover;
         }
 
-        .navras-caption {
-            padding: 8px 10px;
-            font-size: 0.78rem;
+        .gallery-thumb-caption {
+            padding: 6px 8px;
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--text-primary);
             text-align: center;
+            font-family: 'Space Mono', monospace;
         }
 
         /* ── TOAST NOTIFICATION ── */
@@ -1244,11 +1398,12 @@
             border-radius: 10px;
             font-size: 0.88rem;
             font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             z-index: 3000;
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            font-family: 'Space Mono', monospace;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -1266,35 +1421,35 @@
                 padding: 3rem 5%;
                 gap: 2.5rem;
             }
-            .hero-text h1 {
-                font-size: 3rem;
+            .manifesto-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             .about-wrap {
                 grid-template-columns: 1fr;
                 padding: 2.5rem 1.8rem;
                 gap: 2.5rem;
             }
+            .hero-specs {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
             nav {
-                padding: 1rem 5%;
+                padding: 0.9rem 5%;
             }
             .nav-links {
-                display: none; /* Mobile menu can toggle or simplify */
-            }
-            .hero-text h1 {
-                font-size: 2.4rem;
+                display: none;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 2.8rem;
             }
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
-            .stats-row {
+            .process-steps {
                 grid-template-columns: 1fr;
-                gap: 1.2rem;
             }
             .modal-container {
                 max-height: 94vh;
@@ -1306,6 +1461,9 @@
             .modal-body {
                 padding: 1.5rem;
             }
+            .modal-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -1315,22 +1473,22 @@
     <header>
         <nav>
             <div class="logo-wrap">
-                <a href="#" class="logo">AV<span>.</span></a>
-                <span class="logo-badge">Portfolio</span>
+                <a href="#" class="logo">ABHINANDNA<span>.</span></a>
+                <span class="logo-badge">Graphic Portfolio</span>
             </div>
 
             <ul class="nav-links">
                 <li><a href="#work" class="active">Selected Work</a></li>
-                <li><a href="#whiteboard">Canvas Playground</a></li>
-                <li><a href="#skills">Skills & Tools</a></li>
+                <li><a href="#whiteboard">Canvas Sandbox</a></li>
+                <li><a href="#skills">Disciplines</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
                 <button class="theme-switch" id="themeToggle" aria-label="Toggle theme">
-                    <span class="theme-icon" id="themeIcon">🌙</span>
-                    <span id="themeText">Dark Mode</span>
+                    <span id="themeIcon">☀️</span>
+                    <span id="themeText">Light Mode</span>
                 </button>
                 <a href="#contact" class="cta-btn">Let's Connect</a>
             </div>
@@ -1342,26 +1500,35 @@
         <div class="hero-text">
             <div class="hero-pill">
                 <span class="hero-pill-dot"></span>
-                <span class="hero-pill-text">Interaction Design @ UPES</span>
+                <span class="hero-pill-text">B.Des Interaction Design @ UPES Dehradun</span>
             </div>
-            <h1>Delivering crisp <span>designs</span> & seamless <span>UX</span>.</h1>
-            <p class="lead">I am Abhinandna Vaidya, an Interaction Design student at UPES. I blend intuitive user experiences with impactful visual identities—serving up solutions that are meaningful, aesthetic, and user-centered.</p>
             
-            <div class="skills-ribbon">
-                <span class="skills-label">Expertise & Toolset</span>
-                <div class="skills-badges">
-                    <span class="skill-chip">✨ UI/UX Design</span>
-                    <span class="skill-chip">🎯 Figma</span>
-                    <span class="skill-chip">🖌️ Adobe Photoshop</span>
-                    <span class="skill-chip">📐 Illustrator</span>
-                    <span class="skill-chip">🎬 Premiere Pro</span>
-                    <span class="skill-chip">🏷️ Brand Identity</span>
-                    <span class="skill-chip">🥽 Spatial / VR UI</span>
+            <h1 class="hero-headline">
+                CRAFTING BOLD <span class="accent-red">BRAND IDENTITIES</span>, VISUAL SYSTEMS &amp; <span class="stroke-text">DIGITAL UX</span>
+            </h1>
+
+            <p class="hero-lead">
+                I am <strong>Abhinandna Vaidya</strong>, a graphic &amp; interaction designer. Curious enough to question everything, chaotic enough to explore anything — but intentional enough to turn it into meaningful, evocative visual solutions.
+            </p>
+
+            <div class="hero-specs">
+                <div class="spec-item">
+                    <h5>Education</h5>
+                    <p>B.Des Interaction Design<br>UPES Dehradun (2023–Present)</p>
+                </div>
+                <div class="spec-item">
+                    <h5>Discipline</h5>
+                    <p>Brand Identity, Typography, UI/UX, Cultural Art</p>
+                </div>
+                <div class="spec-item">
+                    <h5>Status</h5>
+                    <p>Open for Internships &amp; Collaborations 🟢</p>
                 </div>
             </div>
 
             <div class="hero-actions">
                 <a href="#work" class="btn-primary">Explore Selected Work ↓</a>
+                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-outline">Download Resume 📄</a>
                 <a href="#whiteboard" class="btn-outline">Try Whiteboard 🎨</a>
             </div>
         </div>
@@ -1377,35 +1544,85 @@
                     </div>
                     <span class="canvas-title">Interactive Whiteboard</span>
                 </div>
-                <span class="canvas-status">Live Canvas Sandbox</span>
+                <span class="canvas-status">Live Sandbox</span>
             </div>
 
             <div class="canvas-area" id="canvasArea">
                 <canvas id="drawCanvas"></canvas>
-                <div class="canvas-hint" id="canvasHint">✏️ Click or touch & drag to draw a sketch!</div>
+                <div class="canvas-hint" id="canvasHint">✏️ Click or touch &amp; drag to sketch ideas!</div>
             </div>
 
             <div class="canvas-toolbar">
                 <div class="toolbar-group">
                     <!-- Palette -->
-                    <div class="color-dot active" style="background: #E23744;" data-color="#E23744" title="Zomato Red"></div>
-                    <div class="color-dot" style="background: #111215;" data-color="#111215" title="Graphite Dark"></div>
+                    <div class="color-dot active" style="background: #FF3850;" data-color="#FF3850" title="Signature Red"></div>
                     <div class="color-dot" style="background: #00E5FF;" data-color="#00E5FF" title="Cyan Accent"></div>
-                    <div class="color-dot" style="background: #FFD700;" data-color="#FFD700" title="Sun Gold"></div>
-                    <div class="color-dot" style="background: #FFFFFF; border: 1px solid #ccc;" data-color="#FFFFFF" title="Clean White"></div>
+                    <div class="color-dot" style="background: #FFD200;" data-color="#FFD200" title="Sun Gold"></div>
+                    <div class="color-dot" style="background: #FFFFFF; border: 1px solid #555;" data-color="#FFFFFF" title="Clean White"></div>
+                    <div class="color-dot" style="background: #111215; border: 1px solid #777;" data-color="#111215" title="Deep Charcoal"></div>
                 </div>
 
                 <div class="toolbar-group">
                     <!-- Stroke Size -->
-                    <button class="stroke-btn" data-size="2" title="Fine (2px)">Fine</button>
-                    <button class="stroke-btn active" data-size="4" title="Medium (4px)">Med</button>
-                    <button class="stroke-btn" data-size="8" title="Bold (8px)">Bold</button>
+                    <button class="stroke-btn" data-size="2" title="Fine">Fine</button>
+                    <button class="stroke-btn active" data-size="4" title="Medium">Med</button>
+                    <button class="stroke-btn" data-size="8" title="Bold">Bold</button>
                 </div>
 
                 <div class="toolbar-group">
                     <button class="tool-action-btn" id="eraserBtn" title="Eraser">🧹 Erase</button>
                     <button class="tool-action-btn danger" id="clearCanvas" title="Clear Canvas">🗑️ Clear</button>
-                    <button class="tool-action-btn" id="downloadCanvas" title="Download your sketch">💾 Save</button>
+                    <button class="tool-action-btn" id="downloadCanvas" title="Save Sketch">💾 Save</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── TICKER MARQUEE ── -->
+    <div class="ticker-strip">
+        <div class="ticker-inner">
+            <span>BRAND IDENTITY SYSTEM</span><span>✦</span>
+            <span>POSTER &amp; CAMPAIGN DESIGN</span><span>✦</span>
+            <span>THE NAVRAS SERIES · 9 EMOTIONS</span><span>✦</span>
+            <span>EDITORIAL TYPOGRAPHY</span><span>✦</span>
+            <span>SPATIAL COMPUTING &amp; VR</span><span>✦</span>
+            <span>VISUAL STORYTELLING</span><span>✦</span>
+            <span>CRICKET NEWS TIMES LOGOFOLIO</span><span>✦</span>
+            <span>FRIDGMATE PHYGITAL UX</span><span>✦</span>
+            <span>BRAND IDENTITY SYSTEM</span><span>✦</span>
+            <span>POSTER &amp; CAMPAIGN DESIGN</span><span>✦</span>
+            <span>THE NAVRAS SERIES · 9 EMOTIONS</span><span>✦</span>
+            <span>EDITORIAL TYPOGRAPHY</span><span>✦</span>
+            <span>SPATIAL COMPUTING &amp; VR</span><span>✦</span>
+            <span>VISUAL STORYTELLING</span><span>✦</span>
+        </div>
+    </div>
+
+    <!-- ── PHILOSOPHY / MANIFESTO ── -->
+    <section class="manifesto-section">
+        <div class="manifesto-inner">
+            <div class="manifesto-label">Philosophy</div>
+            <div>
+                <p class="manifesto-quote">
+                    Design isn't decoration — it's a <em>point of view</em>. Every color carries emotion. Every typeface tells a story. I create work that <em>feels before it thinks</em>.
+                </p>
+                <div class="manifesto-metrics">
+                    <div class="metric-box">
+                        <h4>6+</h4>
+                        <p>Curated Case Studies</p>
+                    </div>
+                    <div class="metric-box">
+                        <h4>9</h4>
+                        <p>Rasas Illustrated</p>
+                    </div>
+                    <div class="metric-box">
+                        <h4>3+</h4>
+                        <p>Brand Identities Shipped</p>
+                    </div>
+                    <div class="metric-box">
+                        <h4>∞</h4>
+                        <p>Iterations &amp; Polish</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1415,281 +1632,289 @@
     <section class="section-container" id="work">
         <div class="section-header">
             <div>
-                <span class="section-tag">Featured Portfolio</span>
+                <span class="section-tag">Portfolio Showcase</span>
                 <h2 class="section-title">Selected Case Studies</h2>
             </div>
             
             <!-- Category Filter Tabs -->
             <div class="filter-tabs">
                 <button class="filter-btn active" data-filter="all">All (6)</button>
-                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
-                <button class="filter-btn" data-filter="poster">Posters</button>
                 <button class="filter-btn" data-filter="branding">Branding</button>
-                <button class="filter-btn" data-filter="illustration">Illustrations</button>
-                <button class="filter-btn" data-filter="vr">Spatial / VR</button>
+                <button class="filter-btn" data-filter="poster">Posters &amp; Campaigns</button>
+                <button class="filter-btn" data-filter="illustration">Digital Art</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX &amp; Spatial</button>
             </div>
         </div>
 
         <div class="portfolio-grid" id="portfolioGrid">
             
-            <!-- CARD 1: FRIDGMATE -->
-            <div class="card" data-category="uiux" onclick="openProject('fridgmate')">
-                <div class="card-media">
-                    <img src="fridgmate.jpg" alt="Fridgmate Concept UI/UX Display" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="tag">UI/UX Design</span>
-                        <span class="card-year">2026</span>
-                    </div>
-                    <h3>Fridgmate Concept</h3>
-                    <p>A smart magnetic display reimagining kitchen management. Features a unique sliding rail camera mechanism for accurate hidden-inventory tracking, integrating freshness monitoring to encourage sustainable habits and reduce food waste.</p>
-                    <div class="card-footer">
-                        <span class="card-link-text">Read Case Study →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Hardware UI</span>
-                            <span class="tech-chip">Figma</span>
-                            <span class="tech-chip">IoT</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 2: UURJA & CRIMSON RED -->
-            <div class="card" data-category="poster" onclick="openProject('crimson_red')">
-                <div class="card-media">
-                    <img src="crimson_red.png" alt="Uurja 2026 and Crimson Red Poster" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="tag">Poster Design</span>
-                        <span class="card-year">2026</span>
-                    </div>
-                    <h3>Uurja 2026 & Crimson Red</h3>
-                    <p>Event branding including the Uurja cultural festival utilizing Navras aesthetics, alongside 'Crimson Red', a clean, approachable visual project encouraging open conversations about menstrual health.</p>
-                    <div class="card-footer">
-                        <span class="card-link-text">Read Case Study →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Poster</span>
-                            <span class="tech-chip">Visual Identity</span>
-                            <span class="tech-chip">Photoshop</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 3: SPORTS IDENTITY -->
+            <!-- CARD 1: SPORTS BRAND IDENTITY -->
             <div class="card" data-category="branding" onclick="openProject('sports_identity')">
                 <div class="card-media">
-                    <img src="cricket_news.png" alt="Sports Brand Identity and Logo Design" loading="lazy">
+                    <img src="cricket_news.png" alt="Cricket News Brand Identity System" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">Logofolio</span>
+                        <span class="tag">Brand Identity</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>Sports Identity</h3>
-                    <p>Crafted distinctive logo designs for platforms like 'The India Cricket' and 'Times Sports News'. Built to communicate spirit, athletic energy, and passion through strong typographic and symbolic choices.</p>
+                    <h3>Cricket News Times &amp; Sports Media</h3>
+                    <p>Complete visual identity system for sports media publications. Aerodynamic angular typography, a high-octane red &amp; ink palette (#E13B04), broadcast tickers, app icons, and collateral design.</p>
                     <div class="card-footer">
-                        <span class="card-link-text">View System →</span>
+                        <span class="card-link-text">Explore Brand System →</span>
                         <div class="card-tech-chips">
-                            <span class="tech-chip">Logo Design</span>
-                            <span class="tech-chip">Typography</span>
                             <span class="tech-chip">Illustrator</span>
+                            <span class="tech-chip">Logofolio</span>
+                            <span class="tech-chip">Typography</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 4: THE NAVRAS SERIES -->
+            <!-- CARD 2: THE NAVRAS SERIES (3x3 MOSAIC THUMBNAIL) -->
             <div class="card" data-category="illustration" onclick="openProject('navras')">
                 <div class="card-media">
-                    <div class="navras-mini-strip">
-                        <img src="navras_shringar.jpg" alt="Shringar Rasa" loading="lazy">
-                        <img src="navras_raudra.jpg" alt="Raudra Rasa" loading="lazy">
-                        <img src="navras_adbhuta.jpg" alt="Adbhuta Rasa" loading="lazy">
+                    <div class="navras-mini-grid">
+                        <div class="navras-tile"><img src="navras_shringar.jpg" alt="Shringar"><span class="tile-label">Shringar</span></div>
+                        <div class="navras-tile"><img src="navras_hasya.jpg" alt="Hasya"><span class="tile-label">Hasya</span></div>
+                        <div class="navras-tile"><img src="navras_raudra.jpg" alt="Raudra"><span class="tile-label">Raudra</span></div>
+                        <div class="navras-tile"><img src="navras_karuna.png" alt="Karuna"><span class="tile-label">Karuna</span></div>
+                        <div class="navras-tile"><img src="navras_vira.jpg" alt="Vira"><span class="tile-label">Vira</span></div>
+                        <div class="navras-tile"><img src="navras_bhayanaka.png" alt="Bhayanaka"><span class="tile-label">Bhayanaka</span></div>
+                        <div class="navras-tile"><img src="navras_bibhatsa.jpg" alt="Bibhatsa"><span class="tile-label">Bibhatsa</span></div>
+                        <div class="navras-tile"><img src="navras_adbhuta.jpg" alt="Adbhuta"><span class="tile-label">Adbhuta</span></div>
+                        <div class="navras-tile"><img src="navras_shanta.png" alt="Shanta"><span class="tile-label">Shanta</span></div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">Illustrations</span>
+                        <span class="tag">Digital Art</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>The Navras Series</h3>
-                    <p>An intricate exploration of the nine human emotions. From the uplifting sringara ras to the raw power of raudra ras, rendered through a fusion of traditional Indian patterns and contemporary visual composition.</p>
+                    <h3>The Navras Series: 9 Emotions in Color</h3>
+                    <p>Contemporary reinterpretation of the nine classical Indian aesthetic emotions (Navarasas). Each frame maps human psychological states to curated botanical forms, chromatic hierarchies, and dramatic lighting.</p>
                     <div class="card-footer">
                         <span class="card-link-text">Explore All 9 Rasas →</span>
                         <div class="card-tech-chips">
-                            <span class="tech-chip">Digital Art</span>
-                            <span class="tech-chip">Indian Heritage</span>
+                            <span class="tech-chip">Heritage Art</span>
+                            <span class="tech-chip">Photoshop</span>
                             <span class="tech-chip">9 Pieces</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 5: GATHA VR -->
-            <div class="card" data-category="vr" onclick="openProject('gatha_vr')">
+            <!-- CARD 3: CRIMSON RED POSTER -->
+            <div class="card" data-category="poster" onclick="openProject('crimson_red')">
                 <div class="card-media">
-                    <img src="gatha_vr.jpg" alt="Gatha VR Spatial UI Heritage Experience" loading="lazy">
+                    <img src="crimson_red.png" alt="Crimson Red Menstrual Health Campaign" style="object-position: top center;" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">VR / UI</span>
+                        <span class="tag">Poster Campaign</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>Gatha VR</h3>
-                    <p>An immersive virtual reality experience celebrating India's rich artistic heritage (Kalamkari, Madhubani). Preserves cultural narratives by making them engaging, spatial, and accessible for modern digital audiences.</p>
+                    <h3>Uurja 2026 &amp; Crimson Red</h3>
+                    <p>Breaking taboo through bold graphic design. Educational visual campaign destigmatizing menstrual health discussions using botanical illustration, harmonic warm pastel palettes, and editorial typography.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Read Case Study →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Editorial</span>
+                            <span class="tech-chip">Social Impact</span>
+                            <span class="tech-chip">Poster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4: THE BOY WHO LIVED -->
+            <div class="card" data-category="poster" onclick="openProject('boy_who_lived')">
+                <div class="card-media">
+                    <img src="boy_who_lived.jpg" alt="The Boy Who Lived Dark Cinematic Poster" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Cinematic Poster</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>The Boy Who Lived: Dark Cinematic Poster</h3>
+                    <p>A moody cinematic key-art poster depicting Hogwarts castle glimpsed through a crumbling stone aperture. High chiaroscuro contrast, misty atmospheric depth, and classical gothic typography.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">View Artwork →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Key Art</span>
+                            <span class="tech-chip">Lighting Study</span>
+                            <span class="tech-chip">Digital Matte</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5: FRIDGMATE PHYGITAL CONCEPT -->
+            <div class="card" data-category="uiux" onclick="openProject('fridgmate')">
+                <div class="card-media">
+                    <img src="fridgmate.jpg" alt="Fridgmate Smart Kitchen Hardware UI" style="object-position: 82% center;" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">UI/UX &amp; Hardware</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Fridgmate: Smart Kitchen Ecosystem</h3>
+                    <p>A smart magnetic display reimagining kitchen food-waste management. Features a unique sliding-rail camera mechanism for hidden-inventory tracking, automated freshness alerts, and AI recipe suggestions.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Read Case Study →</span>
+                        <div class="card-tech-chips">
+                            <span class="tech-chip">Figma</span>
+                            <span class="tech-chip">Hardware UI</span>
+                            <span class="tech-chip">IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6: GATHA VR -->
+            <div class="card" data-category="uiux" onclick="openProject('gatha_vr')">
+                <div class="card-media">
+                    <img src="gatha_vr.jpg" alt="Gatha VR Spatial Indian Heritage Experience" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Spatial UI / VR</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>Gatha VR: Traditional Indian Art in Spatial 3D</h3>
+                    <p>An immersive virtual reality museum celebrating India's living folk traditions (Kalamkari, Madhubani, Warli). Transposes historical narratives into interactive spatial environments with gesture UI.</p>
                     <div class="card-footer">
                         <span class="card-link-text">Read Case Study →</span>
                         <div class="card-tech-chips">
                             <span class="tech-chip">Spatial UI</span>
-                            <span class="tech-chip">Virtual Reality</span>
+                            <span class="tech-chip">VR Museum</span>
                             <span class="tech-chip">Heritage</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 6: THE BOY WHO LIVED -->
-            <div class="card" data-category="poster" onclick="openProject('boy_who_lived')">
-                <div class="card-media">
-                    <img src="boy_who_lived.jpg" alt="The Boy Who Lived Cinematic Poster" loading="lazy">
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="tag">Concept Poster</span>
-                        <span class="card-year">2026</span>
-                    </div>
-                    <h3>The Boy Who Lived</h3>
-                    <p>A dark cinematic poster featuring Hogwarts castle glimpsed through a crumbling stone aperture. Moody lighting, gothic typography, and deep atmospheric depth exploring visual storytelling.</p>
-                    <div class="card-footer">
-                        <span class="card-link-text">View Artwork →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Cinema Poster</span>
-                            <span class="tech-chip">Digital Painting</span>
-                            <span class="tech-chip">Lighting</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- ── SKILLS & DISCIPLINES SECTION ── -->
+    <!-- ── CAPABILITIES SECTION ── -->
     <section class="section-container" id="skills">
         <div class="section-header">
             <div>
-                <span class="section-tag">Capabilities</span>
-                <h2 class="section-title">Design Craft & Toolkit</h2>
+                <span class="section-tag">Disciplines &amp; Toolset</span>
+                <h2 class="section-title">Design Capabilities</h2>
             </div>
         </div>
 
         <div class="skills-grid">
             <div class="skill-box">
-                <div class="skill-icon-wrap">🎨</div>
-                <h3>UI / UX & Product Design</h3>
-                <p>Translating user pain-points into delightful, high-fidelity interfaces and design systems with sharp hierarchy and micro-interactions.</p>
-                <div class="skill-tags-list">
-                    <span class="sub-tag">Figma</span>
-                    <span class="sub-tag">Wireframing</span>
-                    <span class="sub-tag">Design Systems</span>
-                    <span class="sub-tag">User Testing</span>
-                </div>
-            </div>
-
-            <div class="skill-box">
-                <div class="skill-icon-wrap">✒️</div>
-                <h3>Brand Identity & Logofolio</h3>
-                <p>Crafting memorable visual languages, logos, custom typography, color theory, and comprehensive brand guideline manuals.</p>
+                <div class="skill-num">01</div>
+                <h3>Brand Identity &amp; Logofolio</h3>
+                <p>Constructing distinct brand systems from the ground up: logo geometry, custom typographic pairings, color theory, iconography suites, and comprehensive brand books.</p>
                 <div class="skill-tags-list">
                     <span class="sub-tag">Adobe Illustrator</span>
-                    <span class="sub-tag">Typography</span>
-                    <span class="sub-tag">Iconography</span>
-                    <span class="sub-tag">Brand Strategy</span>
+                    <span class="sub-tag">Typography Hierarchy</span>
+                    <span class="sub-tag">Brand Books</span>
+                    <span class="sub-tag">Packaging</span>
                 </div>
             </div>
 
             <div class="skill-box">
-                <div class="skill-icon-wrap">🖼️</div>
-                <h3>Graphic & Poster Design</h3>
-                <p>Impactful visual storytelling for campaigns, cultural festivals, and social causes with strong compositional focus.</p>
+                <div class="skill-num">02</div>
+                <h3>Posters &amp; Editorial Campaigns</h3>
+                <p>Social-first posters, event branding, and editorial layouts that cut through noise with emotional resonance, botanical aesthetics, and commanding hierarchy.</p>
                 <div class="skill-tags-list">
                     <span class="sub-tag">Photoshop</span>
                     <span class="sub-tag">Print Production</span>
-                    <span class="sub-tag">Editorial Layout</span>
+                    <span class="sub-tag">Visual Storytelling</span>
                     <span class="sub-tag">Compositing</span>
                 </div>
             </div>
 
             <div class="skill-box">
-                <div class="skill-icon-wrap">🥽</div>
-                <h3>Spatial Computing & VR</h3>
-                <p>Designing immersive spatial UI interfaces that bridge traditional cultural storytelling with futuristic digital environments.</p>
+                <div class="skill-num">03</div>
+                <h3>UI / UX &amp; Product Interaction</h3>
+                <p>Architecting user flows, wireframes, high-fidelity prototypes, and component design systems that simplify complex real-world workflows into intuitive apps.</p>
+                <div class="skill-tags-list">
+                    <span class="sub-tag">Figma</span>
+                    <span class="sub-tag">Design Systems</span>
+                    <span class="sub-tag">User Testing</span>
+                    <span class="sub-tag">Prototyping</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <div class="skill-num">04</div>
+                <h3>Spatial Computing &amp; Heritage Art</h3>
+                <p>Bridging traditional Indian cultural narratives with cutting-edge 3D spatial computing environments, gesture-based HUDs, and motion art direction.</p>
                 <div class="skill-tags-list">
                     <span class="sub-tag">Spatial UX</span>
-                    <span class="sub-tag">3D Interaction</span>
                     <span class="sub-tag">Premiere Pro</span>
-                    <span class="sub-tag">Storyboarding</span>
+                    <span class="sub-tag">After Effects</span>
+                    <span class="sub-tag">Blender Concept</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── ABOUT & DESIGN MANIFESTO ── -->
+    <!-- ── ABOUT & MANIFESTO ── -->
     <section class="section-container" id="about">
         <div class="about-wrap">
-            <div class="about-text">
-                <span class="section-tag">About Me</span>
-                <h2>Balancing user empathy with evocative visual craft.</h2>
-                <p>I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies)</strong>. My design philosophy bridges pragmatic problem-solving with artistic depth—whether that is solving real-world kitchen inventory challenges with smart IoT interfaces or celebrating Indian heritage through the 9 Rasas.</p>
-                <p>I believe every detail matters—from micro-interactions in a mobile app to typographic cadence in brand collateral. Design should not just function; it should evoke emotion and resonate.</p>
-                
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <h4>6+</h4>
-                        <p>Key Projects</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>9</h4>
-                        <p>Rasas Illustrated</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>100%</h4>
-                        <p>Passion for UX</p>
+            <div class="about-photo-col">
+                <div class="about-photo-frame">
+                    <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
+                    <div class="about-photo-badge">
+                        <h5>Abhinandna Vaidya</h5>
+                        <p>Interaction Designer @ UPES Dehradun</p>
                     </div>
                 </div>
             </div>
 
-            <div class="process-steps">
-                <div class="process-step">
-                    <span class="step-num">01</span>
-                    <div class="step-content">
-                        <h4>Discover & Empathize</h4>
-                        <p>Deep-diving into user needs, cultural context, and business constraints before putting pen to paper.</p>
+            <div class="about-text">
+                <span class="section-tag">Designer Profile</span>
+                <h2>Balancing artistic emotion with pragmatic engineering.</h2>
+                <p>
+                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies, Dehradun)</strong>. My work lives at the intersection of bold graphic communication, deep cultural heritage, and modern user-centered interaction design.
+                </p>
+                <p>
+                    Whether formulating a sports broadcast brand identity, reviving the Navarasas through botanical digital paintings, or tackling household food waste with hardware IoT displays, I believe every detail must have intent.
+                </p>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <div class="step-content">
+                            <h4>Discover &amp; Question</h4>
+                            <p>Examine the core problem, cultural context, and human emotional hook.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <div class="step-content">
+                            <h4>Concept &amp; Moodboard</h4>
+                            <p>Translate insights into typography, color systems, and iterative visual explorations.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <div class="step-content">
+                            <h4>Craft &amp; Iterate</h4>
+                            <p>Pixel-perfect execution in Illustrator, Photoshop, and Figma with meticulous craft.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <div class="step-content">
+                            <h4>Deliver &amp; Storytell</h4>
+                            <p>Presenting work with rationale, context, and clear real-world resonance.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="process-step">
-                    <span class="step-num">02</span>
-                    <div class="step-content">
-                        <h4>Concept & Structure</h4>
-                        <p>Iterative sketches, wireframes, moodboards, and structural information hierarchy.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <span class="step-num">03</span>
-                    <div class="step-content">
-                        <h4>Visual Polish & Prototype</h4>
-                        <p>Crafting high-fidelity mockups, vibrant color palettes, typography, and interactive testable flows.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <span class="step-num">04</span>
-                    <div class="step-content">
-                        <h4>Deliver & Iterate</h4>
-                        <p>Ensuring pixel-perfect execution, seamless handoff, and measuring real-world user resonance.</p>
-                    </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-primary">Download Official Resume (PDF) 📄</a>
                 </div>
             </div>
         </div>
@@ -1698,14 +1923,16 @@
     <!-- ── FOOTER & CONTACT ── -->
     <footer id="contact">
         <div class="footer-inner">
-            <span class="section-tag">Get In Touch</span>
-            <h2>Every great experience starts with a conversation.</h2>
-            <p class="footer-sub">Whether it's UI/UX, branding, spatial design, or graphic design, I'm always open to discussing new ideas and creating work that makes an impact.</p>
+            <span class="section-tag">Let's Work Together</span>
+            <h2>LET'S CREATE SOMETHING REMARKABLE.</h2>
+            <p class="footer-sub">
+                Looking for a passionate Graphic Design &amp; UI/UX Intern who brings visual attitude, creative curiosity, and disciplined execution? Let's connect.
+            </p>
 
             <div class="contact-action-bar">
                 <div class="email-copy-pill" id="copyEmailBtn" title="Click to copy email address">
                     <span>✉️ Abhinandna.158@gmail.com</span>
-                    <span class="copy-icon">📋 Copy</span>
+                    <span style="color: var(--brand-red);">📋 Copy</span>
                 </div>
                 <a href="mailto:Abhinandna.158@gmail.com" class="btn-primary">Send Email Directly ↗</a>
             </div>
@@ -1715,16 +1942,19 @@
                     <span>LinkedIn ↗</span>
                 </a>
                 <a href="https://github.com/abhinandnav/graphicportfolio" target="_blank" rel="noopener noreferrer">
-                    <span>GitHub Repository ↗</span>
+                    <span>GitHub Code ↗</span>
                 </a>
                 <a href="https://abhinandnav.github.io/graphicportfolio/" target="_blank" rel="noopener noreferrer">
                     <span>Live Portfolio URL ↗</span>
                 </a>
+                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download>
+                    <span>Resume PDF ↗</span>
+                </a>
             </div>
 
             <div class="copyright">
-                <span>© 2026 Abhinandna Vaidya. Designed & built with care.</span>
-                <span>Interaction Design @ UPES</span>
+                <span>© 2026 Abhinandna Vaidya. All rights reserved.</span>
+                <span>B.Des Interaction Design • UPES Dehradun</span>
             </div>
         </div>
     </footer>
@@ -1735,7 +1965,7 @@
             <button class="modal-close-btn" id="closeModalBtn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
             
             <div class="modal-hero-img-wrap" id="modalHeroWrap">
-                <img id="modalHeroImg" src="" alt="Project Visual">
+                <img id="modalHeroImg" src="" alt="Project Visual Preview">
             </div>
 
             <div class="modal-body">
@@ -1748,15 +1978,15 @@
                 <div class="modal-info-grid">
                     <div class="info-cell">
                         <h5>Role</h5>
-                        <p id="modalRole">UI/UX Designer</p>
+                        <p id="modalRole">Designer</p>
                     </div>
                     <div class="info-cell">
                         <h5>Discipline</h5>
-                        <p id="modalDiscipline">Product Design</p>
+                        <p id="modalDiscipline">Brand Design</p>
                     </div>
                     <div class="info-cell">
                         <h5>Tools</h5>
-                        <p id="modalTools">Figma, Photoshop</p>
+                        <p id="modalTools">Adobe CC, Figma</p>
                     </div>
                     <div class="info-cell">
                         <h5>Timeline</h5>
@@ -1765,19 +1995,19 @@
                 </div>
 
                 <div class="modal-section">
-                    <h4>📌 Overview & Challenge</h4>
+                    <h4>Overview &amp; Design Challenge</h4>
                     <p id="modalOverview">Project overview description goes here.</p>
                 </div>
 
                 <div class="modal-section">
-                    <h4>💡 Design Solution & Key Highlights</h4>
+                    <h4>Visual Solution &amp; Key Highlights</h4>
                     <p id="modalSolution">Solution details go here.</p>
                 </div>
 
-                <!-- Navras Gallery Section (shown only for Navras) -->
-                <div class="modal-section" id="navrasGallerySection" style="display: none;">
-                    <h4>🎭 The 9 Rasas (Click to expand artwork)</h4>
-                    <div class="navras-gallery-grid" id="navrasGalleryGrid">
+                <!-- Interactive Gallery Section -->
+                <div class="modal-section" id="modalGallerySection">
+                    <h4 id="gallerySectionHeading">Project Visuals &amp; Artifacts (Click to view full preview)</h4>
+                    <div class="modal-gallery-row" id="modalGalleryRow">
                         <!-- Populated by JavaScript -->
                     </div>
                 </div>
@@ -1792,19 +2022,19 @@
 
     <!-- ── JAVASCRIPT LOGIC ── -->
     <script>
-        // ── 1. THEME SWITCHER LOGIC ──
+        // ── 1. THEME SWITCHER ──
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
         const root = document.documentElement;
 
-        // Load saved theme or default to light
-        const savedTheme = localStorage.getItem('av_theme') || 'light';
+        // Default to dark theme for maximum graphic impact
+        const savedTheme = localStorage.getItem('av_theme') || 'dark';
         applyTheme(savedTheme);
 
         themeToggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme') || 'light';
-            const nextTheme = current === 'light' ? 'dark' : 'light';
+            const current = root.getAttribute('data-theme') || 'dark';
+            const nextTheme = current === 'dark' ? 'light' : 'dark';
             applyTheme(nextTheme);
         });
 
@@ -1818,10 +2048,12 @@
                 themeIcon.textContent = '🌙';
                 themeText.textContent = 'Dark Mode';
             }
-            updateCanvasDrawingColor();
+            if (typeof updateCanvasDrawingColor === 'function') {
+                updateCanvasDrawingColor();
+            }
         }
 
-        // ── 2. RETINA-READY INTERACTIVE WHITEBOARD ──
+        // ── 2. INTERACTIVE WHITEBOARD SANDBOX ──
         const canvasArea = document.getElementById('canvasArea');
         const canvas = document.getElementById('drawCanvas');
         const ctx = canvas.getContext('2d');
@@ -1834,16 +2066,16 @@
 
         let isDrawing = false;
         let isEraser = false;
-        let currentColor = '#E23744';
+        let currentColor = '#FF3850';
         let currentSize = 4;
         let hasDrawn = false;
 
-        // High-DPI Canvas Setup with buffer preservation
         function resizeCanvas() {
             const rect = canvasArea.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) return;
             const dpr = window.devicePixelRatio || 1;
             
-            // Create temporary buffer to preserve user's drawing during resize
+            // Temporary buffer to preserve existing strokes
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = canvas.width;
             tempCanvas.height = canvas.height;
@@ -1858,16 +2090,75 @@
 
             if (tempCanvas.width > 0 && tempCanvas.height > 0) {
                 ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width / dpr, tempCanvas.height / dpr);
+            } else if (!hasDrawn) {
+                drawWelcomeDoodle();
             }
 
             updateCanvasDrawingColor();
         }
 
+        function drawWelcomeDoodle() {
+            ctx.save();
+            ctx.strokeStyle = '#FF3850';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Flowing graphic wave
+            ctx.beginPath();
+            ctx.moveTo(30, 200);
+            ctx.bezierCurveTo(90, 140, 130, 260, 210, 190);
+            ctx.bezierCurveTo(270, 130, 310, 230, 370, 170);
+            ctx.stroke();
+
+            // Cyan companion line
+            ctx.strokeStyle = '#00E5FF';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(40, 215);
+            ctx.bezierCurveTo(100, 155, 140, 275, 220, 205);
+            ctx.bezierCurveTo(280, 145, 320, 245, 380, 185);
+            ctx.stroke();
+
+            // Decorative spark stars
+            drawSpark(180, 95, 12, '#FFD200');
+            drawSpark(330, 85, 16, '#FF3850');
+            drawSpark(70, 130, 8, '#FFD200');
+
+            // Playful notes
+            ctx.font = '700 16px "Outfit", sans-serif';
+            ctx.fillStyle = root.getAttribute('data-theme') === 'dark' ? '#F8F9FB' : '#111215';
+            ctx.fillText('Designer Sandbox ✏️', 30, 50);
+
+            ctx.font = '12px "Space Mono", monospace';
+            ctx.fillStyle = root.getAttribute('data-theme') === 'dark' ? '#A3AAB8' : '#6B7280';
+            ctx.fillText('Sketch ideas, annotate, or play!', 30, 72);
+
+            ctx.restore();
+        }
+
+        function drawSpark(cx, cy, r, color) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy - r);
+            ctx.lineTo(cx, cy + r);
+            ctx.moveTo(cx - r, cy);
+            ctx.lineTo(cx + r, cy);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(cx, cy, 2, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.restore();
+        }
+
         function updateCanvasDrawingColor() {
             if (isEraser) {
-                const theme = root.getAttribute('data-theme');
-                ctx.strokeStyle = theme === 'dark' ? '#14161C' : '#FFFFFF';
+                ctx.globalCompositeOperation = 'destination-out';
             } else {
+                ctx.globalCompositeOperation = 'source-over';
                 ctx.strokeStyle = currentColor;
             }
             ctx.lineWidth = currentSize;
@@ -1875,7 +2166,6 @@
             ctx.lineJoin = 'round';
         }
 
-        // Mouse & Touch coordinate helper
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -1914,18 +2204,15 @@
             ctx.beginPath();
         }
 
-        // Attach Mouse Events
         canvas.addEventListener('mousedown', startDrawing);
         canvas.addEventListener('mousemove', draw);
         window.addEventListener('mouseup', stopDrawing);
 
-        // Attach Touch Events (with passive: false to allow e.preventDefault)
         canvas.addEventListener('touchstart', startDrawing, { passive: false });
         canvas.addEventListener('touchmove', draw, { passive: false });
         canvas.addEventListener('touchend', stopDrawing);
         canvas.addEventListener('touchcancel', stopDrawing);
 
-        // Palette Selector
         colorDots.forEach(dot => {
             dot.addEventListener('click', () => {
                 colorDots.forEach(d => d.classList.remove('active'));
@@ -1934,11 +2221,11 @@
                 isEraser = false;
                 eraserBtn.style.background = '';
                 eraserBtn.style.borderColor = '';
+                eraserBtn.style.color = '';
                 updateCanvasDrawingColor();
             });
         });
 
-        // Brush Stroke Sizes
         strokeBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 strokeBtns.forEach(b => b.classList.remove('active'));
@@ -1948,7 +2235,6 @@
             });
         });
 
-        // Eraser Toggle
         eraserBtn.addEventListener('click', () => {
             isEraser = !isEraser;
             if (isEraser) {
@@ -1963,21 +2249,19 @@
             updateCanvasDrawingColor();
         });
 
-        // Clear Canvas
         clearBtn.addEventListener('click', () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvasHint.style.opacity = '0.85';
+            canvasHint.style.opacity = '0.9';
             hasDrawn = false;
             showToast('Whiteboard cleared! 🎨');
         });
 
-        // Download Sketch
         downloadBtn.addEventListener('click', () => {
             const link = document.createElement('a');
             link.download = 'abhinandna-portfolio-sketch.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
-            showToast('Sketch saved to your device! 💾');
+            showToast('Sketch saved to device! 💾');
         });
 
         window.addEventListener('resize', resizeCanvas);
@@ -2004,99 +2288,123 @@
             });
         });
 
-        // ── 4. CASE STUDY DETAIL MODAL DATA ──
-        const projectsData = {
-            'fridgmate': {
-                tag: 'UI/UX Design • Hardware IoT',
-                year: '2026',
-                title: 'Fridgmate: Smart Kitchen Ecosystem',
-                role: 'Lead UI/UX Designer & Product Concept',
-                discipline: 'Smart Hardware UI / Interaction Design',
-                tools: 'Figma, Protopie, Blender, Research',
-                timeline: '6 Weeks',
-                heroImg: 'fridgmate.jpg',
-                overview: 'Food waste is a trillion-dollar global problem, with over 30% of household groceries discarded simply because items get lost behind shelves and expire unnoticed. Fridgmate reimagines the modern kitchen through an ultra-sleek, magnetic smart display mounted seamlessly on refrigeration units.',
-                solution: 'Features an innovative sliding rail camera mechanism that systematically catalogs hidden inventory without requiring manual barcode scanning. Integrated with automated freshness monitoring, intelligent expiry notifications, and dynamic AI recipe generators based strictly on in-fridge ingredients.',
-                hasNavras: false
-            },
-            'crimson_red': {
-                tag: 'Poster Design • Brand Campaign',
-                year: '2026',
-                title: 'Uurja 2026 & Crimson Red Social Campaign',
-                role: 'Visual Identity & Graphic Designer',
-                discipline: 'Poster Design & Typography',
-                tools: 'Adobe Photoshop, Illustrator, InDesign',
-                timeline: '3 Weeks',
-                heroImg: 'crimson_red.png',
-                overview: 'A dual-impact visual design project. First, developing the overarching festival branding for UPES Uurja 2026 cultural fest incorporating dynamic Navras aesthetics. Second, designing "Crimson Red" — an empathetic, informative poster series engineered to de-stigmatize menstrual health conversations through botanical elegance and bold typographic hierarchy.',
-                solution: 'Applied a sophisticated crimson and pastel palette with organic floral motifs to replace clinical or taboo visuals with approachable, dignified educational art. Exhibited across campus and digital platforms with high community engagement.',
-                hasNavras: false
-            },
-            'sports_identity': {
-                tag: 'Logofolio • Visual Branding',
-                year: '2026',
-                title: 'Sports Media & Athletics Brand Identity',
-                role: 'Brand Designer & Typographer',
-                discipline: 'Identity Design & Brand Systems',
-                tools: 'Adobe Illustrator, Photoshop',
-                timeline: '4 Weeks',
-                heroImg: 'cricket_news.png',
-                overview: 'Developed dynamic, high-energy brand systems for major sports media publications including "The India Cricket" and "Times Sports News". The objective was to create an aggressive, contemporary visual identity that commands attention on digital thumbnails, live broadcast tickers, and print collateral.',
-                solution: 'Constructed sharp aerodynamic angular letterforms, paired with a dominant sports-red and ink palette. Engineered a versatile responsive logo suite ranging from app icons to dynamic motion graphics for highlight packages.',
-                hasNavras: false
-            },
-            'navras': {
-                tag: 'Digital Illustrations • Cultural Heritage',
-                year: '2026',
-                title: 'The Navras Series: Nine Expressions of Humanity',
-                role: 'Visual Artist & Illustrator',
-                discipline: 'Heritage Fusion & Digital Illustration',
-                tools: 'Adobe Photoshop, Procreate, Illustrator',
-                timeline: '8 Weeks',
-                heroImg: 'navras_shringar.jpg',
-                overview: 'The Indian aesthetic theory of Navras represents the nine fundamental human emotions (rasas) codified in ancient Indian dramatic treatises. This series represents an intricate contemporary reinterpretation of each rasa, fusing classical Indian motif frameworks with modern vector clarity and dramatic lighting.',
-                solution: 'Explored the tonal spectrum from the tender warmth of Sringara (Love) and joyous radiance of Hasya (Joy), to the tempestuous crimson fury of Raudra (Anger) and the contemplative stillness of Shanta (Peace). Click any of the nine artworks below to explore the visual breakdown.',
-                hasNavras: true
-            },
-            'gatha_vr': {
-                tag: 'Spatial UI • VR Experience',
-                year: '2026',
-                title: 'Gatha VR: Traditional Indian Art in Spatial 3D',
-                role: 'VR UX Designer & Researcher',
-                discipline: 'Spatial Interaction & Virtual Reality',
-                tools: 'Figma Spatial, Blender, Unity Concept',
-                timeline: '5 Weeks',
-                heroImg: 'gatha_vr.jpg',
-                overview: 'India’s rich folk art traditions—such as Kalamkari hand-painted cotton scrolls and Madhubani narrative tapestries—risk being forgotten by younger digital-native audiences. Gatha VR transforms static cultural relics into an interactive, multi-dimensional virtual reality museum.',
-                solution: 'Designed an ethereal spatial UI with minimal HUD elements that allows visitors to step directly into painted folklore scenes, interact with ancient motifs via spatial hand gestures, and learn historical narratives through spatial audio guided journeys.',
-                hasNavras: false
-            },
-            'boy_who_lived': {
-                tag: 'Concept Art • Cinematic Poster',
-                year: '2026',
-                title: 'The Boy Who Lived: Dark Cinematic Poster',
-                role: 'Digital Matte Artist & Designer',
-                discipline: 'Entertainment Key Art & Lighting',
-                tools: 'Photoshop, Digital Compositing',
-                timeline: '2 Weeks',
-                heroImg: 'boy_who_lived.jpg',
-                overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, viewed through a crumbling stone aperture.',
-                solution: 'Focused on textured stonework, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery and grandeur.',
-                hasNavras: false
-            }
-        };
-
+        // ── 4. CASE STUDY DETAIL MODAL WITH MULTI-IMAGE GALLERIES ──
         const navrasImages = [
             { name: 'Sringara (Love & Beauty)', file: 'navras_shringar.jpg' },
-            { name: 'Hasya (Laughter & Mirth)', file: 'navras_hasya.jpg' },
+            { name: 'Hasya (Joy & Laughter)', file: 'navras_hasya.jpg' },
             { name: 'Karuna (Compassion & Sorrow)', file: 'navras_karuna.png' },
             { name: 'Raudra (Fury & Anger)', file: 'navras_raudra.jpg' },
             { name: 'Vira (Heroism & Courage)', file: 'navras_vira.jpg' },
-            { name: 'Bhayanaka (Fear & Terror)', file: 'navras_bhayanaka.png' },
+            { name: 'Bhayanaka (Fear & Mystery)', file: 'navras_bhayanaka.png' },
             { name: 'Bibhatsa (Disgust & Aversion)', file: 'navras_bibhatsa.jpg' },
-            { name: 'Adbhuta (Wonder & Mystery)', file: 'navras_adbhuta.jpg' },
-            { name: 'Shanta (Peace & Serenity)', file: 'navras_shanta.png' }
+            { name: 'Adbhuta (Wonder & Awe)', file: 'navras_adbhuta.jpg' },
+            { name: 'Shanta (Serenity & Peace)', file: 'navras_shanta.png' }
         ];
+
+        const projectsData = {
+            'sports_identity': {
+                tag: 'Brand Identity • Sports Media',
+                year: '2026',
+                title: 'Cricket News Times & Sports Media Systems',
+                role: 'Lead Brand Designer & Typographer',
+                discipline: 'Visual Identity, Logofolio & Editorial Layout',
+                tools: 'Adobe Illustrator, Photoshop, InDesign',
+                timeline: '4 Weeks',
+                heroImg: 'cricket_news.png',
+                overview: 'Developed dynamic, high-energy brand systems for sports media publications including "The India Cricket" and "Times Sports News". The objective was to engineer an athletic, commanding visual identity optimized for digital streaming thumbnails, broadcast tickers, mobile app headers, and print collateral.',
+                solution: 'Constructed sharp aerodynamic letterforms paired with an assertive sports-red palette (#E13B04 dominant, backed by #7C0504 and #A81E05). Engineered a responsive logo suite ranging from compact circular badges to high-contrast headline typographic locks.',
+                galleryTitle: 'Brand Collateral & Design Systems',
+                gallery: [
+                    { title: 'Cricket News Identity & Palette', file: 'cricket_news.png' },
+                    { title: 'Creatiwise Editorial Collateral 01', file: 'graphic_creatiwise_one.webp' },
+                    { title: 'Creatiwise Typography Grid 02', file: 'graphic_creatiwise_two.webp' }
+                ]
+            },
+            'navras': {
+                tag: 'Digital Art • Indian Heritage',
+                year: '2026',
+                title: 'The Navras Series: Nine Expressions of Humanity',
+                role: 'Visual Artist, Typographer & Illustrator',
+                discipline: 'Cultural Heritage Fusion & Contemporary Digital Art',
+                tools: 'Adobe Photoshop, Illustrator, Procreate',
+                timeline: '8 Weeks',
+                heroImg: 'navras_shringar.jpg',
+                overview: 'The Indian aesthetic philosophy of Navras codifies the nine fundamental emotions (rasas) of the human condition. This series reinterprets each rasa through modern vector clarity, intricate botanical frameworks, and emotive color psychology.',
+                solution: 'Spanning from the tender blush warmth of Sringara (Love) to the turbulent crimson fury of Raudra (Anger) and contemplative stillness of Shanta (Peace). Click any of the nine artworks below to load full-screen previews.',
+                galleryTitle: 'The 9 Rasas (Click any to view full preview)',
+                gallery: navrasImages.map(item => ({ title: item.name, file: item.file }))
+            },
+            'crimson_red': {
+                tag: 'Poster Campaign • Social Impact',
+                year: '2026',
+                title: 'Uurja 2026 & Crimson Red Social Campaign',
+                role: 'Visual Designer & Campaign Art Director',
+                discipline: 'Poster Design, Typography & Festival Branding',
+                tools: 'Adobe Photoshop, Illustrator',
+                timeline: '3 Weeks',
+                heroImg: 'crimson_red.png',
+                overview: 'A dual-impact visual design project for UPES Dehradun. First, creating overarching branding for UPES Uurja 2026 cultural festival. Second, designing "Crimson Red" — an empathetic, educational poster engineered to destigmatize menstrual health discussions through botanical elegance and bold typographic hierarchy.',
+                solution: 'Replaced clinical or stigmatized imagery with approachable, dignified botanical illustrations in warm crimson and pastel tones. Deployed across campus exhibitions and digital social media with widespread positive student engagement.',
+                galleryTitle: 'Campaign Posters & Collateral',
+                gallery: [
+                    { title: 'Crimson Red Educational Poster', file: 'crimson_red.png' }
+                ]
+            },
+            'boy_who_lived': {
+                tag: 'Cinematic Key Art • Poster',
+                year: '2026',
+                title: 'The Boy Who Lived: Dark Cinematic Poster',
+                role: 'Digital Matte Artist & Graphic Designer',
+                discipline: 'Entertainment Key Art & Lighting Study',
+                tools: 'Adobe Photoshop, Digital Painting',
+                timeline: '2 Weeks',
+                heroImg: 'boy_who_lived.jpg',
+                overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, viewed through a crumbling stone aperture.',
+                solution: 'Emphasized tactile stonework texture, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery.',
+                galleryTitle: 'Cinematic Key Art Visuals',
+                gallery: [
+                    { title: 'The Boy Who Lived Poster', file: 'boy_who_lived.jpg' }
+                ]
+            },
+            'fridgmate': {
+                tag: 'UI/UX • Smart Hardware IoT',
+                year: '2026',
+                title: 'Fridgmate: Smart Kitchen Ecosystem',
+                role: 'Lead UI/UX Designer & Product Concept',
+                discipline: 'Smart Hardware UI & Phygital Experience',
+                tools: 'Figma, User Research, Prototyping',
+                timeline: '6 Weeks',
+                heroImg: 'fridgmate.jpg',
+                overview: 'Food waste is a global environmental and financial burden, with over 30% of household groceries discarded simply because items get forgotten behind shelves. Fridgmate reimagines the modern kitchen through an ultra-sleek, magnetic smart display mounted seamlessly on refrigeration units.',
+                solution: 'Features an innovative sliding-rail camera mechanism that automatically catalogs hidden inventory without manual barcode scanning, integrated with automated freshness monitoring, intelligent expiry notifications, and dynamic AI recipe generators based strictly on in-fridge ingredients.',
+                galleryTitle: 'Product Screens & Concept Wireframes',
+                gallery: [
+                    { title: 'Smart Refrigerator Display Mockup', file: 'fridgmate.jpg' },
+                    { title: 'Project Overview & Strategy Slide', file: 'fridgmate_slide0.png' },
+                    { title: 'Mechanism & Hardware Architecture', file: 'fridgmate_slide1.png' },
+                    { title: 'UI Recipe & Freshness Monitoring', file: 'fridgmate_slide2.png' }
+                ]
+            },
+            'gatha_vr': {
+                tag: 'Spatial UI • Virtual Reality',
+                year: '2026',
+                title: 'Gatha VR: Traditional Indian Art in Spatial 3D',
+                role: 'VR UX Designer & Researcher',
+                discipline: 'Spatial Interaction & Virtual Heritage Museum',
+                tools: 'Figma Spatial, Blender, Unity Concept',
+                timeline: '5 Weeks',
+                heroImg: 'gatha_vr.jpg',
+                overview: 'India’s living folk art traditions—such as Kalamkari hand-painted scrolls, Madhubani narrative tapestries, and Warli storytelling—risk being forgotten by younger digital-native audiences. Gatha VR transforms static cultural relics into an interactive, multi-dimensional virtual reality museum.',
+                solution: 'Designed an ethereal spatial UI with minimal HUD elements that allows visitors to step directly into painted folklore scenes, interact with ancient motifs via spatial hand gestures, and learn historical narratives through spatial audio guided journeys.',
+                galleryTitle: 'Spatial VR Environments & Interface',
+                gallery: [
+                    { title: 'Immersive VR Tapestry Gallery', file: 'gatha_vr.jpg' },
+                    { title: '3D Spatial World Select Interface', file: 'gatha_vr_world.webp' },
+                    { title: 'Kalamkari & Warli VR Scene', file: 'gatha_vr_scene.webp' },
+                    { title: 'Heritage Hall Architecture', file: 'gatha_vr_hall.webp' }
+                ]
+            }
+        };
 
         const modal = document.getElementById('projectModal');
         const modalHeroImg = document.getElementById('modalHeroImg');
@@ -2109,8 +2417,9 @@
         const modalTimeline = document.getElementById('modalTimeline');
         const modalOverview = document.getElementById('modalOverview');
         const modalSolution = document.getElementById('modalSolution');
-        const navrasSection = document.getElementById('navrasGallerySection');
-        const navrasGrid = document.getElementById('navrasGalleryGrid');
+        const modalGallerySection = document.getElementById('modalGallerySection');
+        const gallerySectionHeading = document.getElementById('gallerySectionHeading');
+        const modalGalleryRow = document.getElementById('modalGalleryRow');
 
         function openProject(id) {
             const data = projectsData[id];
@@ -2127,20 +2436,33 @@
             modalOverview.textContent = data.overview;
             modalSolution.textContent = data.solution;
 
-            if (data.hasNavras) {
-                navrasSection.style.display = 'block';
-                navrasGrid.innerHTML = navrasImages.map(item => `
-                    <div class="navras-item" onclick="modalHeroImg.src='${item.file}'">
-                        <img src="${item.file}" alt="${item.name}" loading="lazy">
-                        <div class="navras-caption">${item.name}</div>
+            if (data.gallery && data.gallery.length > 0) {
+                modalGallerySection.style.display = 'block';
+                gallerySectionHeading.textContent = data.galleryTitle || 'Project Visuals & Artifacts (Click to view full preview)';
+                modalGalleryRow.innerHTML = data.gallery.map(item => `
+                    <div class="gallery-thumb-item ${item.file === data.heroImg ? 'active' : ''}" onclick="switchModalHero('${item.file}', this)">
+                        <img src="${item.file}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-thumb-caption">${item.title}</div>
                     </div>
                 `).join('');
             } else {
-                navrasSection.style.display = 'none';
+                modalGallerySection.style.display = 'none';
             }
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
+
+        function switchModalHero(file, elem) {
+            modalHeroImg.style.opacity = '0.3';
+            setTimeout(() => {
+                modalHeroImg.src = file;
+                modalHeroImg.style.opacity = '1';
+            }, 150);
+
+            const allThumbs = document.querySelectorAll('.gallery-thumb-item');
+            allThumbs.forEach(t => t.classList.remove('active'));
+            if (elem) elem.classList.add('active');
         }
 
         function closeProjectModal() {
@@ -2160,17 +2482,21 @@
             }
         });
 
-        // ── 5. COPY EMAIL & TOAST SYSTEM ──
+        // ── 5. COPY EMAIL & TOAST NOTIFICATION ──
         const copyEmailBtn = document.getElementById('copyEmailBtn');
         const toast = document.getElementById('toast');
 
         copyEmailBtn.addEventListener('click', () => {
             const email = 'Abhinandna.158@gmail.com';
-            navigator.clipboard.writeText(email).then(() => {
-                showToast('Email copied to clipboard! ✨');
-            }).catch(() => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(() => {
+                    showToast('Email copied to clipboard! ✨');
+                }).catch(() => {
+                    showToast('Email: Abhinandna.158@gmail.com');
+                });
+            } else {
                 showToast('Email: Abhinandna.158@gmail.com');
-            });
+            }
         });
 
         function showToast(msg) {

@@ -1267,21 +1267,55 @@
 
         .modal-hero-img-wrap {
             width: 100%;
-            height: 420px;
-            background: #000;
-            overflow: hidden;
+            min-height: 420px;
+            max-height: 78vh;
+            background: #060709;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .modal-hero-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: opacity 0.3s ease;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 72vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+            transition: opacity 0.25s ease;
+            display: block;
+        }
+
+        .modal-full-view-btn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.2rem;
+            background: rgba(17, 18, 21, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-family: 'Space Mono', monospace;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+            transition: all 0.2s ease;
+        }
+
+        .modal-full-view-btn:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+            background: rgba(255, 56, 80, 0.12);
+            transform: translateY(-1px);
         }
 
         .modal-body {
@@ -1361,23 +1395,38 @@
         }
 
         .gallery-thumb-item {
-            background: var(--surface-color);
+            background: #08090C;
             border: 2px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .gallery-thumb-item:hover, .gallery-thumb-item.active {
             border-color: var(--brand-red);
             transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255, 56, 80, 0.25);
+        }
+
+        .gallery-thumb-img-box {
+            width: 100%;
+            height: 125px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
         }
 
         .gallery-thumb-item img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         .gallery-thumb-caption {
@@ -1458,7 +1507,12 @@
                 margin: 0.5rem;
             }
             .modal-hero-img-wrap {
-                height: 240px;
+                min-height: 260px;
+                max-height: 56vh;
+                padding: 1rem 0.8rem;
+            }
+            .modal-hero-img-wrap img {
+                max-height: 52vh;
             }
             .modal-body {
                 padding: 1.5rem;
@@ -1480,10 +1534,10 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#work" class="active">Selected Work</a></li>
-                <li><a href="#whiteboard">Canvas Sandbox</a></li>
+                <li><a href="#about" class="active">About</a></li>
+                <li><a href="#work">Selected Work</a></li>
                 <li><a href="#skills">Disciplines</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#whiteboard">Canvas Sandbox</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -1529,7 +1583,8 @@
             </div>
 
             <div class="hero-actions">
-                <a href="#work" class="btn-primary">Explore Selected Work ↓</a>
+                <a href="#about" class="btn-primary">Learn About Me →</a>
+                <a href="#work" class="btn-outline">Explore Selected Work ↓</a>
                 <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-outline">Download Resume 📄</a>
                 <a href="#whiteboard" class="btn-outline">Try Whiteboard 🎨</a>
             </div>
@@ -1625,6 +1680,67 @@
                         <h4>∞</h4>
                         <p>Iterations &amp; Polish</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT & MANIFESTO ── -->
+    <section class="section-container" id="about">
+        <div class="about-wrap">
+            <div class="about-photo-col">
+                <div class="about-photo-frame">
+                    <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
+                    <div class="about-photo-badge">
+                        <h5>Abhinandna Vaidya</h5>
+                        <p>Interaction Designer @ UPES Dehradun</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <span class="section-tag">Designer Profile</span>
+                <h2>Balancing artistic emotion with pragmatic engineering.</h2>
+                <p>
+                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies, Dehradun)</strong>. My work lives at the intersection of bold graphic communication, deep cultural heritage, and modern user-centered interaction design.
+                </p>
+                <p>
+                    Whether formulating a sports broadcast brand identity, reviving the Navarasas through botanical digital paintings, or tackling household food waste with hardware IoT displays, I believe every detail must have intent.
+                </p>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <div class="step-content">
+                            <h4>Discover &amp; Question</h4>
+                            <p>Examine the core problem, cultural context, and human emotional hook.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <div class="step-content">
+                            <h4>Concept &amp; Moodboard</h4>
+                            <p>Translate insights into typography, color systems, and iterative visual explorations.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <div class="step-content">
+                            <h4>Craft &amp; Iterate</h4>
+                            <p>Pixel-perfect execution in Illustrator, Photoshop, and Figma with meticulous craft.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <div class="step-content">
+                            <h4>Deliver &amp; Storytell</h4>
+                            <p>Presenting work with rationale, context, and clear real-world resonance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-primary">Download Official Resume (PDF) 📄</a>
                 </div>
             </div>
         </div>
@@ -1861,67 +1977,6 @@
         </div>
     </section>
 
-    <!-- ── ABOUT & MANIFESTO ── -->
-    <section class="section-container" id="about">
-        <div class="about-wrap">
-            <div class="about-photo-col">
-                <div class="about-photo-frame">
-                    <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
-                    <div class="about-photo-badge">
-                        <h5>Abhinandna Vaidya</h5>
-                        <p>Interaction Designer @ UPES Dehradun</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-text">
-                <span class="section-tag">Designer Profile</span>
-                <h2>Balancing artistic emotion with pragmatic engineering.</h2>
-                <p>
-                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies, Dehradun)</strong>. My work lives at the intersection of bold graphic communication, deep cultural heritage, and modern user-centered interaction design.
-                </p>
-                <p>
-                    Whether formulating a sports broadcast brand identity, reviving the Navarasas through botanical digital paintings, or tackling household food waste with hardware IoT displays, I believe every detail must have intent.
-                </p>
-
-                <div class="process-steps">
-                    <div class="process-step">
-                        <span class="step-num">01</span>
-                        <div class="step-content">
-                            <h4>Discover &amp; Question</h4>
-                            <p>Examine the core problem, cultural context, and human emotional hook.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">02</span>
-                        <div class="step-content">
-                            <h4>Concept &amp; Moodboard</h4>
-                            <p>Translate insights into typography, color systems, and iterative visual explorations.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">03</span>
-                        <div class="step-content">
-                            <h4>Craft &amp; Iterate</h4>
-                            <p>Pixel-perfect execution in Illustrator, Photoshop, and Figma with meticulous craft.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">04</span>
-                        <div class="step-content">
-                            <h4>Deliver &amp; Storytell</h4>
-                            <p>Presenting work with rationale, context, and clear real-world resonance.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-primary">Download Official Resume (PDF) 📄</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ── FOOTER & CONTACT ── -->
     <footer id="contact">
         <div class="footer-inner">
@@ -1967,6 +2022,9 @@
             <button class="modal-close-btn" id="closeModalBtn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
             
             <div class="modal-hero-img-wrap" id="modalHeroWrap">
+                <a id="modalFullViewBtn" href="#" target="_blank" class="modal-full-view-btn" title="Open uncompressed high-resolution artwork in new tab">
+                    <span>🔍 Full Resolution</span>
+                </a>
                 <img id="modalHeroImg" src="" alt="Project Visual Preview">
             </div>
 
@@ -2449,9 +2507,12 @@
 
         function openProject(id) {
             const data = projectsData[id];
-            if (!data) return;
+            if (!data || !modal) return;
 
             modalHeroImg.src = data.heroImg;
+            const fullBtn = document.getElementById('modalFullViewBtn');
+            if (fullBtn) fullBtn.href = data.heroImg;
+
             modalTag.textContent = data.tag;
             modalYear.textContent = data.year;
             modalTitle.textContent = data.title;
@@ -2467,7 +2528,9 @@
                 gallerySectionHeading.textContent = data.galleryTitle || 'Project Visuals & Artifacts (Click to view full preview)';
                 modalGalleryRow.innerHTML = data.gallery.map(item => `
                     <div class="gallery-thumb-item ${item.file === data.heroImg ? 'active' : ''}" onclick="switchModalHero('${item.file}', this)">
-                        <img src="${item.file}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-thumb-img-box">
+                            <img src="${item.file}" alt="${item.title}" loading="lazy">
+                        </div>
                         <div class="gallery-thumb-caption">${item.title}</div>
                     </div>
                 `).join('');
@@ -2480,11 +2543,14 @@
         }
 
         function switchModalHero(file, elem) {
-            modalHeroImg.style.opacity = '0.3';
+            if (!modalHeroImg) return;
+            modalHeroImg.style.opacity = '0.2';
             setTimeout(() => {
                 modalHeroImg.src = file;
+                const fullBtn = document.getElementById('modalFullViewBtn');
+                if (fullBtn) fullBtn.href = file;
                 modalHeroImg.style.opacity = '1';
-            }, 150);
+            }, 120);
 
             const allThumbs = document.querySelectorAll('.gallery-thumb-item');
             allThumbs.forEach(t => t.classList.remove('active'));

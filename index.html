@@ -1079,19 +1079,60 @@
 
         .modal-hero-wrap {
             width: 100%;
-            height: 420px;
-            background: #0A0A0A;
-            overflow: hidden;
+            min-height: 420px;
+            max-height: 75vh;
+            background: #08090D;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .modal-hero-wrap img {
             max-width: 100%;
-            max-height: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
             object-fit: contain;
-            transition: opacity 0.2s ease;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            cursor: zoom-in;
+        }
+
+        .modal-hero-wrap img:hover {
+            transform: scale(1.01);
+        }
+
+        .modal-fullres-btn {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: rgba(18, 19, 22, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            z-index: 5;
+            text-decoration: none;
+        }
+
+        .modal-fullres-btn:hover {
+            background: var(--brand-red);
+            border-color: var(--brand-red);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(226, 55, 68, 0.4);
         }
 
         .modal-body {
@@ -1157,29 +1198,33 @@
         /* 9-Rasas Gallery Grid inside Modal */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 12px;
             margin-top: 1rem;
         }
 
         .gallery-item {
             background: var(--surface-color);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .gallery-item:hover, .gallery-item.active {
-            transform: scale(1.03);
+            transform: translateY(-3px);
             border-color: var(--brand-red);
+            box-shadow: 0 6px 16px rgba(226, 55, 68, 0.2);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 140px;
+            height: 125px;
             object-fit: cover;
+            display: block;
         }
 
         .gallery-item-caption {
@@ -1188,6 +1233,11 @@
             font-weight: 700;
             text-align: center;
             color: var(--text-primary);
+            background: var(--surface-card);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* ── TOAST NOTIFICATION ── */
@@ -1213,8 +1263,8 @@
             opacity: 1;
         }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 992px) {
+        /* ── RESPONSIVE & ADAPTIVE ── */
+        @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
                 padding: 3.5rem 5%;
@@ -1224,39 +1274,122 @@
                 font-size: 3rem;
             }
             .about-wrap {
-                grid-template-columns: 1fr;
-                padding: 2.5rem 1.8rem;
-                gap: 2rem;
+                grid-template-columns: 280px 1fr;
+                padding: 2.8rem 2rem;
+                gap: 2.2rem;
             }
             .about-portrait {
-                max-width: 280px;
-                height: 320px;
-                margin: 0 auto;
+                height: 340px;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
+            header nav {
+                padding: 0.8rem 4%;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
             .nav-links {
                 display: none;
             }
             .hero-text h1 {
-                font-size: 2.4rem;
+                font-size: 2.3rem;
             }
             .section-title {
                 font-size: 2rem;
+            }
+            .about-wrap {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.4rem;
+                gap: 1.8rem;
+            }
+            .about-portrait {
+                max-width: 260px;
+                height: 300px;
+                margin: 0 auto;
             }
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
             .stats-row {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            .stat-item h4 {
+                font-size: 1.8rem;
+            }
+            .canvas-area {
+                height: 300px;
+            }
+            .canvas-toolbar {
+                padding: 0.6rem 0.8rem;
+            }
+            .modal-overlay {
+                padding: 0.8rem;
+            }
+            .modal-container {
+                max-height: 94vh;
+                border-radius: 16px;
             }
             .modal-hero-wrap {
-                height: 280px;
+                min-height: 250px;
+                max-height: 55vh;
+                padding: 1rem;
+            }
+            .modal-hero-wrap img {
+                max-height: 52vh;
             }
             .modal-body {
-                padding: 1.5rem;
+                padding: 1.4rem;
+            }
+            .modal-title {
+                font-size: 1.6rem;
+            }
+            .modal-info-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.95rem;
+            }
+            .hero-text p.lead {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            .about-text h2 {
+                font-size: 1.75rem;
+            }
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+            .canvas-area {
+                height: 250px;
+            }
+            .modal-info-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-fullres-btn {
+                font-size: 0.72rem;
+                padding: 4px 10px;
+            }
+            .footer-social-links {
+                gap: 1.2rem;
             }
         }
     </style>
@@ -1272,10 +1405,10 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#work" class="active">Selected Works</a></li>
-                <li><a href="#whiteboard">Creative Sandbox</a></li>
-                <li><a href="#disciplines">Disciplines</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#work" class="active">Selected Works</a></li>
+                <li><a href="#disciplines">Disciplines</a></li>
+                <li><a href="#whiteboard">Creative Sandbox</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -1318,7 +1451,7 @@
             </div>
 
             <div class="hero-actions">
-                <a href="#work" class="btn-primary">View Selected Works ↓</a>
+                <a href="#about" class="btn-primary">About Me &amp; Works ↓</a>
                 <a href="#whiteboard" class="btn-outline">Try Whiteboard 🎨</a>
             </div>
         </div>
@@ -1361,6 +1494,41 @@
                     <button class="tool-btn" id="eraserBtn" title="Eraser">🧹 Erase</button>
                     <button class="tool-btn danger" id="clearCanvas" title="Clear Canvas">🗑️ Clear</button>
                     <button class="tool-btn" id="downloadCanvas" title="Download Sketch">💾 Save</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ME SECTION (PLACED FIRST AFTER INTRO) ── -->
+    <section class="section-container" id="about">
+        <div class="about-wrap">
+            <div class="about-portrait">
+                <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
+            </div>
+
+            <div class="about-text">
+                <span class="section-tag">About The Designer</span>
+                <h2>Balancing artistic emotion with sharp graphic precision.</h2>
+                <p>
+                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies)</strong>, focusing my craft on <strong>Graphic Design, Brand Identity, and Visual Communication</strong>.
+                </p>
+                <p>
+                    My work is driven by visual storytelling—whether exploring the psychological depth of the nine human emotions in the Navras illustration series or distilling high-energy sports media into commanding typographic identities.
+                </p>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>6+</h4>
+                        <p>Major Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>9</h4>
+                        <p>Rasas Illustrated</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Dedicated to Craft</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1590,40 +1758,7 @@
         </div>
     </section>
 
-    <!-- ── ABOUT ME SECTION ── -->
-    <section class="section-container" id="about">
-        <div class="about-wrap">
-            <div class="about-portrait">
-                <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
-            </div>
 
-            <div class="about-text">
-                <span class="section-tag">About The Designer</span>
-                <h2>Balancing artistic emotion with sharp graphic precision.</h2>
-                <p>
-                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies)</strong>, focusing my craft on <strong>Graphic Design, Brand Identity, and Visual Communication</strong>.
-                </p>
-                <p>
-                    My work is driven by visual storytelling—whether exploring the psychological depth of the nine human emotions in the Navras illustration series or distilling high-energy sports media into commanding typographic identities.
-                </p>
-
-                <div class="stats-row">
-                    <div class="stat-item">
-                        <h4>6+</h4>
-                        <p>Major Projects</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>9</h4>
-                        <p>Rasas Illustrated</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>100%</h4>
-                        <p>Dedicated to Craft</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ── FOOTER & CONTACT ── -->
     <footer id="contact">
@@ -1662,7 +1797,10 @@
             <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
             
             <div class="modal-hero-wrap">
-                <img id="modalHeroImg" src="" alt="Project Visual">
+                <img id="modalHeroImg" src="" alt="Project Visual" title="Click to view full image in high resolution">
+                <a id="modalFullResLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-fullres-btn" title="Open full uncompressed original in new tab">
+                    <span>🔍 Full Resolution</span> ↗
+                </a>
             </div>
 
             <div class="modal-body">
@@ -1701,7 +1839,7 @@
                     <p id="modalSolution">Solution text.</p>
                 </div>
 
-                <!-- Gallery Section (e.g. Navras or Collateral) -->
+                <!-- Gallery Section (e.g. Navras, Gatha VR, or Collateral) -->
                 <div class="modal-section" id="modalGallerySection" style="display: none;">
                     <h4 id="galleryHeading">Visual Series (Click any to view full preview)</h4>
                     <div class="gallery-grid" id="modalGalleryGrid"></div>
@@ -1715,37 +1853,16 @@
 
     <!-- ── JAVASCRIPT LOGIC ── -->
     <script>
-        // ── 1. THEME SWITCHER ──
+        // ── 1. DOM REFERENCES & STATE ──
         const root = document.documentElement;
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
 
-        function applyTheme(theme) {
-            root.setAttribute('data-theme', theme);
-            try { localStorage.setItem('av_theme', theme); } catch (e) {}
-            if (theme === 'dark') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light Mode';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark Mode';
-            }
-            updateCanvasDrawingColor();
-        }
-
-        const savedTheme = localStorage.getItem('av_theme') || 'light';
-        applyTheme(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme') || 'light';
-            applyTheme(current === 'light' ? 'dark' : 'light');
-        });
-
-        // ── 2. INTERACTIVE WHITEBOARD ──
+        // Whiteboard references & state
         const canvasArea = document.getElementById('canvasArea');
         const canvas = document.getElementById('drawCanvas');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas ? canvas.getContext('2d') : null;
         const canvasHint = document.getElementById('canvasHint');
         const clearBtn = document.getElementById('clearCanvas');
         const eraserBtn = document.getElementById('eraserBtn');
@@ -1759,12 +1876,44 @@
         let currentSize = 4;
         let hasDrawn = false;
 
+        // Modal DOM references
+        const modal = document.getElementById('projectModal');
+        const modalHeroImg = document.getElementById('modalHeroImg');
+        const modalFullResLink = document.getElementById('modalFullResLink');
+        const modalTag = document.getElementById('modalTag');
+        const modalYear = document.getElementById('modalYear');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalRole = document.getElementById('modalRole');
+        const modalDiscipline = document.getElementById('modalDiscipline');
+        const modalTools = document.getElementById('modalTools');
+        const modalTimeline = document.getElementById('modalTimeline');
+        const modalOverview = document.getElementById('modalOverview');
+        const modalSolution = document.getElementById('modalSolution');
+        const modalGallerySection = document.getElementById('modalGallerySection');
+        const galleryHeading = document.getElementById('galleryHeading');
+        const modalGalleryGrid = document.getElementById('modalGalleryGrid');
+
+        // ── 2. WHITEBOARD DRAWING LOGIC ──
+        function updateCanvasDrawingColor() {
+            if (!ctx) return;
+            if (isEraser) {
+                ctx.globalCompositeOperation = 'destination-out';
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = currentColor;
+            }
+            ctx.lineWidth = currentSize;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+        }
+
         function resizeCanvas() {
+            if (!canvas || !canvasArea || !ctx) return;
             const rect = canvasArea.getBoundingClientRect();
             if (rect.width === 0 || rect.height === 0) return;
             const dpr = window.devicePixelRatio || 1;
 
-            // Preserve existing strokes
+            // Preserve existing strokes during resize
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = canvas.width;
             tempCanvas.height = canvas.height;
@@ -1784,18 +1933,33 @@
             updateCanvasDrawingColor();
         }
 
-        function updateCanvasDrawingColor() {
-            if (isEraser) {
-                ctx.globalCompositeOperation = 'destination-out';
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.strokeStyle = currentColor;
+        // ── 3. THEME SWITCHER ──
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            try { localStorage.setItem('av_theme', theme); } catch (e) {}
+            if (themeIcon && themeText) {
+                if (theme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                    themeText.textContent = 'Light Mode';
+                } else {
+                    themeIcon.textContent = '🌙';
+                    themeText.textContent = 'Dark Mode';
+                }
             }
-            ctx.lineWidth = currentSize;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
+            updateCanvasDrawingColor();
         }
 
+        const savedTheme = localStorage.getItem('av_theme') || 'light';
+        applyTheme(savedTheme);
+
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const current = root.getAttribute('data-theme') || 'light';
+                applyTheme(current === 'light' ? 'dark' : 'light');
+            });
+        }
+
+        // ── 4. WHITEBOARD EVENT LISTENERS ──
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
             const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
@@ -1807,9 +1971,10 @@
         }
 
         function startDrawing(e) {
+            if (!ctx) return;
             isDrawing = true;
-            canvasArea.classList.add('active');
-            if (!hasDrawn) {
+            if (canvasArea) canvasArea.classList.add('active');
+            if (!hasDrawn && canvasHint) {
                 hasDrawn = true;
                 canvasHint.style.opacity = '0';
             }
@@ -1821,7 +1986,7 @@
         }
 
         function draw(e) {
-            if (!isDrawing) return;
+            if (!isDrawing || !ctx) return;
             const pos = getPos(e);
             ctx.lineTo(pos.x, pos.y);
             ctx.stroke();
@@ -1829,28 +1994,32 @@
         }
 
         function stopDrawing() {
-            if (!isDrawing) return;
+            if (!isDrawing || !ctx) return;
             isDrawing = false;
             ctx.beginPath();
         }
 
-        canvas.addEventListener('mousedown', startDrawing);
-        canvas.addEventListener('mousemove', draw);
-        window.addEventListener('mouseup', stopDrawing);
+        if (canvas) {
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            window.addEventListener('mouseup', stopDrawing);
 
-        canvas.addEventListener('touchstart', startDrawing, { passive: false });
-        canvas.addEventListener('touchmove', draw, { passive: false });
-        canvas.addEventListener('touchend', stopDrawing);
-        canvas.addEventListener('touchcancel', stopDrawing);
+            canvas.addEventListener('touchstart', startDrawing, { passive: false });
+            canvas.addEventListener('touchmove', draw, { passive: false });
+            canvas.addEventListener('touchend', stopDrawing);
+            canvas.addEventListener('touchcancel', stopDrawing);
+        }
 
         colorDots.forEach(dot => {
             dot.addEventListener('click', () => {
                 colorDots.forEach(d => d.classList.remove('active'));
                 dot.classList.add('active');
-                currentColor = dot.getAttribute('data-color');
+                currentColor = dot.getAttribute('data-color') || '#E23744';
                 isEraser = false;
-                eraserBtn.style.background = '';
-                eraserBtn.style.color = '';
+                if (eraserBtn) {
+                    eraserBtn.style.background = '';
+                    eraserBtn.style.color = '';
+                }
                 updateCanvasDrawingColor();
             });
         });
@@ -1859,45 +2028,54 @@
             btn.addEventListener('click', () => {
                 strokeBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                currentSize = parseInt(btn.getAttribute('data-size'));
+                currentSize = parseInt(btn.getAttribute('data-size')) || 4;
                 updateCanvasDrawingColor();
             });
         });
 
-        eraserBtn.addEventListener('click', () => {
-            isEraser = !isEraser;
-            if (isEraser) {
-                eraserBtn.style.background = 'var(--brand-red)';
-                eraserBtn.style.color = '#FFFFFF';
-            } else {
-                eraserBtn.style.background = '';
-                eraserBtn.style.color = '';
-            }
-            updateCanvasDrawingColor();
-        });
+        if (eraserBtn) {
+            eraserBtn.addEventListener('click', () => {
+                isEraser = !isEraser;
+                if (isEraser) {
+                    eraserBtn.style.background = 'var(--brand-red)';
+                    eraserBtn.style.color = '#FFFFFF';
+                } else {
+                    eraserBtn.style.background = '';
+                    eraserBtn.style.color = '';
+                }
+                updateCanvasDrawingColor();
+            });
+        }
 
-        clearBtn.addEventListener('click', () => {
-            ctx.save();
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.restore();
-            canvasHint.style.opacity = '0.9';
-            hasDrawn = false;
-            showToast('Whiteboard cleared! 🎨');
-        });
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                if (!ctx || !canvas) return;
+                ctx.save();
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.restore();
+                if (canvasHint) canvasHint.style.opacity = '0.9';
+                hasDrawn = false;
+                showToast('Whiteboard cleared! 🎨');
+            });
+        }
 
-        downloadBtn.addEventListener('click', () => {
-            const link = document.createElement('a');
-            link.download = 'abhinandna-portfolio-sketch.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
-            showToast('Sketch saved to device! 💾');
-        });
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', () => {
+                if (!canvas) return;
+                const link = document.createElement('a');
+                link.download = 'abhinandna-portfolio-sketch.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                showToast('Sketch saved to device! 💾');
+            });
+        }
 
         window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('load', resizeCanvas);
         setTimeout(resizeCanvas, 150);
 
-        // ── 3. PORTFOLIO FILTERING ──
+        // ── 5. PORTFOLIO FILTERING ──
         const filterBtns = document.querySelectorAll('.filter-btn');
         const cards = document.querySelectorAll('.card');
 
@@ -1918,7 +2096,7 @@
             });
         });
 
-        // ── 4. CASE STUDY MODAL SYSTEM ──
+        // ── 6. CASE STUDY MODAL SYSTEM & DATA ──
         const navrasImages = [
             { name: 'Sringara (Love & Beauty)', file: 'navras_shringar.jpg' },
             { name: 'Hasya (Joy & Laughter)', file: 'navras_hasya.jpg' },
@@ -1957,7 +2135,7 @@
                 heroImg: 'cricket_news.png',
                 overview: 'Developed dynamic, high-energy brand systems for major sports media publications including "The India Cricket" and "Times Sports News". Engineered an assertive visual identity optimized for digital broadcast tickers, app icons, and social thumbnails.',
                 solution: 'Constructed sharp aerodynamic letterforms paired with a dominant sports-red palette (#E13B04 dominant). Engineered a responsive logo suite ranging from compact circular badges to high-contrast headline locks.',
-                galleryTitle: 'Brand Collateral & Layouts',
+                galleryTitle: 'Brand Collateral & Layouts (Click any to view full preview)',
                 gallery: [
                     { title: 'Cricket News Identity & Palette', file: 'cricket_news.png' },
                     { title: 'Creatiwise Editorial Collateral 01', file: 'graphic_creatiwise_one.webp' },
@@ -1975,7 +2153,7 @@
                 heroImg: 'crimson_red.png',
                 overview: 'A dual-impact visual design project for UPES. First, developing overarching branding for UPES Uurja 2026 cultural festival incorporating Navras aesthetics. Second, designing "Crimson Red" — an educational poster engineered to destigmatize menstrual health discussions through botanical elegance and bold typographic hierarchy.',
                 solution: 'Replaced clinical or taboo imagery with approachable, dignified botanical illustrations in warm crimson and pastel tones. Deployed across campus exhibitions and digital social media with widespread positive engagement.',
-                galleryTitle: 'Campaign Poster Art',
+                galleryTitle: 'Campaign Poster Art (Click to view full preview)',
                 gallery: [
                     { title: 'Crimson Red Educational Poster', file: 'crimson_red.png' }
                 ]
@@ -1991,7 +2169,7 @@
                 heroImg: 'boy_who_lived.jpg',
                 overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, glimpsed through a crumbling stone aperture.',
                 solution: 'Focused on textured stonework, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery and grandeur.',
-                galleryTitle: 'Key Art Preview',
+                galleryTitle: 'Key Art Preview (Click to view full preview)',
                 gallery: [
                     { title: 'The Boy Who Lived Poster', file: 'boy_who_lived.jpg' }
                 ]
@@ -2007,7 +2185,7 @@
                 heroImg: 'graphic_creatiwise_one.webp',
                 overview: 'An in-depth exploration of typographic hierarchy, grid alignments, and structural branding. Designed for high visual legibility across print brand books and digital editorial layouts.',
                 solution: 'Utilized asymmetrical column structures, deliberate whitespace, and dynamic scale shifts in display typography to guide reader eye flow with precision.',
-                galleryTitle: 'Typographic Layout Collateral',
+                galleryTitle: 'Typographic Layout Collateral (Click any to view full preview)',
                 gallery: [
                     { title: 'Creatiwise Collateral Overview', file: 'graphic_creatiwise_one.webp' },
                     { title: 'Creatiwise Typographic Grid Layout', file: 'graphic_creatiwise_two.webp' }
@@ -2024,65 +2202,63 @@
                 heroImg: 'gatha_vr.jpg',
                 overview: 'India’s living folk art traditions—such as Kalamkari hand-painted cotton scrolls and Madhubani narrative tapestries—risk being forgotten by younger digital audiences. Gatha VR celebrates these cultural relics by staging them in immersive spatial exhibition spaces.',
                 solution: 'Carefully preserved authentic hand-painted line work while surrounding them with minimalist exhibition architecture and glowing typographic narrative cards.',
-                galleryTitle: 'Spatial Art Previews',
+                galleryTitle: 'Spatial Art & Virtual Environments (Click any to view full preview)',
                 gallery: [
-                    { title: 'Gatha VR Spatial Gallery', file: 'gatha_vr.jpg' }
+                    { title: 'Gatha VR Spatial Gallery', file: 'gatha_vr.jpg' },
+                    { title: 'Heritage Exhibition Hall', file: 'gatha_vr_hall.webp' },
+                    { title: 'Interactive Folk Art Scene', file: 'gatha_vr_scene.webp' },
+                    { title: 'World Selection Interface', file: 'gatha_vr_world.webp' }
                 ]
             }
         };
-
-        const modal = document.getElementById('projectModal');
-        const modalHeroImg = document.getElementById('modalHeroImg');
-        const modalTag = document.getElementById('modalTag');
-        const modalYear = document.getElementById('modalYear');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalRole = document.getElementById('modalRole');
-        const modalDiscipline = document.getElementById('modalDiscipline');
-        const modalTools = document.getElementById('modalTools');
-        const modalTimeline = document.getElementById('modalTimeline');
-        const modalOverview = document.getElementById('modalOverview');
-        const modalSolution = document.getElementById('modalSolution');
-        const modalGallerySection = document.getElementById('modalGallerySection');
-        const galleryHeading = document.getElementById('galleryHeading');
-        const modalGalleryGrid = document.getElementById('modalGalleryGrid');
 
         function openProject(id) {
             const data = projectsData[id];
             if (!data) return;
 
-            modalHeroImg.src = data.heroImg;
-            modalTag.textContent = data.tag;
-            modalYear.textContent = data.year;
-            modalTitle.textContent = data.title;
-            modalRole.textContent = data.role;
-            modalDiscipline.textContent = data.discipline;
-            modalTools.textContent = data.tools;
-            modalTimeline.textContent = data.timeline;
-            modalOverview.textContent = data.overview;
-            modalSolution.textContent = data.solution;
+            if (modalHeroImg) {
+                modalHeroImg.src = data.heroImg;
+                modalHeroImg.alt = data.title;
+            }
+            if (modalFullResLink) {
+                modalFullResLink.href = data.heroImg;
+            }
+            if (modalTag) modalTag.textContent = data.tag;
+            if (modalYear) modalYear.textContent = data.year;
+            if (modalTitle) modalTitle.textContent = data.title;
+            if (modalRole) modalRole.textContent = data.role;
+            if (modalDiscipline) modalDiscipline.textContent = data.discipline;
+            if (modalTools) modalTools.textContent = data.tools;
+            if (modalTimeline) modalTimeline.textContent = data.timeline;
+            if (modalOverview) modalOverview.textContent = data.overview;
+            if (modalSolution) modalSolution.textContent = data.solution;
 
-            if (data.gallery && data.gallery.length > 0) {
+            if (data.gallery && data.gallery.length > 0 && modalGallerySection && modalGalleryGrid) {
                 modalGallerySection.style.display = 'block';
-                galleryHeading.textContent = data.galleryTitle || 'Visual Series';
+                if (galleryHeading) galleryHeading.textContent = data.galleryTitle || 'Visual Series (Click any to view full preview)';
                 modalGalleryGrid.innerHTML = data.gallery.map(item => `
                     <div class="gallery-item ${item.file === data.heroImg ? 'active' : ''}" onclick="switchModalHero('${item.file}', this)">
                         <img src="${item.file}" alt="${item.title}" loading="lazy">
                         <div class="gallery-item-caption">${item.title}</div>
                     </div>
                 `).join('');
-            } else {
+            } else if (modalGallerySection) {
                 modalGallerySection.style.display = 'none';
             }
 
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function switchModalHero(file, elem) {
+            if (!modalHeroImg) return;
             modalHeroImg.style.opacity = '0.3';
             setTimeout(() => {
                 modalHeroImg.src = file;
                 modalHeroImg.style.opacity = '1';
+                if (modalFullResLink) modalFullResLink.href = file;
             }, 100);
 
             document.querySelectorAll('.gallery-item').forEach(item => item.classList.remove('active'));
@@ -2090,8 +2266,10 @@
         }
 
         function closeProjectModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         }
 
         function closeModalOnBackdrop(e) {
@@ -2100,30 +2278,44 @@
             }
         }
 
+        if (modalHeroImg) {
+            modalHeroImg.addEventListener('click', () => {
+                if (modalHeroImg.src) {
+                    window.open(modalHeroImg.src, '_blank');
+                }
+            });
+        }
+
+        // Global window bindings to guarantee inline onclick calls always succeed
+        window.openProject = openProject;
+        window.closeProjectModal = closeProjectModal;
+        window.switchModalHero = switchModalHero;
+        window.closeModalOnBackdrop = closeModalOnBackdrop;
+
+        // Add keyboard accessibility and explicit listeners to cards
+        cards.forEach(card => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
                 closeProjectModal();
             }
         });
 
-        // ── 5. COPY EMAIL & TOAST ──
+        // ── 7. COPY EMAIL & TOAST ──
         const copyEmailBtn = document.getElementById('copyEmailBtn');
         const toast = document.getElementById('toast');
 
-        copyEmailBtn.addEventListener('click', () => {
-            const email = 'Abhinandna.158@gmail.com';
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(email).then(() => {
-                    showToast('Email copied to clipboard! ✨');
-                }).catch(() => {
-                    showToast('Email: Abhinandna.158@gmail.com');
-                });
-            } else {
-                showToast('Email: Abhinandna.158@gmail.com');
-            }
-        });
-
         function showToast(msg) {
+            if (!toast) return;
             toast.textContent = msg;
             toast.classList.add('show');
             setTimeout(() => {
@@ -2131,14 +2323,29 @@
             }, 3000);
         }
 
-        // ── 6. SCROLLSPY ──
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', () => {
+                const email = 'Abhinandna.158@gmail.com';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(() => {
+                        showToast('Email copied to clipboard! ✨');
+                    }).catch(() => {
+                        showToast('Email: Abhinandna.158@gmail.com');
+                    });
+                } else {
+                    showToast('Email: Abhinandna.158@gmail.com');
+                }
+            });
+        }
+
+        // ── 8. SCROLLSPY ──
         const navLinks = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section, footer');
 
         window.addEventListener('scroll', () => {
             let currentSec = '';
             sections.forEach(sec => {
-                const top = sec.offsetTop - 120;
+                const top = sec.offsetTop - 140;
                 if (window.scrollY >= top) {
                     const id = sec.getAttribute('id');
                     if (id) currentSec = id;

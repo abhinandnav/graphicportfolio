@@ -3,63 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Abhinandna Vaidya — Interaction Design student at UPES specializing in Brand Identity, Visual Systems, UI/UX, and Digital Art.">
-    <meta name="keywords" content="Abhinandna Vaidya, Graphic Designer, UI/UX Designer, UPES, Brand Identity, Navras, Fridgmate, Interaction Design, Poster Design">
+    <meta name="description" content="Abhinandna Vaidya — Graphic Designer & Visual Artist specializing in Brand Identity, Poster Design, Logofolio, Typography, and Indian Cultural Illustrations.">
+    <meta name="keywords" content="Abhinandna Vaidya, Graphic Designer, Brand Identity, Poster Design, Typography, Navras, Logofolio, Visual Artist, UPES">
     <meta name="author" content="Abhinandna Vaidya">
-    <title>Abhinandna Vaidya | Graphic & Interaction Designer</title>
+    <title>Abhinandna Vaidya | Graphic Designer & Visual Artist</title>
 
-    <!-- Google Fonts for Bold Graphic Design Aesthetics -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ── DESIGN SYSTEM & COLOR TOKENS ── */
+        /* ── THEME TOKENS ── */
         :root {
-            --bg-color: #0E0F12;
-            --surface-color: #15171C;
-            --surface-card: #1A1C23;
-            --surface-hover: #22252F;
+            --bg-color: #FFFFFF;
+            --surface-color: #F8F9FA;
+            --surface-card: #FFFFFF;
+            --surface-hover: #F1F3F5;
+            --text-primary: #121316;
+            --text-secondary: #525866;
+            --text-muted: #848C9E;
+            --brand-red: #E23744; /* Signature Zomato Red */
+            --brand-red-hover: #C52C38;
+            --brand-red-subtle: rgba(226, 55, 68, 0.08);
+            --border-color: #E5E7EB;
+            --border-subtle: #F0F2F5;
+            --canvas-bg: #FAFAFA;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --card-shadow-hover: 0 12px 30px rgba(226, 55, 68, 0.12);
+            --header-glass: rgba(255, 255, 255, 0.92);
+            --grid-pattern: radial-gradient(#E5E7EB 1px, transparent 1px);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0F1014;
+            --surface-color: #17181F;
+            --surface-card: #1D1F27;
+            --surface-hover: #262934;
             --text-primary: #F8F9FB;
             --text-secondary: #A3AAB8;
             --text-muted: #6B7280;
-            --brand-red: #FF3850;
-            --brand-red-hover: #FF5265;
-            --brand-red-subtle: rgba(255, 56, 80, 0.12);
-            --brand-yellow: #FFD200;
-            --brand-cyan: #00E5FF;
-            --border-color: #272B35;
-            --border-subtle: #1E2129;
-            --canvas-bg: #14161C;
-            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
-            --card-shadow-hover: 0 18px 40px rgba(255, 56, 80, 0.22);
-            --header-glass: rgba(14, 15, 18, 0.88);
-            --grid-pattern: radial-gradient(#272B35 1px, transparent 1px);
+            --brand-red: #EF4F5F;
+            --brand-red-hover: #FF6676;
+            --brand-red-subtle: rgba(239, 79, 95, 0.14);
+            --border-color: #2A2D38;
+            --border-subtle: #20232C;
+            --canvas-bg: #15161D;
+            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            --card-shadow-hover: 0 16px 36px rgba(239, 79, 95, 0.2);
+            --header-glass: rgba(15, 16, 20, 0.92);
+            --grid-pattern: radial-gradient(#2A2D38 1px, transparent 1px);
         }
 
-        [data-theme="light"] {
-            --bg-color: #FBFBFC;
-            --surface-color: #F1F3F6;
-            --surface-card: #FFFFFF;
-            --surface-hover: #EAEFF5;
-            --text-primary: #111215;
-            --text-secondary: #4A5260;
-            --text-muted: #7A8494;
-            --brand-red: #E23744;
-            --brand-red-hover: #C52C38;
-            --brand-red-subtle: rgba(226, 55, 68, 0.08);
-            --brand-yellow: #E5A500;
-            --brand-cyan: #00B4D8;
-            --border-color: #DDE2EB;
-            --border-subtle: #EEF1F6;
-            --canvas-bg: #FFFFFF;
-            --card-shadow: 0 8px 24px rgba(17, 18, 21, 0.06);
-            --card-shadow-hover: 0 16px 36px rgba(226, 55, 68, 0.14);
-            --header-glass: rgba(251, 251, 252, 0.90);
-            --grid-pattern: radial-gradient(#D6DCE6 1px, transparent 1px);
-        }
-
-        /* ── GLOBAL RESETS ── */
+        /* ── BASE RESET ── */
         * {
             margin: 0;
             padding: 0;
@@ -74,30 +70,21 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             background-image: var(--grid-pattern);
-            background-size: 28px 28px;
+            background-size: 24px 24px;
         }
 
-        h1, h2, h3, h4, .brand-display {
+        h1, h2, h3, h4, .logo, .brand-font {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
             letter-spacing: -0.02em;
         }
 
-        .mono {
+        .mono-font {
             font-family: 'Space Mono', monospace;
-        }
-
-        .serif {
-            font-family: 'DM Serif Display', serif;
-        }
-
-        .bebas {
-            font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 1px;
         }
 
         a {
@@ -128,7 +115,7 @@
         }
 
         nav {
-            max-width: 1360px;
+            max-width: 1320px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -136,37 +123,35 @@
             padding: 1rem 5%;
         }
 
-        .logo-wrap {
+        .logo-group {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.85rem;
-            color: var(--text-primary);
-            letter-spacing: 1.5px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--brand-red);
+            letter-spacing: -1px;
             display: flex;
             align-items: center;
-            gap: 2px;
         }
 
         .logo span {
-            color: var(--brand-red);
+            color: var(--text-primary);
         }
 
-        .logo-badge {
+        .logo-tag {
             background: var(--brand-red-subtle);
             color: var(--brand-red);
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 2px 8px;
+            padding: 3px 8px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 56, 80, 0.25);
+            border: 1px solid rgba(226, 55, 68, 0.2);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            font-family: 'Space Mono', monospace;
         }
 
         .nav-links {
@@ -185,7 +170,7 @@
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: var(--text-primary);
+            color: var(--brand-red);
         }
 
         .nav-links a::after {
@@ -196,7 +181,7 @@
             width: 0;
             height: 2px;
             background: var(--brand-red);
-            transition: width 0.25s ease;
+            transition: width 0.2s ease;
             border-radius: 2px;
         }
 
@@ -207,80 +192,100 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 0.9rem;
+            gap: 0.8rem;
         }
 
         .theme-switch {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.5rem 0.95rem;
-            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
         .theme-switch:hover {
-            transform: translateY(-1px);
             border-color: var(--brand-red);
+            color: var(--brand-red);
+            transform: translateY(-1px);
+        }
+
+        .resume-btn {
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .resume-btn:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+            transform: translateY(-1px);
         }
 
         .cta-btn {
             background: var(--brand-red);
             color: #FFFFFF !important;
             padding: 0.55rem 1.25rem;
-            border-radius: 30px;
+            border-radius: 24px;
             font-weight: 700;
             font-size: 0.85rem;
             border: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-            box-shadow: 0 4px 14px rgba(255, 56, 80, 0.35);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px rgba(226, 55, 68, 0.3);
         }
 
         .cta-btn:hover {
             background: var(--brand-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 56, 80, 0.45);
+            box-shadow: 0 6px 20px rgba(226, 55, 68, 0.4);
         }
 
         /* ── HERO SECTION ── */
         .hero {
-            max-width: 1360px;
+            max-width: 1320px;
             margin: 0 auto;
-            padding: 4rem 5% 3.5rem;
+            padding: 4.5rem 5% 3.5rem;
             display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 3.5rem;
             align-items: center;
         }
 
-        .hero-pill {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             background: var(--brand-red-subtle);
-            border: 1px solid rgba(255, 56, 80, 0.28);
-            padding: 6px 14px;
-            border-radius: 30px;
-            margin-bottom: 1.4rem;
+            border: 1px solid rgba(226, 55, 68, 0.25);
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-pill-dot {
+        .hero-badge-dot {
             width: 8px;
             height: 8px;
             background: var(--brand-red);
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 10px var(--brand-red);
+            box-shadow: 0 0 8px var(--brand-red);
             animation: pulse-dot 2s infinite ease-in-out;
         }
 
@@ -289,71 +294,73 @@
             50% { transform: scale(1.3); opacity: 0.7; }
         }
 
-        .hero-pill-text {
+        .hero-badge-text {
             color: var(--brand-red);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
         }
 
-        .hero-headline {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(3.8rem, 6.5vw, 6.2rem);
-            line-height: 0.95;
-            margin-bottom: 1.4rem;
+        .hero-text h1 {
+            font-size: 3.6rem;
+            line-height: 1.1;
+            margin-bottom: 1.3rem;
+            font-weight: 800;
             color: var(--text-primary);
-            letter-spacing: 1px;
         }
 
-        .hero-headline .accent-red {
+        .hero-text h1 span {
             color: var(--brand-red);
         }
 
-        .hero-headline .stroke-text {
-            -webkit-text-stroke: 1.5px var(--text-primary);
-            color: transparent;
-        }
-
-        .hero-lead {
-            font-size: 1.12rem;
+        .hero-text p.lead {
+            font-size: 1.15rem;
             color: var(--text-secondary);
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.6rem;
             max-width: 95%;
             line-height: 1.65;
         }
 
-        .hero-lead strong {
-            color: var(--text-primary);
+        /* Skills Ribbon for Graphic Design */
+        .skills-ribbon {
+            margin-bottom: 2rem;
         }
 
-        /* Hero Specs Grid */
-        .hero-specs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            margin-bottom: 2rem;
-            padding: 1.2rem 1.4rem;
+        .skills-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .skills-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-chip {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-        }
-
-        .spec-item h5 {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--brand-red);
-            margin-bottom: 0.35rem;
-        }
-
-        .spec-item p {
-            font-size: 0.88rem;
-            font-weight: 600;
             color: var(--text-primary);
-            line-height: 1.4;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-chip:hover {
+            border-color: var(--brand-red);
+            color: var(--brand-red);
+            transform: translateY(-2px);
         }
 
         .hero-actions {
@@ -365,9 +372,9 @@
 
         .btn-primary {
             background: var(--brand-red);
-            color: #FFFFFF !important;
-            padding: 0.8rem 1.8rem;
-            border-radius: 30px;
+            color: #FFFFFF;
+            padding: 0.75rem 1.7rem;
+            border-radius: 28px;
             font-weight: 700;
             font-size: 0.92rem;
             display: inline-flex;
@@ -375,21 +382,21 @@
             gap: 8px;
             border: none;
             transition: all 0.2s ease;
-            box-shadow: 0 6px 18px rgba(255, 56, 80, 0.35);
+            box-shadow: 0 6px 18px rgba(226, 55, 68, 0.35);
         }
 
         .btn-primary:hover {
             background: var(--brand-red-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 56, 80, 0.45);
+            box-shadow: 0 8px 24px rgba(226, 55, 68, 0.45);
         }
 
         .btn-outline {
             background: var(--surface-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 0.8rem 1.6rem;
-            border-radius: 30px;
+            padding: 0.75rem 1.6rem;
+            border-radius: 28px;
             font-weight: 700;
             font-size: 0.92rem;
             display: inline-flex;
@@ -402,19 +409,23 @@
             border-color: var(--brand-red);
             color: var(--brand-red);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
 
         /* ── INTERACTIVE CANVAS WHITEBOARD ── */
         .canvas-card {
             background: var(--surface-card);
-            border: 1px solid var(--border-color);
+            border: 2px dashed var(--border-color);
             border-radius: 20px;
             box-shadow: var(--card-shadow);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
+            transition: border-color 0.2s ease;
+        }
+
+        .canvas-card:hover {
+            border-color: var(--brand-red);
         }
 
         .canvas-header {
@@ -448,20 +459,18 @@
         .dot-green { background: #27C93F; }
 
         .canvas-title {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            font-family: 'Space Mono', monospace;
             color: var(--text-primary);
         }
 
         .canvas-status {
             font-size: 0.72rem;
+            font-weight: 600;
             color: var(--brand-red);
             background: var(--brand-red-subtle);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
         }
 
         .canvas-area {
@@ -480,46 +489,47 @@
             display: block;
         }
 
-        .canvas-hint {
+        .canvas-watermark {
             position: absolute;
-            bottom: 12px;
-            left: 14px;
-            font-size: 0.78rem;
-            font-family: 'Space Mono', monospace;
+            top: 14px;
+            left: 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
             color: var(--text-muted);
             pointer-events: none;
-            background: var(--surface-color);
-            padding: 4px 8px;
+            background: var(--surface-card);
+            padding: 4px 10px;
             border-radius: 6px;
-            border: 1px dashed var(--border-color);
+            border: 1px solid var(--border-color);
             opacity: 0.9;
             transition: opacity 0.3s ease;
         }
 
-        .canvas-area.active .canvas-hint {
+        .canvas-area.active .canvas-watermark {
             opacity: 0;
         }
 
+        /* Canvas Toolbar */
         .canvas-toolbar {
-            padding: 0.75rem 1rem;
+            padding: 0.75rem 1.1rem;
             background: var(--surface-color);
             border-top: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .toolbar-group {
             display: flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
         }
 
         .color-dot {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
             border: 2px solid transparent;
             cursor: pointer;
@@ -533,18 +543,17 @@
         .color-dot.active {
             border-color: var(--text-primary);
             transform: scale(1.2);
-            box-shadow: 0 0 6px rgba(0,0,0,0.3);
+            box-shadow: 0 0 6px rgba(0,0,0,0.2);
         }
 
         .stroke-btn {
-            background: var(--bg-color);
+            background: var(--surface-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            font-family: 'Space Mono', monospace;
         }
 
         .stroke-btn.active {
@@ -553,165 +562,71 @@
             border-color: var(--brand-red);
         }
 
-        .tool-action-btn {
-            background: var(--bg-color);
+        .tool-btn {
+            background: var(--surface-card);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            padding: 4px 10px;
+            padding: 4px 11px;
             border-radius: 6px;
-            font-size: 0.74rem;
+            font-size: 0.78rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            font-family: 'Space Mono', monospace;
             transition: all 0.2s ease;
         }
 
-        .tool-action-btn:hover {
-            background: var(--surface-hover);
-            border-color: var(--border-color);
-        }
-
-        .tool-action-btn.danger:hover {
+        .tool-btn:hover {
             border-color: var(--brand-red);
             color: var(--brand-red);
         }
 
-        /* ── DYNAMIC MARQUEE TICKER ── */
-        .ticker-strip {
+        .tool-btn.danger:hover {
             background: var(--brand-red);
             color: #FFFFFF;
-            padding: 14px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-color: var(--brand-red);
         }
 
-        .ticker-inner {
-            display: inline-block;
-            animation: ticker 28s linear infinite;
-        }
-
-        .ticker-inner span {
-            margin: 0 32px;
-        }
-
-        @keyframes ticker {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-
-        /* ── PHILOSOPHY / MANIFESTO ── */
-        .manifesto-section {
-            background: var(--surface-color);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 4.5rem 5%;
-        }
-
-        .manifesto-inner {
-            max-width: 1360px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .manifesto-label {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            padding-top: 8px;
-        }
-
-        .manifesto-quote {
-            font-family: 'DM Serif Display', serif;
-            font-size: clamp(1.8rem, 3.2vw, 3rem);
-            line-height: 1.25;
-            color: var(--text-primary);
-            margin-bottom: 2.5rem;
-        }
-
-        .manifesto-quote em {
-            color: var(--brand-red);
-            font-style: italic;
-        }
-
-        .manifesto-metrics {
-            display: flex;
-            gap: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            flex-wrap: wrap;
-        }
-
-        .metric-box h4 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            color: var(--brand-red);
-            line-height: 1;
-        }
-
-        .metric-box p {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
-        /* ── SELECTED WORK SECTION ── */
+        /* ── SECTION HEADER & FILTERS ── */
         .section-container {
-            max-width: 1360px;
+            max-width: 1320px;
             margin: 0 auto;
-            padding: 4.5rem 5%;
+            padding: 4rem 5%;
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2.2rem;
             flex-wrap: wrap;
             gap: 1.5rem;
         }
 
         .section-tag {
             color: var(--brand-red);
-            font-size: 0.78rem;
-            font-weight: 700;
+            font-size: 0.8rem;
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             display: block;
-            font-family: 'Space Mono', monospace;
         }
 
         .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3.5rem;
-            letter-spacing: 1px;
+            font-size: 2.5rem;
+            font-weight: 800;
             color: var(--text-primary);
-            line-height: 1;
+            line-height: 1.15;
         }
 
-        /* Filter Pills */
         .filter-tabs {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
             background: var(--surface-color);
             padding: 6px;
-            border-radius: 40px;
+            border-radius: 30px;
             border: 1px solid var(--border-color);
         }
 
@@ -719,10 +634,10 @@
             background: transparent;
             border: none;
             color: var(--text-secondary);
-            font-size: 0.84rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            padding: 7px 16px;
-            border-radius: 30px;
+            padding: 6px 16px;
+            border-radius: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
@@ -734,14 +649,13 @@
         .filter-btn.active {
             background: var(--brand-red);
             color: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(255, 56, 80, 0.35);
         }
 
         /* ── PORTFOLIO GRID & CARDS ── */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 2.2rem;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
         }
 
         .card {
@@ -750,28 +664,27 @@
             border: 1px solid var(--border-color);
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--brand-red);
             box-shadow: var(--card-shadow-hover);
         }
 
         .card-media {
-            position: relative;
             width: 100%;
-            height: 270px;
-            background: #000;
+            height: 250px;
+            background: var(--surface-color);
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
         .card-media img {
@@ -779,50 +692,27 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: transform 0.4s ease;
         }
 
         .card:hover .card-media img {
             transform: scale(1.05);
         }
 
-        /* 3x3 Navras Mini Grid inside Card */
-        .navras-mini-grid {
+        /* Mini Mosaic Strip for Navras Card */
+        .navras-mini-strip {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
             width: 100%;
             height: 100%;
-            gap: 2px;
             background: #000;
+            gap: 2px;
         }
 
-        .navras-tile {
-            position: relative;
-            overflow: hidden;
+        .navras-mini-strip img {
             width: 100%;
-            height: 100%;
-        }
-
-        .navras-tile img {
-            width: 100%;
-            height: 100%;
+            height: 125px;
             object-fit: cover;
-        }
-
-        .navras-tile .tile-label {
-            position: absolute;
-            bottom: 2px;
-            left: 4px;
-            font-size: 8px;
-            font-weight: 700;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1px 4px;
-            border-radius: 2px;
-            font-family: 'Space Mono', monospace;
-            letter-spacing: 0.5px;
-            pointer-events: none;
         }
 
         .card-body {
@@ -842,13 +732,12 @@
         .tag {
             background: var(--brand-red);
             color: #FFFFFF;
-            padding: 0.3rem 0.85rem;
+            padding: 0.28rem 0.8rem;
             border-radius: 20px;
             font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.5px;
             display: inline-block;
         }
 
@@ -860,12 +749,11 @@
         }
 
         .card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
+            font-size: 1.45rem;
+            font-weight: 800;
             margin-bottom: 0.6rem;
             color: var(--text-primary);
-            line-height: 1.1;
+            line-height: 1.25;
         }
 
         .card p {
@@ -880,10 +768,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
             border-top: 1px solid var(--border-color);
-            padding-top: 1.1rem;
+            padding-top: 1rem;
             margin-top: auto;
         }
 
@@ -894,16 +780,14 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            white-space: nowrap;
             transition: gap 0.2s ease;
-            font-family: 'Space Mono', monospace;
         }
 
         .card:hover .card-link-text {
             gap: 10px;
         }
 
-        .card-tech-chips {
+        .tech-chips {
             display: flex;
             gap: 6px;
         }
@@ -916,55 +800,47 @@
             padding: 2px 7px;
             border-radius: 4px;
             border: 1px solid var(--border-subtle);
-            font-family: 'Space Mono', monospace;
         }
 
-        /* ── CAPABILITIES & SKILLS ── */
+        /* ── GRAPHIC DESIGN DISCIPLINES ── */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 1rem;
+            gap: 1.5rem;
         }
 
         .skill-box {
             background: var(--surface-card);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            padding: 2rem;
+            padding: 1.8rem;
             box-shadow: var(--card-shadow);
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .skill-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             border-color: var(--brand-red);
         }
 
-        .skill-num {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            color: rgba(255, 56, 80, 0.25);
-            line-height: 1;
-            margin-bottom: 0.5rem;
+        .skill-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            display: inline-block;
         }
 
         .skill-box h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
-            letter-spacing: 1px;
-            margin-bottom: 0.6rem;
-            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .skill-box p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            margin-bottom: 1.2rem;
-            line-height: 1.6;
+            margin-bottom: 1.1rem;
         }
 
-        .skill-tags-list {
+        .sub-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
@@ -974,18 +850,17 @@
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 0.74rem;
+            font-size: 0.75rem;
             font-weight: 600;
             padding: 3px 8px;
             border-radius: 6px;
-            font-family: 'Space Mono', monospace;
         }
 
-        /* ── ABOUT SECTION & PHOTO ── */
+        /* ── ABOUT ME SECTION ── */
         .about-wrap {
             display: grid;
-            grid-template-columns: 0.85fr 1.15fr;
-            gap: 4rem;
+            grid-template-columns: 320px 1fr;
+            gap: 3.5rem;
             align-items: center;
             background: var(--surface-card);
             border: 1px solid var(--border-color);
@@ -994,109 +869,58 @@
             box-shadow: var(--card-shadow);
         }
 
-        .about-photo-col {
-            position: relative;
-        }
-
-        .about-photo-frame {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid var(--border-color);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background: #000;
-        }
-
-        .about-photo-frame img {
+        .about-portrait {
             width: 100%;
-            height: auto;
+            height: 380px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+        }
+
+        .about-portrait img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
-        }
-
-        .about-photo-badge {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            right: 16px;
-            background: rgba(14, 15, 18, 0.88);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #FFFFFF;
-        }
-
-        .about-photo-badge h5 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 2px;
-        }
-
-        .about-photo-badge p {
-            font-size: 0.76rem;
-            color: var(--brand-red);
-            font-family: 'Space Mono', monospace;
-            margin: 0;
+            object-position: center top;
         }
 
         .about-text h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            letter-spacing: 1px;
+            font-size: 2.4rem;
             margin-bottom: 1.2rem;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .about-text p {
             color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
             line-height: 1.7;
         }
 
-        .process-steps {
+        .stats-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.8rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid var(--border-color);
         }
 
-        .process-step {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 1.2rem;
-            border-radius: 12px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .process-step:hover {
-            border-color: var(--brand-red);
-            transform: translateY(-3px);
-        }
-
-        .step-num {
-            font-family: 'Bebas Neue', sans-serif;
+        .stat-item h4 {
+            font-size: 2.2rem;
             color: var(--brand-red);
-            font-size: 1.5rem;
+            font-weight: 900;
             line-height: 1;
-            margin-bottom: 4px;
-            display: block;
-        }
-
-        .step-content h4 {
-            font-size: 1rem;
             margin-bottom: 0.3rem;
-            color: var(--text-primary);
         }
 
-        .step-content p {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.5;
+        .stat-item p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* ── FOOTER & CONTACT ── */
@@ -1108,24 +932,21 @@
         }
 
         .footer-inner {
-            max-width: 860px;
+            max-width: 820px;
             margin: 0 auto;
         }
 
         footer h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4rem;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            line-height: 1;
+            font-size: 2.6rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
             color: var(--text-primary);
         }
 
         footer p.footer-sub {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            margin-bottom: 2.2rem;
         }
 
         .contact-action-bar {
@@ -1134,26 +955,24 @@
             align-items: center;
             gap: 1.2rem;
             flex-wrap: wrap;
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
         }
 
-        .email-copy-pill {
+        .email-pill {
             background: var(--surface-card);
             border: 1px solid var(--border-color);
             padding: 0.8rem 1.6rem;
-            border-radius: 40px;
+            border-radius: 30px;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
-            font-family: 'Space Mono', monospace;
             transition: all 0.2s ease;
         }
 
-        .email-copy-pill:hover {
+        .email-pill:hover {
             border-color: var(--brand-red);
             color: var(--brand-red);
             transform: translateY(-2px);
@@ -1163,18 +982,14 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
         }
 
         .footer-social-links a {
             color: var(--text-secondary);
             font-weight: 700;
-            font-size: 0.88rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'Space Mono', monospace;
+            font-size: 0.92rem;
             transition: color 0.2s ease;
         }
 
@@ -1183,7 +998,7 @@
         }
 
         .copyright {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             padding-top: 2rem;
@@ -1192,33 +1007,30 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
-            font-family: 'Space Mono', monospace;
         }
 
-        /* ── CASE STUDY DETAIL MODAL ── */
+        /* ── CASE STUDY MODAL ── */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(10, 11, 14, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
             opacity: 0;
-            visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: opacity 0.25s ease;
         }
 
         .modal-overlay.active {
             opacity: 1;
-            visibility: visible;
             pointer-events: auto;
         }
 
@@ -1227,30 +1039,30 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             width: 100%;
-            max-width: 1060px;
+            max-width: 960px;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-            transform: translateY(20px) scale(0.98);
-            transition: transform 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transform: translateY(20px);
+            transition: transform 0.25s ease;
         }
 
         .modal-overlay.active .modal-container {
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
         }
 
         .modal-close-btn {
             position: absolute;
             top: 1.2rem;
             right: 1.2rem;
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: var(--surface-color);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1265,57 +1077,21 @@
             transform: rotate(90deg);
         }
 
-        .modal-hero-img-wrap {
+        .modal-hero-wrap {
             width: 100%;
-            min-height: 420px;
-            max-height: 78vh;
-            background: #060709;
+            height: 420px;
+            background: #0A0A0A;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            padding: 2rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .modal-hero-img-wrap img {
-            width: auto;
-            height: auto;
+        .modal-hero-wrap img {
             max-width: 100%;
-            max-height: 72vh;
+            max-height: 100%;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
-            transition: opacity 0.25s ease;
-            display: block;
-        }
-
-        .modal-full-view-btn {
-            position: absolute;
-            bottom: 1rem;
-            right: 1.2rem;
-            background: rgba(17, 18, 21, 0.9);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-family: 'Space Mono', monospace;
-            text-decoration: none;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 10;
-            transition: all 0.2s ease;
-        }
-
-        .modal-full-view-btn:hover {
-            border-color: var(--brand-red);
-            color: var(--brand-red);
-            background: rgba(255, 56, 80, 0.12);
-            transform: translateY(-1px);
+            transition: opacity 0.2s ease;
         }
 
         .modal-body {
@@ -1324,23 +1100,21 @@
 
         .modal-header-meta {
             display: flex;
-            gap: 10px;
             align-items: center;
+            gap: 10px;
             margin-bottom: 0.8rem;
         }
 
         .modal-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.8rem;
-            letter-spacing: 1px;
+            font-size: 2.2rem;
+            font-weight: 800;
             margin-bottom: 1.2rem;
             color: var(--text-primary);
-            line-height: 1;
         }
 
         .modal-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.2rem;
             padding: 1.2rem 1.5rem;
             background: var(--surface-color);
@@ -1350,11 +1124,10 @@
         }
 
         .info-cell h5 {
-            font-size: 0.72rem;
-            font-family: 'Space Mono', monospace;
+            font-size: 0.74rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--brand-red);
+            color: var(--text-muted);
             margin-bottom: 0.3rem;
         }
 
@@ -1362,7 +1135,6 @@
             font-size: 0.92rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin: 0;
         }
 
         .modal-section {
@@ -1370,14 +1142,10 @@
         }
 
         .modal-section h4 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.6rem;
-            letter-spacing: 1px;
+            font-size: 1.15rem;
+            font-weight: 800;
             margin-bottom: 0.6rem;
             color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .modal-section p {
@@ -1386,56 +1154,40 @@
             line-height: 1.7;
         }
 
-        /* Modal Gallery Strips */
-        .modal-gallery-row {
+        /* 9-Rasas Gallery Grid inside Modal */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
             gap: 12px;
             margin-top: 1rem;
         }
 
-        .gallery-thumb-item {
-            background: #08090C;
-            border: 2px solid var(--border-color);
+        .gallery-item {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
         }
 
-        .gallery-thumb-item:hover, .gallery-thumb-item.active {
+        .gallery-item:hover, .gallery-item.active {
+            transform: scale(1.03);
             border-color: var(--brand-red);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255, 56, 80, 0.25);
         }
 
-        .gallery-thumb-img-box {
+        .gallery-item img {
             width: 100%;
-            height: 125px;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
+            height: 140px;
+            object-fit: cover;
         }
 
-        .gallery-thumb-item img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-
-        .gallery-thumb-caption {
-            padding: 6px 8px;
-            font-size: 0.75rem;
+        .gallery-item-caption {
+            padding: 8px 10px;
+            font-size: 0.78rem;
             font-weight: 700;
-            color: var(--text-primary);
             text-align: center;
-            font-family: 'Space Mono', monospace;
+            color: var(--text-primary);
         }
 
         /* ── TOAST NOTIFICATION ── */
@@ -1448,16 +1200,12 @@
             padding: 12px 20px;
             border-radius: 10px;
             font-size: 0.88rem;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
             z-index: 3000;
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            font-family: 'Space Mono', monospace;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .toast.show {
@@ -1465,482 +1213,112 @@
             opacity: 1;
         }
 
-        /* ── MOBILE TOGGLE & DRAWER ── */
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            width: 40px;
-            height: 40px;
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            cursor: pointer;
-            padding: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .mobile-toggle .bar {
-            width: 20px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: all 0.25s ease;
-        }
-
-        .mobile-toggle.active .bar:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        .mobile-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-toggle.active .bar:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        .mobile-nav-drawer {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background: rgba(14, 15, 18, 0.98);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1.2rem 5% 1.8rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-            z-index: 999;
-        }
-
-        [data-theme="light"] .mobile-nav-drawer {
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        .mobile-nav-drawer.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .mobile-nav-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: 10px;
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .mobile-nav-item:hover, .mobile-nav-item:active {
-            border-color: var(--brand-red);
-            color: var(--brand-red);
-            background: var(--brand-red-subtle);
-        }
-
-        .mobile-nav-item.resume-link {
-            border-color: var(--brand-red);
-            color: var(--brand-red);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.9rem;
-        }
-
-        /* ── RESPONSIVE ADAPTIVE SYSTEM ACROSS ALL DEVICES ── */
-        @media (max-width: 1200px) {
-            .hero {
-                gap: 2.5rem;
-                padding: 3.5rem 5% 3rem;
-            }
-            .hero-headline {
-                font-size: clamp(3rem, 5.5vw, 4.8rem);
-            }
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                gap: 1.8rem;
-            }
-        }
-
+        /* ── RESPONSIVE ── */
         @media (max-width: 992px) {
             .hero {
                 grid-template-columns: 1fr;
-                padding: 3rem 5% 2.5rem;
-                gap: 2.2rem;
+                padding: 3.5rem 5%;
+                gap: 2.5rem;
             }
-            .manifesto-inner {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .hero-text h1 {
+                font-size: 3rem;
             }
             .about-wrap {
                 grid-template-columns: 1fr;
                 padding: 2.5rem 1.8rem;
-                gap: 2.5rem;
+                gap: 2rem;
             }
-            .about-photo-col {
-                max-width: 420px;
+            .about-portrait {
+                max-width: 280px;
+                height: 320px;
                 margin: 0 auto;
-                width: 100%;
-            }
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.2rem;
             }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 0.85rem 5%;
-            }
             .nav-links {
                 display: none;
             }
-            .mobile-toggle {
-                display: flex;
-            }
-            .mobile-nav-drawer {
-                display: block;
-            }
-            .cta-btn {
-                display: none;
-            }
-            .section-container {
-                padding: 4rem 5%;
-            }
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.2rem;
-                margin-bottom: 2rem;
+            .hero-text h1 {
+                font-size: 2.4rem;
             }
             .section-title {
-                font-size: clamp(2.2rem, 7vw, 2.8rem);
-            }
-            .filter-tabs {
-                width: 100%;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                padding: 6px;
-                border-radius: 14px;
-            }
-            .filter-tabs::-webkit-scrollbar {
-                display: none;
-            }
-            .filter-btn {
-                white-space: nowrap;
-                flex-shrink: 0;
-                padding: 6px 14px;
-                font-size: 0.8rem;
-            }
-            .hero-specs {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-                gap: 0.9rem;
-            }
-            .hero-actions {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-            }
-            .hero-actions .btn-primary,
-            .hero-actions .btn-outline {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-                padding: 0.85rem 1.2rem;
-            }
-            .canvas-area {
-                height: 290px;
-            }
-            .canvas-toolbar {
-                padding: 0.8rem;
-                gap: 8px;
-            }
-            .manifesto-metrics {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                font-size: 2rem;
             }
             .portfolio-grid {
                 grid-template-columns: 1fr;
-                gap: 1.6rem;
             }
-            .card-media {
-                height: 250px;
-            }
-            .process-steps {
+            .stats-row {
                 grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            footer {
-                padding: 4rem 5% 3rem;
-            }
-            footer h2 {
-                font-size: clamp(2.4rem, 8vw, 3.4rem);
-            }
-            .contact-action-bar {
-                flex-direction: column;
-                width: 100%;
-                gap: 12px;
-                margin-bottom: 2.5rem;
-            }
-            .email-copy-pill,
-            .contact-action-bar .btn-primary {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-            .footer-social-links {
-                gap: 10px;
-            }
-            .footer-social-links a {
-                padding: 6px 14px;
-                font-size: 0.82rem;
-            }
-            /* Modal on Mobile / Tablet */
-            .modal-overlay {
-                padding: 0.5rem;
-                align-items: flex-end;
-            }
-            .modal-container {
-                max-height: 94vh;
-                margin: 0;
-                border-radius: 18px 18px 10px 10px;
-            }
-            .modal-hero-img-wrap {
-                min-height: 240px;
-                max-height: 52vh;
-                padding: 1rem 0.6rem;
-            }
-            .modal-hero-img-wrap img {
-                max-height: 48vh;
-            }
-            .modal-full-view-btn {
-                bottom: 0.6rem;
-                right: 0.6rem;
-                font-size: 0.7rem;
-                padding: 4px 10px;
-            }
-            .modal-close-btn {
-                top: 0.7rem;
-                right: 0.7rem;
-                width: 36px;
-                height: 36px;
-                font-size: 1.5rem;
+            .modal-hero-wrap {
+                height: 280px;
             }
             .modal-body {
-                padding: 1.4rem;
-            }
-            .modal-title {
-                font-size: clamp(1.8rem, 6vw, 2.4rem);
-            }
-            .modal-info-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
-                padding: 0.9rem;
-            }
-            .modal-gallery-row {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 8px;
-            }
-            .gallery-thumb-img-box {
-                height: 95px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 0.75rem 4%;
-            }
-            .logo {
-                font-size: 1.45rem;
-            }
-            .logo-badge {
-                display: none;
-            }
-            .theme-switch {
-                padding: 0.4rem 0.65rem;
-                font-size: 0.75rem;
-            }
-            #themeText {
-                display: none;
-            }
-            .hero {
-                padding: 2.2rem 4% 2rem;
-            }
-            .hero-pill {
-                font-size: 0.74rem;
-                padding: 4px 10px;
-            }
-            .hero-headline {
-                font-size: clamp(2.1rem, 9.5vw, 2.8rem);
-                line-height: 1;
-                margin-bottom: 1rem;
-            }
-            .hero-lead {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-            .canvas-area {
-                height: 250px;
-            }
-            .canvas-toolbar {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            .toolbar-group {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .color-dot {
-                width: 26px;
-                height: 26px;
-            }
-            .stroke-btn {
-                padding: 5px 12px;
-                font-size: 0.75rem;
-            }
-            .tool-action-btn {
-                padding: 6px 12px;
-                font-size: 0.75rem;
-            }
-            .manifesto-quote {
-                font-size: 1.3rem;
-            }
-            .metric-box h4 {
-                font-size: 2.2rem;
-            }
-            .about-wrap {
-                padding: 1.5rem 1.2rem;
-                border-radius: 16px;
-            }
-            .about-text h2 {
-                font-size: 2rem;
-            }
-            .card-media {
-                height: 220px;
-            }
-            .card-body {
-                padding: 1.4rem;
-            }
-            .modal-info-grid {
-                grid-template-columns: 1fr;
-            }
-            .toast {
-                left: 14px;
-                right: 14px;
-                bottom: 16px;
-                font-size: 0.8rem;
-                padding: 10px 14px;
-                justify-content: center;
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ── NAVIGATION BAR ── -->
+    <!-- ── NAVIGATION ── -->
     <header>
         <nav>
-            <div class="logo-wrap">
-                <a href="#" class="logo">ABHINANDNA<span>.</span></a>
-                <span class="logo-badge">Graphic Portfolio</span>
+            <div class="logo-group">
+                <a href="#" class="logo">AV<span>.</span></a>
+                <span class="logo-tag">Graphic Designer</span>
             </div>
 
             <ul class="nav-links">
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#work">Selected Work</a></li>
-                <li><a href="#skills">Disciplines</a></li>
-                <li><a href="#whiteboard">Canvas Sandbox</a></li>
+                <li><a href="#work" class="active">Selected Works</a></li>
+                <li><a href="#whiteboard">Creative Sandbox</a></li>
+                <li><a href="#disciplines">Disciplines</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
                 <button class="theme-switch" id="themeToggle" aria-label="Toggle theme">
-                    <span id="themeIcon">☀️</span>
-                    <span id="themeText">Light Mode</span>
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark Mode</span>
                 </button>
-                <a href="#contact" class="cta-btn">Let's Connect</a>
-                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
+                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="resume-btn">Resume 📄</a>
+                <a href="#contact" class="cta-btn">Let's Talk</a>
             </div>
         </nav>
-
-        <!-- Mobile Navigation Drawer -->
-        <div class="mobile-nav-drawer" id="mobileNavDrawer">
-            <ul class="mobile-nav-links">
-                <li><a href="#about" class="mobile-nav-item">About Me ✦</a></li>
-                <li><a href="#work" class="mobile-nav-item">Selected Work (6) ✦</a></li>
-                <li><a href="#skills" class="mobile-nav-item">Disciplines &amp; Skills ✦</a></li>
-                <li><a href="#whiteboard" class="mobile-nav-item">Canvas Sandbox 🎨</a></li>
-                <li><a href="#contact" class="mobile-nav-item">Let's Connect ✉️</a></li>
-                <li><a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="mobile-nav-item resume-link">Download Resume (PDF) 📄</a></li>
-            </ul>
-        </div>
     </header>
 
     <!-- ── HERO SECTION ── -->
     <section class="hero" id="hero">
         <div class="hero-text">
-            <div class="hero-pill">
-                <span class="hero-pill-dot"></span>
-                <span class="hero-pill-text">B.Des Interaction Design @ UPES Dehradun</span>
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span class="hero-badge-text">Graphic Design &amp; Visual Art • UPES</span>
             </div>
             
-            <h1 class="hero-headline">
-                CRAFTING BOLD <span class="accent-red">BRAND IDENTITIES</span>, VISUAL SYSTEMS &amp; <span class="stroke-text">DIGITAL UX</span>
-            </h1>
-
-            <p class="hero-lead">
-                I am <strong>Abhinandna Vaidya</strong>, a graphic &amp; interaction designer. Curious enough to question everything, chaotic enough to explore anything — but intentional enough to turn it into meaningful, evocative visual solutions.
+            <h1>Crafting bold <span>visual identities</span>, posters &amp; <span>graphic art</span>.</h1>
+            
+            <p class="lead">
+                I am <strong>Abhinandna Vaidya</strong>, a graphic designer and visual artist at UPES. I specialize in brand identity systems, high-impact poster design, expressive cultural illustrations, and thoughtful visual storytelling.
             </p>
 
-            <div class="hero-specs">
-                <div class="spec-item">
-                    <h5>Education</h5>
-                    <p>B.Des Interaction Design<br>UPES Dehradun (2023–Present)</p>
-                </div>
-                <div class="spec-item">
-                    <h5>Discipline</h5>
-                    <p>Brand Identity, Typography, UI/UX, Cultural Art</p>
-                </div>
-                <div class="spec-item">
-                    <h5>Status</h5>
-                    <p>Open for Internships &amp; Collaborations 🟢</p>
+            <div class="skills-ribbon">
+                <span class="skills-label">Core Creative Toolset</span>
+                <div class="skills-badges">
+                    <span class="skill-chip">🖌️ Adobe Illustrator</span>
+                    <span class="skill-chip">🎨 Photoshop</span>
+                    <span class="skill-chip">📖 InDesign</span>
+                    <span class="skill-chip">🎬 Premiere Pro</span>
+                    <span class="skill-chip">🏷️ Brand Identity</span>
+                    <span class="skill-chip">✒️ Typography</span>
+                    <span class="skill-chip">✨ Digital Illustration</span>
                 </div>
             </div>
 
             <div class="hero-actions">
-                <a href="#about" class="btn-primary">Learn About Me →</a>
-                <a href="#work" class="btn-outline">Explore Selected Work ↓</a>
-                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-outline">Download Resume 📄</a>
+                <a href="#work" class="btn-primary">View Selected Works ↓</a>
                 <a href="#whiteboard" class="btn-outline">Try Whiteboard 🎨</a>
             </div>
         </div>
@@ -1961,246 +1339,126 @@
 
             <div class="canvas-area" id="canvasArea">
                 <canvas id="drawCanvas"></canvas>
-                <div class="canvas-hint" id="canvasHint">✏️ Click or touch &amp; drag to sketch ideas!</div>
+                <div class="canvas-watermark" id="canvasHint">✏️ Click or touch &amp; drag to sketch an idea!</div>
             </div>
 
             <div class="canvas-toolbar">
                 <div class="toolbar-group">
-                    <!-- Palette -->
-                    <div class="color-dot active" style="background: #FF3850;" data-color="#FF3850" title="Signature Red"></div>
-                    <div class="color-dot" style="background: #00E5FF;" data-color="#00E5FF" title="Cyan Accent"></div>
-                    <div class="color-dot" style="background: #FFD200;" data-color="#FFD200" title="Sun Gold"></div>
-                    <div class="color-dot" style="background: #FFFFFF; border: 1px solid #555;" data-color="#FFFFFF" title="Clean White"></div>
-                    <div class="color-dot" style="background: #111215; border: 1px solid #777;" data-color="#111215" title="Deep Charcoal"></div>
+                    <div class="color-dot active" style="background: #E23744;" data-color="#E23744" title="Zomato Red"></div>
+                    <div class="color-dot" style="background: #121316;" data-color="#121316" title="Dark Graphite"></div>
+                    <div class="color-dot" style="background: #00C4FF;" data-color="#00C4FF" title="Cyan Accent"></div>
+                    <div class="color-dot" style="background: #FFB800;" data-color="#FFB800" title="Sun Gold"></div>
+                    <div class="color-dot" style="background: #FFFFFF; border: 1px solid #CCC;" data-color="#FFFFFF" title="Clean White"></div>
                 </div>
 
                 <div class="toolbar-group">
-                    <!-- Stroke Size -->
                     <button class="stroke-btn" data-size="2" title="Fine">Fine</button>
                     <button class="stroke-btn active" data-size="4" title="Medium">Med</button>
                     <button class="stroke-btn" data-size="8" title="Bold">Bold</button>
                 </div>
 
                 <div class="toolbar-group">
-                    <button class="tool-action-btn" id="eraserBtn" title="Eraser">🧹 Erase</button>
-                    <button class="tool-action-btn danger" id="clearCanvas" title="Clear Canvas">🗑️ Clear</button>
-                    <button class="tool-action-btn" id="downloadCanvas" title="Save Sketch">💾 Save</button>
+                    <button class="tool-btn" id="eraserBtn" title="Eraser">🧹 Erase</button>
+                    <button class="tool-btn danger" id="clearCanvas" title="Clear Canvas">🗑️ Clear</button>
+                    <button class="tool-btn" id="downloadCanvas" title="Download Sketch">💾 Save</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ── TICKER MARQUEE ── -->
-    <div class="ticker-strip">
-        <div class="ticker-inner">
-            <span>BRAND IDENTITY SYSTEM</span><span>✦</span>
-            <span>POSTER &amp; CAMPAIGN DESIGN</span><span>✦</span>
-            <span>THE NAVRAS SERIES · 9 EMOTIONS</span><span>✦</span>
-            <span>EDITORIAL TYPOGRAPHY</span><span>✦</span>
-            <span>SPATIAL COMPUTING &amp; VR</span><span>✦</span>
-            <span>VISUAL STORYTELLING</span><span>✦</span>
-            <span>CRICKET NEWS TIMES LOGOFOLIO</span><span>✦</span>
-            <span>FRIDGMATE PHYGITAL UX</span><span>✦</span>
-            <span>BRAND IDENTITY SYSTEM</span><span>✦</span>
-            <span>POSTER &amp; CAMPAIGN DESIGN</span><span>✦</span>
-            <span>THE NAVRAS SERIES · 9 EMOTIONS</span><span>✦</span>
-            <span>EDITORIAL TYPOGRAPHY</span><span>✦</span>
-            <span>SPATIAL COMPUTING &amp; VR</span><span>✦</span>
-            <span>VISUAL STORYTELLING</span><span>✦</span>
-        </div>
-    </div>
-
-    <!-- ── PHILOSOPHY / MANIFESTO ── -->
-    <section class="manifesto-section">
-        <div class="manifesto-inner">
-            <div class="manifesto-label">Philosophy</div>
-            <div>
-                <p class="manifesto-quote">
-                    Design isn't decoration — it's a <em>point of view</em>. Every color carries emotion. Every typeface tells a story. I create work that <em>feels before it thinks</em>.
-                </p>
-                <div class="manifesto-metrics">
-                    <div class="metric-box">
-                        <h4>6+</h4>
-                        <p>Curated Case Studies</p>
-                    </div>
-                    <div class="metric-box">
-                        <h4>9</h4>
-                        <p>Rasas Illustrated</p>
-                    </div>
-                    <div class="metric-box">
-                        <h4>3+</h4>
-                        <p>Brand Identities Shipped</p>
-                    </div>
-                    <div class="metric-box">
-                        <h4>∞</h4>
-                        <p>Iterations &amp; Polish</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── ABOUT & MANIFESTO ── -->
-    <section class="section-container" id="about">
-        <div class="about-wrap">
-            <div class="about-photo-col">
-                <div class="about-photo-frame">
-                    <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
-                    <div class="about-photo-badge">
-                        <h5>Abhinandna Vaidya</h5>
-                        <p>Interaction Designer @ UPES Dehradun</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-text">
-                <span class="section-tag">Designer Profile</span>
-                <h2>Balancing artistic emotion with pragmatic engineering.</h2>
-                <p>
-                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies, Dehradun)</strong>. My work lives at the intersection of bold graphic communication, deep cultural heritage, and modern user-centered interaction design.
-                </p>
-                <p>
-                    Whether formulating a sports broadcast brand identity, reviving the Navarasas through botanical digital paintings, or tackling household food waste with hardware IoT displays, I believe every detail must have intent.
-                </p>
-
-                <div class="process-steps">
-                    <div class="process-step">
-                        <span class="step-num">01</span>
-                        <div class="step-content">
-                            <h4>Discover &amp; Question</h4>
-                            <p>Examine the core problem, cultural context, and human emotional hook.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">02</span>
-                        <div class="step-content">
-                            <h4>Concept &amp; Moodboard</h4>
-                            <p>Translate insights into typography, color systems, and iterative visual explorations.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">03</span>
-                        <div class="step-content">
-                            <h4>Craft &amp; Iterate</h4>
-                            <p>Pixel-perfect execution in Illustrator, Photoshop, and Figma with meticulous craft.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <span class="step-num">04</span>
-                        <div class="step-content">
-                            <h4>Deliver &amp; Storytell</h4>
-                            <p>Presenting work with rationale, context, and clear real-world resonance.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download class="btn-primary">Download Official Resume (PDF) 📄</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── SELECTED WORK SECTION ── -->
+    <!-- ── SELECTED GRAPHIC DESIGN WORKS ── -->
     <section class="section-container" id="work">
         <div class="section-header">
             <div>
-                <span class="section-tag">Portfolio Showcase</span>
-                <h2 class="section-title">Selected Case Studies</h2>
+                <span class="section-tag">Graphic Design Portfolio</span>
+                <h2 class="section-title">Selected Works</h2>
             </div>
             
-            <!-- Category Filter Tabs -->
             <div class="filter-tabs">
-                <button class="filter-btn active" data-filter="all">All (6)</button>
-                <button class="filter-btn" data-filter="branding">Branding</button>
-                <button class="filter-btn" data-filter="poster">Posters &amp; Campaigns</button>
-                <button class="filter-btn" data-filter="illustration">Digital Art</button>
-                <button class="filter-btn" data-filter="uiux">UI/UX &amp; Spatial</button>
+                <button class="filter-btn active" data-filter="all">All Works (6)</button>
+                <button class="filter-btn" data-filter="branding">Brand Identity</button>
+                <button class="filter-btn" data-filter="illustration">Illustrations</button>
+                <button class="filter-btn" data-filter="poster">Posters</button>
+                <button class="filter-btn" data-filter="concept">Concepts</button>
             </div>
         </div>
 
         <div class="portfolio-grid" id="portfolioGrid">
             
-            <!-- CARD 1: SPORTS BRAND IDENTITY -->
+            <!-- 1. THE NAVRAS SERIES -->
+            <div class="card" data-category="illustration" onclick="openProject('navras')">
+                <div class="card-media">
+                    <div class="navras-mini-strip">
+                        <img src="navras_shringar.jpg" alt="Shringar Rasa" loading="lazy">
+                        <img src="navras_raudra.jpg" alt="Raudra Rasa" loading="lazy">
+                        <img src="navras_adbhuta.jpg" alt="Adbhuta Rasa" loading="lazy">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Digital Illustration</span>
+                        <span class="card-year">2026</span>
+                    </div>
+                    <h3>The Navras Series (Nine Human Emotions)</h3>
+                    <p>An intricate digital illustration exploration of the nine classical Indian human emotions. Blending traditional Indian ornamental patterns with contemporary visual composition and dramatic lighting.</p>
+                    <div class="card-footer">
+                        <span class="card-link-text">Explore All 9 Rasas →</span>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Illustrator</span>
+                            <span class="tech-chip">Heritage Art</span>
+                            <span class="tech-chip">9 Artworks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. SPORTS IDENTITY & LOGOFOLIO -->
             <div class="card" data-category="branding" onclick="openProject('sports_identity')">
                 <div class="card-media">
-                    <img src="cricket_news.png" alt="Cricket News Brand Identity System" loading="lazy">
+                    <img src="cricket_news.png" alt="Sports Media Brand Identity" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
                         <span class="tag">Brand Identity</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>Cricket News Times &amp; Sports Media</h3>
-                    <p>Complete visual identity system for sports media publications. Aerodynamic angular typography, a high-octane red &amp; ink palette (#E13B04), broadcast tickers, app icons, and collateral design.</p>
+                    <h3>Sports Identity System &amp; Logofolio</h3>
+                    <p>Dynamic, high-impact brand identities engineered for platforms like 'The India Cricket' and 'Times Sports News'. Built with sharp typographic choices, energetic sports palettes, and versatile emblem locks.</p>
                     <div class="card-footer">
-                        <span class="card-link-text">Explore Brand System →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Illustrator</span>
-                            <span class="tech-chip">Logofolio</span>
+                        <span class="card-link-text">View Brand System →</span>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Logo Design</span>
                             <span class="tech-chip">Typography</span>
+                            <span class="tech-chip">Illustrator</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 2: THE NAVRAS SERIES (3x3 MOSAIC THUMBNAIL) -->
-            <div class="card" data-category="illustration" onclick="openProject('navras')">
-                <div class="card-media">
-                    <div class="navras-mini-grid">
-                        <div class="navras-tile"><img src="navras_shringar.jpg" alt="Shringar"><span class="tile-label">Shringar</span></div>
-                        <div class="navras-tile"><img src="navras_hasya.jpg" alt="Hasya"><span class="tile-label">Hasya</span></div>
-                        <div class="navras-tile"><img src="navras_raudra.jpg" alt="Raudra"><span class="tile-label">Raudra</span></div>
-                        <div class="navras-tile"><img src="navras_karuna.png" alt="Karuna"><span class="tile-label">Karuna</span></div>
-                        <div class="navras-tile"><img src="navras_vira.jpg" alt="Vira"><span class="tile-label">Vira</span></div>
-                        <div class="navras-tile"><img src="navras_bhayanaka.png" alt="Bhayanaka"><span class="tile-label">Bhayanaka</span></div>
-                        <div class="navras-tile"><img src="navras_bibhatsa.jpg" alt="Bibhatsa"><span class="tile-label">Bibhatsa</span></div>
-                        <div class="navras-tile"><img src="navras_adbhuta.jpg" alt="Adbhuta"><span class="tile-label">Adbhuta</span></div>
-                        <div class="navras-tile"><img src="navras_shanta.png" alt="Shanta"><span class="tile-label">Shanta</span></div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        <span class="tag">Digital Art</span>
-                        <span class="card-year">2026</span>
-                    </div>
-                    <h3>The Navras Series: 9 Emotions in Color</h3>
-                    <p>Contemporary reinterpretation of the nine classical Indian aesthetic emotions (Navarasas). Each frame maps human psychological states to curated botanical forms, chromatic hierarchies, and dramatic lighting.</p>
-                    <div class="card-footer">
-                        <span class="card-link-text">Explore All 9 Rasas →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Heritage Art</span>
-                            <span class="tech-chip">Photoshop</span>
-                            <span class="tech-chip">9 Pieces</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CARD 3: CRIMSON RED POSTER -->
+            <!-- 3. UURJA 2026 & CRIMSON RED -->
             <div class="card" data-category="poster" onclick="openProject('crimson_red')">
                 <div class="card-media">
-                    <img src="crimson_red.png" alt="Crimson Red Menstrual Health Campaign" style="object-position: top center;" loading="lazy">
+                    <img src="crimson_red.png" alt="Crimson Red Social Campaign Poster" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">Poster Campaign</span>
+                        <span class="tag">Poster Design</span>
                         <span class="card-year">2026</span>
                     </div>
                     <h3>Uurja 2026 &amp; Crimson Red</h3>
-                    <p>Breaking taboo through bold graphic design. Educational visual campaign destigmatizing menstrual health discussions using botanical illustration, harmonic warm pastel palettes, and editorial typography.</p>
+                    <p>Event branding for the Uurja cultural festival alongside 'Crimson Red', an approachable, dignified visual poster project destigmatizing menstrual health conversations through botanical elegance and bold typography.</p>
                     <div class="card-footer">
-                        <span class="card-link-text">Read Case Study →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Editorial</span>
+                        <span class="card-link-text">View Poster Project →</span>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Poster Art</span>
+                            <span class="tech-chip">Photoshop</span>
                             <span class="tech-chip">Social Impact</span>
-                            <span class="tech-chip">Poster</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 4: THE BOY WHO LIVED -->
+            <!-- 4. THE BOY WHO LIVED -->
             <div class="card" data-category="poster" onclick="openProject('boy_who_lived')">
                 <div class="card-media">
                     <img src="boy_who_lived.jpg" alt="The Boy Who Lived Dark Cinematic Poster" loading="lazy">
@@ -2210,60 +1468,60 @@
                         <span class="tag">Cinematic Poster</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>The Boy Who Lived: Dark Cinematic Poster</h3>
-                    <p>A moody cinematic key-art poster depicting Hogwarts castle glimpsed through a crumbling stone aperture. High chiaroscuro contrast, misty atmospheric depth, and classical gothic typography.</p>
+                    <h3>The Boy Who Lived</h3>
+                    <p>A dark atmospheric cinematic concept poster exploring depth, gothic typography, and visual storytelling through dramatic chiaroscuro lighting and crumbling stone architectural silhouettes.</p>
                     <div class="card-footer">
                         <span class="card-link-text">View Artwork →</span>
-                        <div class="card-tech-chips">
+                        <div class="tech-chips">
                             <span class="tech-chip">Key Art</span>
-                            <span class="tech-chip">Lighting Study</span>
                             <span class="tech-chip">Digital Matte</span>
+                            <span class="tech-chip">Lighting Study</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 5: FRIDGMATE PHYGITAL CONCEPT -->
-            <div class="card" data-category="uiux" onclick="openProject('fridgmate')">
+            <!-- 5. CREATIWISE EDITORIAL & TYPOGRAPHY -->
+            <div class="card" data-category="branding" onclick="openProject('creatiwise')">
                 <div class="card-media">
-                    <img src="fridgmate.jpg" alt="Fridgmate Smart Kitchen Hardware UI" style="object-position: 82% center;" loading="lazy">
+                    <img src="graphic_creatiwise_one.webp" alt="Creatiwise Editorial & Typographic System" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">UI/UX &amp; Hardware</span>
+                        <span class="tag">Editorial &amp; Grid</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>Fridgmate: Smart Kitchen Ecosystem</h3>
-                    <p>A smart magnetic display reimagining kitchen food-waste management. Features a unique sliding-rail camera mechanism for hidden-inventory tracking, automated freshness alerts, and AI recipe suggestions.</p>
+                    <h3>Creatiwise Typographic System</h3>
+                    <p>Rigorous editorial design, typographic hierarchy, and brand collateral. Explores structural grid alignments, clean Swiss-inspired layout principles, and brand manual collateral.</p>
                     <div class="card-footer">
-                        <span class="card-link-text">Read Case Study →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Figma</span>
-                            <span class="tech-chip">Hardware UI</span>
-                            <span class="tech-chip">IoT</span>
+                        <span class="card-link-text">View Layout Study →</span>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Grid System</span>
+                            <span class="tech-chip">InDesign</span>
+                            <span class="tech-chip">Collateral</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- CARD 6: GATHA VR -->
-            <div class="card" data-category="uiux" onclick="openProject('gatha_vr')">
+            <!-- 6. GATHA VR CULTURAL ART -->
+            <div class="card" data-category="concept" onclick="openProject('gatha_vr')">
                 <div class="card-media">
-                    <img src="gatha_vr.jpg" alt="Gatha VR Spatial Indian Heritage Experience" loading="lazy">
+                    <img src="gatha_vr.jpg" alt="Gatha VR Cultural Heritage Art" loading="lazy">
                 </div>
                 <div class="card-body">
                     <div class="card-meta">
-                        <span class="tag">Spatial UI / VR</span>
+                        <span class="tag">Heritage Art</span>
                         <span class="card-year">2026</span>
                     </div>
-                    <h3>Gatha VR: Traditional Indian Art in Spatial 3D</h3>
-                    <p>An immersive virtual reality museum celebrating India's living folk traditions (Kalamkari, Madhubani, Warli). Transposes historical narratives into interactive spatial environments with gesture UI.</p>
+                    <h3>Gatha VR: Folk Art in 3D Space</h3>
+                    <p>An immersive visual project translating India's rich folk art traditions (Kalamkari tree-of-life scrolls and Madhubani narrative paintings) into multi-dimensional spatial exhibition environments.</p>
                     <div class="card-footer">
-                        <span class="card-link-text">Read Case Study →</span>
-                        <div class="card-tech-chips">
-                            <span class="tech-chip">Spatial UI</span>
-                            <span class="tech-chip">VR Museum</span>
-                            <span class="tech-chip">Heritage</span>
+                        <span class="card-link-text">View Visual Concept →</span>
+                        <div class="tech-chips">
+                            <span class="tech-chip">Spatial Art</span>
+                            <span class="tech-chip">Indian Folklore</span>
+                            <span class="tech-chip">Exhibition</span>
                         </div>
                     </div>
                 </div>
@@ -2272,61 +1530,96 @@
         </div>
     </section>
 
-    <!-- ── CAPABILITIES SECTION ── -->
-    <section class="section-container" id="skills">
+    <!-- ── GRAPHIC DESIGN DISCIPLINES ── -->
+    <section class="section-container" id="disciplines">
         <div class="section-header">
             <div>
-                <span class="section-tag">Disciplines &amp; Toolset</span>
-                <h2 class="section-title">Design Capabilities</h2>
+                <span class="section-tag">Areas of Expertise</span>
+                <h2 class="section-title">Graphic Design Disciplines</h2>
             </div>
         </div>
 
         <div class="skills-grid">
             <div class="skill-box">
-                <div class="skill-num">01</div>
+                <span class="skill-icon">🏷️</span>
                 <h3>Brand Identity &amp; Logofolio</h3>
-                <p>Constructing distinct brand systems from the ground up: logo geometry, custom typographic pairings, color theory, iconography suites, and comprehensive brand books.</p>
-                <div class="skill-tags-list">
-                    <span class="sub-tag">Adobe Illustrator</span>
-                    <span class="sub-tag">Typography Hierarchy</span>
+                <p>Constructing distinct, memorable brand identities from custom emblems to comprehensive brand guidelines and stationery collateral.</p>
+                <div class="sub-tags">
+                    <span class="sub-tag">Logo Design</span>
+                    <span class="sub-tag">Color Theory</span>
                     <span class="sub-tag">Brand Books</span>
-                    <span class="sub-tag">Packaging</span>
+                    <span class="sub-tag">Wordmarks</span>
                 </div>
             </div>
 
             <div class="skill-box">
-                <div class="skill-num">02</div>
-                <h3>Posters &amp; Editorial Campaigns</h3>
-                <p>Social-first posters, event branding, and editorial layouts that cut through noise with emotional resonance, botanical aesthetics, and commanding hierarchy.</p>
-                <div class="skill-tags-list">
+                <span class="skill-icon">🖼️</span>
+                <h3>Poster &amp; Key Art Design</h3>
+                <p>High-impact visual narratives for campaigns, cultural festivals, and entertainment media with dramatic compositional tension.</p>
+                <div class="sub-tags">
+                    <span class="sub-tag">Event Posters</span>
+                    <span class="sub-tag">Campaign Graphics</span>
                     <span class="sub-tag">Photoshop</span>
+                    <span class="sub-tag">Social Media Art</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <span class="skill-icon">🎨</span>
+                <h3>Digital Illustration &amp; Heritage</h3>
+                <p>Expressive digital artwork celebrating traditional Indian aesthetics fused with sharp contemporary vector craftsmanship.</p>
+                <div class="sub-tags">
+                    <span class="sub-tag">Navras Art</span>
+                    <span class="sub-tag">Vector Art</span>
+                    <span class="sub-tag">Kalamkari</span>
+                    <span class="sub-tag">Folk Motifs</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <span class="skill-icon">📐</span>
+                <h3>Typography &amp; Editorial Systems</h3>
+                <p>Structural layout systems, editorial hierarchies, and publication designs built on rigorous Swiss grid principles.</p>
+                <div class="sub-tags">
+                    <span class="sub-tag">InDesign</span>
+                    <span class="sub-tag">Grid Systems</span>
                     <span class="sub-tag">Print Production</span>
-                    <span class="sub-tag">Visual Storytelling</span>
-                    <span class="sub-tag">Compositing</span>
+                    <span class="sub-tag">Editorial Layout</span>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="skill-box">
-                <div class="skill-num">03</div>
-                <h3>UI / UX &amp; Product Interaction</h3>
-                <p>Architecting user flows, wireframes, high-fidelity prototypes, and component design systems that simplify complex real-world workflows into intuitive apps.</p>
-                <div class="skill-tags-list">
-                    <span class="sub-tag">Figma</span>
-                    <span class="sub-tag">Design Systems</span>
-                    <span class="sub-tag">User Testing</span>
-                    <span class="sub-tag">Prototyping</span>
-                </div>
+    <!-- ── ABOUT ME SECTION ── -->
+    <section class="section-container" id="about">
+        <div class="about-wrap">
+            <div class="about-portrait">
+                <img src="abhinandna.webp" alt="Abhinandna Vaidya Portrait">
             </div>
 
-            <div class="skill-box">
-                <div class="skill-num">04</div>
-                <h3>Spatial Computing &amp; Heritage Art</h3>
-                <p>Bridging traditional Indian cultural narratives with cutting-edge 3D spatial computing environments, gesture-based HUDs, and motion art direction.</p>
-                <div class="skill-tags-list">
-                    <span class="sub-tag">Spatial UX</span>
-                    <span class="sub-tag">Premiere Pro</span>
-                    <span class="sub-tag">After Effects</span>
-                    <span class="sub-tag">Blender Concept</span>
+            <div class="about-text">
+                <span class="section-tag">About The Designer</span>
+                <h2>Balancing artistic emotion with sharp graphic precision.</h2>
+                <p>
+                    I am an Interaction Design student at <strong>UPES (University of Petroleum and Energy Studies)</strong>, focusing my craft on <strong>Graphic Design, Brand Identity, and Visual Communication</strong>.
+                </p>
+                <p>
+                    My work is driven by visual storytelling—whether exploring the psychological depth of the nine human emotions in the Navras illustration series or distilling high-energy sports media into commanding typographic identities.
+                </p>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>6+</h4>
+                        <p>Major Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>9</h4>
+                        <p>Rasas Illustrated</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Dedicated to Craft</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2335,52 +1628,41 @@
     <!-- ── FOOTER & CONTACT ── -->
     <footer id="contact">
         <div class="footer-inner">
-            <span class="section-tag">Let's Work Together</span>
-            <h2>LET'S CREATE SOMETHING REMARKABLE.</h2>
+            <span class="section-tag">Let's Connect</span>
+            <h2>Every great experience starts with a conversation.</h2>
             <p class="footer-sub">
-                Looking for a passionate Graphic Design &amp; UI/UX Intern who brings visual attitude, creative curiosity, and disciplined execution? Let's connect.
+                Whether it's brand identity, poster design, illustration, or visual direction, I'm always open to discussing new creative collaborations.
             </p>
 
             <div class="contact-action-bar">
-                <div class="email-copy-pill" id="copyEmailBtn" title="Click to copy email address">
+                <div class="email-pill" id="copyEmailBtn" title="Click to copy email">
                     <span>✉️ Abhinandna.158@gmail.com</span>
-                    <span style="color: var(--brand-red);">📋 Copy</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">📋 Copy</span>
                 </div>
                 <a href="mailto:Abhinandna.158@gmail.com" class="btn-primary">Send Email Directly ↗</a>
             </div>
 
             <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/abhinandnavaidya" target="_blank" rel="noopener noreferrer">
-                    <span>LinkedIn ↗</span>
-                </a>
-                <a href="https://github.com/abhinandnav/graphicportfolio" target="_blank" rel="noopener noreferrer">
-                    <span>GitHub Code ↗</span>
-                </a>
-                <a href="https://abhinandnav.github.io/graphicportfolio/" target="_blank" rel="noopener noreferrer">
-                    <span>Live Portfolio URL ↗</span>
-                </a>
-                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download>
-                    <span>Resume PDF ↗</span>
-                </a>
+                <a href="https://www.linkedin.com/in/abhinandnavaidya" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                <a href="https://github.com/abhinandnav/graphicportfolio" target="_blank" rel="noopener noreferrer">GitHub Code ↗</a>
+                <a href="Abhinandna_Vaidya_Resume.pdf" target="_blank" download>Resume PDF ↗</a>
+                <a href="https://abhinandnav.github.io/graphicportfolio/" target="_blank" rel="noopener noreferrer">Live Portfolio ↗</a>
             </div>
 
             <div class="copyright">
-                <span>© 2026 Abhinandna Vaidya. All rights reserved.</span>
-                <span>B.Des Interaction Design • UPES Dehradun</span>
+                <span>© 2026 Abhinandna Vaidya. Graphic Designer &amp; Visual Artist.</span>
+                <span>UPES Dehradun</span>
             </div>
         </div>
     </footer>
 
     <!-- ── CASE STUDY DETAIL MODAL ── -->
     <div class="modal-overlay" id="projectModal" onclick="closeModalOnBackdrop(event)">
-        <div class="modal-container" id="modalContainer" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" id="closeModalBtn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-container" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
             
-            <div class="modal-hero-img-wrap" id="modalHeroWrap">
-                <a id="modalFullViewBtn" href="#" target="_blank" class="modal-full-view-btn" title="Open uncompressed high-resolution artwork in new tab">
-                    <span>🔍 Full Resolution</span>
-                </a>
-                <img id="modalHeroImg" src="" alt="Project Visual Preview">
+            <div class="modal-hero-wrap">
+                <img id="modalHeroImg" src="" alt="Project Visual">
             </div>
 
             <div class="modal-body">
@@ -2393,15 +1675,15 @@
                 <div class="modal-info-grid">
                     <div class="info-cell">
                         <h5>Role</h5>
-                        <p id="modalRole">Designer</p>
+                        <p id="modalRole">Graphic Designer</p>
                     </div>
                     <div class="info-cell">
                         <h5>Discipline</h5>
-                        <p id="modalDiscipline">Brand Design</p>
+                        <p id="modalDiscipline">Brand Identity</p>
                     </div>
                     <div class="info-cell">
                         <h5>Tools</h5>
-                        <p id="modalTools">Adobe CC, Figma</p>
+                        <p id="modalTools">Illustrator, Photoshop</p>
                     </div>
                     <div class="info-cell">
                         <h5>Timeline</h5>
@@ -2410,43 +1692,60 @@
                 </div>
 
                 <div class="modal-section">
-                    <h4>Overview &amp; Design Challenge</h4>
-                    <p id="modalOverview">Project overview description goes here.</p>
+                    <h4>📌 Project Rationale &amp; Overview</h4>
+                    <p id="modalOverview">Overview text.</p>
                 </div>
 
                 <div class="modal-section">
-                    <h4>Visual Solution &amp; Key Highlights</h4>
-                    <p id="modalSolution">Solution details go here.</p>
+                    <h4>💡 Graphic Solution &amp; Visual Impact</h4>
+                    <p id="modalSolution">Solution text.</p>
                 </div>
 
-                <!-- Interactive Gallery Section -->
-                <div class="modal-section" id="modalGallerySection">
-                    <h4 id="gallerySectionHeading">Project Visuals &amp; Artifacts (Click to view full preview)</h4>
-                    <div class="modal-gallery-row" id="modalGalleryRow">
-                        <!-- Populated by JavaScript -->
-                    </div>
+                <!-- Gallery Section (e.g. Navras or Collateral) -->
+                <div class="modal-section" id="modalGallerySection" style="display: none;">
+                    <h4 id="galleryHeading">Visual Series (Click any to view full preview)</h4>
+                    <div class="gallery-grid" id="modalGalleryGrid"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ── TOAST NOTIFICATION ── -->
-    <div class="toast" id="toast">
-        <span>✨ Email copied to clipboard!</span>
-    </div>
+    <div class="toast" id="toast">✨ Email copied to clipboard!</div>
 
     <!-- ── JAVASCRIPT LOGIC ── -->
     <script>
-        // ── 0. DOM ELEMENTS & APPLICATION STATE ──
+        // ── 1. THEME SWITCHER ──
         const root = document.documentElement;
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
 
-        // Interactive Whiteboard Elements & State
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            try { localStorage.setItem('av_theme', theme); } catch (e) {}
+            if (theme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Light Mode';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark Mode';
+            }
+            updateCanvasDrawingColor();
+        }
+
+        const savedTheme = localStorage.getItem('av_theme') || 'light';
+        applyTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'light' ? 'dark' : 'light');
+        });
+
+        // ── 2. INTERACTIVE WHITEBOARD ──
         const canvasArea = document.getElementById('canvasArea');
         const canvas = document.getElementById('drawCanvas');
-        const ctx = canvas ? canvas.getContext('2d') : null;
+        const ctx = canvas.getContext('2d');
         const canvasHint = document.getElementById('canvasHint');
         const clearBtn = document.getElementById('clearCanvas');
         const eraserBtn = document.getElementById('eraserBtn');
@@ -2456,77 +1755,16 @@
 
         let isDrawing = false;
         let isEraser = false;
-        let currentColor = '#FF3850';
+        let currentColor = '#E23744';
         let currentSize = 4;
         let hasDrawn = false;
-
-        function updateCanvasDrawingColor() {
-            if (!ctx) return;
-            if (isEraser) {
-                ctx.globalCompositeOperation = 'destination-out';
-            } else {
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.strokeStyle = currentColor;
-            }
-            ctx.lineWidth = currentSize;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-        }
-
-        // ── 1. THEME SWITCHER ──
-        function applyTheme(theme) {
-            root.setAttribute('data-theme', theme);
-            try {
-                localStorage.setItem('av_theme', theme);
-            } catch (e) {}
-
-            if (themeToggle) {
-                if (theme === 'dark') {
-                    if (themeIcon) themeIcon.textContent = '☀️';
-                    if (themeText) themeText.textContent = 'Light Mode';
-                } else {
-                    if (themeIcon) themeIcon.textContent = '🌙';
-                    if (themeText) themeText.textContent = 'Dark Mode';
-                }
-            }
-            updateCanvasDrawingColor();
-
-            if (!hasDrawn && canvas && ctx && canvas.width > 0) {
-                ctx.save();
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.restore();
-                if (typeof drawWelcomeDoodle === 'function') {
-                    drawWelcomeDoodle();
-                }
-                updateCanvasDrawingColor();
-            }
-        }
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const current = root.getAttribute('data-theme') || 'dark';
-                const nextTheme = current === 'dark' ? 'light' : 'dark';
-                applyTheme(nextTheme);
-            });
-        }
-
-        // Apply saved theme safely
-        const savedTheme = (() => {
-            try {
-                return localStorage.getItem('av_theme') || 'dark';
-            } catch (e) {
-                return 'dark';
-            }
-        })();
-        applyTheme(savedTheme);
 
         function resizeCanvas() {
             const rect = canvasArea.getBoundingClientRect();
             if (rect.width === 0 || rect.height === 0) return;
             const dpr = window.devicePixelRatio || 1;
-            
-            // Temporary buffer to preserve existing strokes
+
+            // Preserve existing strokes
             const tempCanvas = document.createElement('canvas');
             tempCanvas.width = canvas.width;
             tempCanvas.height = canvas.height;
@@ -2541,74 +1779,27 @@
 
             if (tempCanvas.width > 0 && tempCanvas.height > 0) {
                 ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width / dpr, tempCanvas.height / dpr);
-            } else if (!hasDrawn) {
-                drawWelcomeDoodle();
             }
 
             updateCanvasDrawingColor();
         }
 
-        function drawWelcomeDoodle() {
-            ctx.save();
-            ctx.strokeStyle = '#FF3850';
-            ctx.lineWidth = 3;
+        function updateCanvasDrawingColor() {
+            if (isEraser) {
+                ctx.globalCompositeOperation = 'destination-out';
+            } else {
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.strokeStyle = currentColor;
+            }
+            ctx.lineWidth = currentSize;
             ctx.lineCap = 'round';
             ctx.lineJoin = 'round';
-
-            // Flowing graphic wave
-            ctx.beginPath();
-            ctx.moveTo(30, 200);
-            ctx.bezierCurveTo(90, 140, 130, 260, 210, 190);
-            ctx.bezierCurveTo(270, 130, 310, 230, 370, 170);
-            ctx.stroke();
-
-            // Cyan companion line
-            ctx.strokeStyle = '#00E5FF';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(40, 215);
-            ctx.bezierCurveTo(100, 155, 140, 275, 220, 205);
-            ctx.bezierCurveTo(280, 145, 320, 245, 380, 185);
-            ctx.stroke();
-
-            // Decorative spark stars
-            drawSpark(180, 95, 12, '#FFD200');
-            drawSpark(330, 85, 16, '#FF3850');
-            drawSpark(70, 130, 8, '#FFD200');
-
-            // Playful notes
-            ctx.font = '700 16px "Outfit", sans-serif';
-            ctx.fillStyle = root.getAttribute('data-theme') === 'dark' ? '#F8F9FB' : '#111215';
-            ctx.fillText('Designer Sandbox ✏️', 30, 50);
-
-            ctx.font = '12px "Space Mono", monospace';
-            ctx.fillStyle = root.getAttribute('data-theme') === 'dark' ? '#A3AAB8' : '#6B7280';
-            ctx.fillText('Sketch ideas, annotate, or play!', 30, 72);
-
-            ctx.restore();
-        }
-
-        function drawSpark(cx, cy, r, color) {
-            ctx.save();
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(cx, cy - r);
-            ctx.lineTo(cx, cy + r);
-            ctx.moveTo(cx - r, cy);
-            ctx.lineTo(cx + r, cy);
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.arc(cx, cy, 2, 0, Math.PI * 2);
-            ctx.fillStyle = color;
-            ctx.fill();
-            ctx.restore();
         }
 
         function getPos(e) {
             const rect = canvas.getBoundingClientRect();
-            const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : (e.clientX || 0);
-            const clientY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : (e.clientY || 0);
+            const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
+            const clientY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : e.clientY;
             return {
                 x: clientX - rect.left,
                 y: clientY - rect.top
@@ -2659,7 +1850,6 @@
                 currentColor = dot.getAttribute('data-color');
                 isEraser = false;
                 eraserBtn.style.background = '';
-                eraserBtn.style.borderColor = '';
                 eraserBtn.style.color = '';
                 updateCanvasDrawingColor();
             });
@@ -2679,17 +1869,18 @@
             if (isEraser) {
                 eraserBtn.style.background = 'var(--brand-red)';
                 eraserBtn.style.color = '#FFFFFF';
-                eraserBtn.style.borderColor = 'var(--brand-red)';
             } else {
                 eraserBtn.style.background = '';
                 eraserBtn.style.color = '';
-                eraserBtn.style.borderColor = '';
             }
             updateCanvasDrawingColor();
         });
 
         clearBtn.addEventListener('click', () => {
+            ctx.save();
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.restore();
             canvasHint.style.opacity = '0.9';
             hasDrawn = false;
             showToast('Whiteboard cleared! 🎨');
@@ -2727,7 +1918,7 @@
             });
         });
 
-        // ── 4. CASE STUDY DETAIL MODAL WITH MULTI-IMAGE GALLERIES ──
+        // ── 4. CASE STUDY MODAL SYSTEM ──
         const navrasImages = [
             { name: 'Sringara (Love & Beauty)', file: 'navras_shringar.jpg' },
             { name: 'Hasya (Joy & Laughter)', file: 'navras_hasya.jpg' },
@@ -2741,50 +1932,50 @@
         ];
 
         const projectsData = {
+            'navras': {
+                tag: 'Digital Illustration • Heritage',
+                year: '2026',
+                title: 'The Navras Series: Nine Expressions of Humanity',
+                role: 'Visual Artist & Illustrator',
+                discipline: 'Cultural Heritage Fusion & Contemporary Digital Art',
+                tools: 'Adobe Photoshop, Illustrator, Procreate',
+                timeline: '8 Weeks',
+                heroImg: 'navras_shringar.jpg',
+                overview: 'The Indian aesthetic philosophy of Navras codifies the nine fundamental emotions (rasas) of human experience. This series reinterprets each rasa through modern vector clarity, intricate ornamental frameworks, and emotive color psychology.',
+                solution: 'Spanning from the tender blush warmth of Sringara (Love) to the turbulent crimson fury of Raudra (Anger) and contemplative stillness of Shanta (Peace). Click any of the nine artworks below to inspect each emotion.',
+                galleryTitle: 'The 9 Rasas (Click any to view full preview)',
+                gallery: navrasImages.map(item => ({ title: item.name, file: item.file }))
+            },
             'sports_identity': {
                 tag: 'Brand Identity • Sports Media',
                 year: '2026',
-                title: 'Cricket News Times & Sports Media Systems',
+                title: 'Sports Media & Athletics Brand Identity System',
                 role: 'Lead Brand Designer & Typographer',
-                discipline: 'Visual Identity, Logofolio & Editorial Layout',
-                tools: 'Adobe Illustrator, Photoshop, InDesign',
+                discipline: 'Visual Identity, Logofolio & Typography',
+                tools: 'Adobe Illustrator, Photoshop',
                 timeline: '4 Weeks',
                 heroImg: 'cricket_news.png',
-                overview: 'Developed dynamic, high-energy brand systems for sports media publications including "The India Cricket" and "Times Sports News". The objective was to engineer an athletic, commanding visual identity optimized for digital streaming thumbnails, broadcast tickers, mobile app headers, and print collateral.',
-                solution: 'Constructed sharp aerodynamic letterforms paired with an assertive sports-red palette (#E13B04 dominant, backed by #7C0504 and #A81E05). Engineered a responsive logo suite ranging from compact circular badges to high-contrast headline typographic locks.',
-                galleryTitle: 'Brand Collateral & Design Systems',
+                overview: 'Developed dynamic, high-energy brand systems for major sports media publications including "The India Cricket" and "Times Sports News". Engineered an assertive visual identity optimized for digital broadcast tickers, app icons, and social thumbnails.',
+                solution: 'Constructed sharp aerodynamic letterforms paired with a dominant sports-red palette (#E13B04 dominant). Engineered a responsive logo suite ranging from compact circular badges to high-contrast headline locks.',
+                galleryTitle: 'Brand Collateral & Layouts',
                 gallery: [
                     { title: 'Cricket News Identity & Palette', file: 'cricket_news.png' },
                     { title: 'Creatiwise Editorial Collateral 01', file: 'graphic_creatiwise_one.webp' },
                     { title: 'Creatiwise Typography Grid 02', file: 'graphic_creatiwise_two.webp' }
                 ]
             },
-            'navras': {
-                tag: 'Digital Art • Indian Heritage',
-                year: '2026',
-                title: 'The Navras Series: Nine Expressions of Humanity',
-                role: 'Visual Artist, Typographer & Illustrator',
-                discipline: 'Cultural Heritage Fusion & Contemporary Digital Art',
-                tools: 'Adobe Photoshop, Illustrator, Procreate',
-                timeline: '8 Weeks',
-                heroImg: 'navras_shringar.jpg',
-                overview: 'The Indian aesthetic philosophy of Navras codifies the nine fundamental emotions (rasas) of the human condition. This series reinterprets each rasa through modern vector clarity, intricate botanical frameworks, and emotive color psychology.',
-                solution: 'Spanning from the tender blush warmth of Sringara (Love) to the turbulent crimson fury of Raudra (Anger) and contemplative stillness of Shanta (Peace). Click any of the nine artworks below to load full-screen previews.',
-                galleryTitle: 'The 9 Rasas (Click any to view full preview)',
-                gallery: navrasImages.map(item => ({ title: item.name, file: item.file }))
-            },
             'crimson_red': {
-                tag: 'Poster Campaign • Social Impact',
+                tag: 'Poster Design • Social Campaign',
                 year: '2026',
                 title: 'Uurja 2026 & Crimson Red Social Campaign',
-                role: 'Visual Designer & Campaign Art Director',
+                role: 'Visual Designer & Poster Art Director',
                 discipline: 'Poster Design, Typography & Festival Branding',
                 tools: 'Adobe Photoshop, Illustrator',
                 timeline: '3 Weeks',
                 heroImg: 'crimson_red.png',
-                overview: 'A dual-impact visual design project for UPES Dehradun. First, creating overarching branding for UPES Uurja 2026 cultural festival. Second, designing "Crimson Red" — an empathetic, educational poster engineered to destigmatize menstrual health discussions through botanical elegance and bold typographic hierarchy.',
-                solution: 'Replaced clinical or stigmatized imagery with approachable, dignified botanical illustrations in warm crimson and pastel tones. Deployed across campus exhibitions and digital social media with widespread positive student engagement.',
-                galleryTitle: 'Campaign Posters & Collateral',
+                overview: 'A dual-impact visual design project for UPES. First, developing overarching branding for UPES Uurja 2026 cultural festival incorporating Navras aesthetics. Second, designing "Crimson Red" — an educational poster engineered to destigmatize menstrual health discussions through botanical elegance and bold typographic hierarchy.',
+                solution: 'Replaced clinical or taboo imagery with approachable, dignified botanical illustrations in warm crimson and pastel tones. Deployed across campus exhibitions and digital social media with widespread positive engagement.',
+                galleryTitle: 'Campaign Poster Art',
                 gallery: [
                     { title: 'Crimson Red Educational Poster', file: 'crimson_red.png' }
                 ]
@@ -2798,49 +1989,44 @@
                 tools: 'Adobe Photoshop, Digital Painting',
                 timeline: '2 Weeks',
                 heroImg: 'boy_who_lived.jpg',
-                overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, viewed through a crumbling stone aperture.',
-                solution: 'Emphasized tactile stonework texture, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery.',
-                galleryTitle: 'Cinematic Key Art Visuals',
+                overview: 'An atmospheric homage exploring depth, gothic architecture, and chiaroscuro lighting. Depicting Hogwarts castle shrouded in moonlight and storm clouds, glimpsed through a crumbling stone aperture.',
+                solution: 'Focused on textured stonework, cold monochromatic moonlight contrasting with warm interior window beacons, and delicate gothic serif typography that heightens narrative mystery and grandeur.',
+                galleryTitle: 'Key Art Preview',
                 gallery: [
                     { title: 'The Boy Who Lived Poster', file: 'boy_who_lived.jpg' }
                 ]
             },
-            'fridgmate': {
-                tag: 'UI/UX • Smart Hardware IoT',
+            'creatiwise': {
+                tag: 'Editorial Design • Typography',
                 year: '2026',
-                title: 'Fridgmate: Smart Kitchen Ecosystem',
-                role: 'Lead UI/UX Designer & Product Concept',
-                discipline: 'Smart Hardware UI & Phygital Experience',
-                tools: 'Figma, User Research, Prototyping',
-                timeline: '6 Weeks',
-                heroImg: 'fridgmate.jpg',
-                overview: 'Food waste is a global environmental and financial burden, with over 30% of household groceries discarded simply because items get forgotten behind shelves. Fridgmate reimagines the modern kitchen through an ultra-sleek, magnetic smart display mounted seamlessly on refrigeration units.',
-                solution: 'Features an innovative sliding-rail camera mechanism that automatically catalogs hidden inventory without manual barcode scanning, integrated with automated freshness monitoring, intelligent expiry notifications, and dynamic AI recipe generators based strictly on in-fridge ingredients.',
-                galleryTitle: 'Product Screens & Concept Wireframes',
+                title: 'Creatiwise Typographic System & Guidelines',
+                role: 'Editorial Designer & Typographer',
+                discipline: 'Swiss Grid Systems, Editorial Layout & Brand Collateral',
+                tools: 'Adobe InDesign, Illustrator',
+                timeline: '3 Weeks',
+                heroImg: 'graphic_creatiwise_one.webp',
+                overview: 'An in-depth exploration of typographic hierarchy, grid alignments, and structural branding. Designed for high visual legibility across print brand books and digital editorial layouts.',
+                solution: 'Utilized asymmetrical column structures, deliberate whitespace, and dynamic scale shifts in display typography to guide reader eye flow with precision.',
+                galleryTitle: 'Typographic Layout Collateral',
                 gallery: [
-                    { title: 'Smart Refrigerator Display Mockup', file: 'fridgmate.jpg' },
-                    { title: 'Project Overview & Strategy Slide', file: 'fridgmate_slide0.png' },
-                    { title: 'Mechanism & Hardware Architecture', file: 'fridgmate_slide1.png' },
-                    { title: 'UI Recipe & Freshness Monitoring', file: 'fridgmate_slide2.png' }
+                    { title: 'Creatiwise Collateral Overview', file: 'graphic_creatiwise_one.webp' },
+                    { title: 'Creatiwise Typographic Grid Layout', file: 'graphic_creatiwise_two.webp' }
                 ]
             },
             'gatha_vr': {
-                tag: 'Spatial UI • Virtual Reality',
+                tag: 'Cultural Heritage Art • 3D Space',
                 year: '2026',
-                title: 'Gatha VR: Traditional Indian Art in Spatial 3D',
-                role: 'VR UX Designer & Researcher',
-                discipline: 'Spatial Interaction & Virtual Heritage Museum',
-                tools: 'Figma Spatial, Blender, Unity Concept',
+                title: 'Gatha VR: Folk Art in 3D Space',
+                role: 'Visual Artist & Spatial Designer',
+                discipline: 'Traditional Folk Art Modernization',
+                tools: 'Photoshop, Blender, Illustrator',
                 timeline: '5 Weeks',
                 heroImg: 'gatha_vr.jpg',
-                overview: 'India’s living folk art traditions—such as Kalamkari hand-painted scrolls, Madhubani narrative tapestries, and Warli storytelling—risk being forgotten by younger digital-native audiences. Gatha VR transforms static cultural relics into an interactive, multi-dimensional virtual reality museum.',
-                solution: 'Designed an ethereal spatial UI with minimal HUD elements that allows visitors to step directly into painted folklore scenes, interact with ancient motifs via spatial hand gestures, and learn historical narratives through spatial audio guided journeys.',
-                galleryTitle: 'Spatial VR Environments & Interface',
+                overview: 'India’s living folk art traditions—such as Kalamkari hand-painted cotton scrolls and Madhubani narrative tapestries—risk being forgotten by younger digital audiences. Gatha VR celebrates these cultural relics by staging them in immersive spatial exhibition spaces.',
+                solution: 'Carefully preserved authentic hand-painted line work while surrounding them with minimalist exhibition architecture and glowing typographic narrative cards.',
+                galleryTitle: 'Spatial Art Previews',
                 gallery: [
-                    { title: 'Immersive VR Tapestry Gallery', file: 'gatha_vr.jpg' },
-                    { title: '3D Spatial World Select Interface', file: 'gatha_vr_world.webp' },
-                    { title: 'Kalamkari & Warli VR Scene', file: 'gatha_vr_scene.webp' },
-                    { title: 'Heritage Hall Architecture', file: 'gatha_vr_hall.webp' }
+                    { title: 'Gatha VR Spatial Gallery', file: 'gatha_vr.jpg' }
                 ]
             }
         };
@@ -2857,17 +2043,14 @@
         const modalOverview = document.getElementById('modalOverview');
         const modalSolution = document.getElementById('modalSolution');
         const modalGallerySection = document.getElementById('modalGallerySection');
-        const gallerySectionHeading = document.getElementById('gallerySectionHeading');
-        const modalGalleryRow = document.getElementById('modalGalleryRow');
+        const galleryHeading = document.getElementById('galleryHeading');
+        const modalGalleryGrid = document.getElementById('modalGalleryGrid');
 
         function openProject(id) {
             const data = projectsData[id];
-            if (!data || !modal) return;
+            if (!data) return;
 
             modalHeroImg.src = data.heroImg;
-            const fullBtn = document.getElementById('modalFullViewBtn');
-            if (fullBtn) fullBtn.href = data.heroImg;
-
             modalTag.textContent = data.tag;
             modalYear.textContent = data.year;
             modalTitle.textContent = data.title;
@@ -2880,13 +2063,11 @@
 
             if (data.gallery && data.gallery.length > 0) {
                 modalGallerySection.style.display = 'block';
-                gallerySectionHeading.textContent = data.galleryTitle || 'Project Visuals & Artifacts (Click to view full preview)';
-                modalGalleryRow.innerHTML = data.gallery.map(item => `
-                    <div class="gallery-thumb-item ${item.file === data.heroImg ? 'active' : ''}" onclick="switchModalHero('${item.file}', this)">
-                        <div class="gallery-thumb-img-box">
-                            <img src="${item.file}" alt="${item.title}" loading="lazy">
-                        </div>
-                        <div class="gallery-thumb-caption">${item.title}</div>
+                galleryHeading.textContent = data.galleryTitle || 'Visual Series';
+                modalGalleryGrid.innerHTML = data.gallery.map(item => `
+                    <div class="gallery-item ${item.file === data.heroImg ? 'active' : ''}" onclick="switchModalHero('${item.file}', this)">
+                        <img src="${item.file}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-item-caption">${item.title}</div>
                     </div>
                 `).join('');
             } else {
@@ -2898,61 +2079,34 @@
         }
 
         function switchModalHero(file, elem) {
-            if (!modalHeroImg) return;
-            modalHeroImg.style.opacity = '0.2';
+            modalHeroImg.style.opacity = '0.3';
             setTimeout(() => {
                 modalHeroImg.src = file;
-                const fullBtn = document.getElementById('modalFullViewBtn');
-                if (fullBtn) fullBtn.href = file;
                 modalHeroImg.style.opacity = '1';
-            }, 120);
+            }, 100);
 
-            const allThumbs = document.querySelectorAll('.gallery-thumb-item');
-            allThumbs.forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.gallery-item').forEach(item => item.classList.remove('active'));
             if (elem) elem.classList.add('active');
         }
 
         function closeProjectModal() {
-            if (!modal) return;
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         function closeModalOnBackdrop(e) {
-            if (e && e.target === modal) {
+            if (e.target === modal) {
                 closeProjectModal();
             }
         }
 
-        // Expose functions globally to window for guaranteed inline onclick execution
-        window.openProject = openProject;
-        window.closeProjectModal = closeProjectModal;
-        window.switchModalHero = switchModalHero;
-        window.closeModalOnBackdrop = closeModalOnBackdrop;
-        window.applyTheme = applyTheme;
-        window.showToast = showToast;
-
-        // Enhance all cards with keyboard accessibility
-        if (cards) {
-            cards.forEach(card => {
-                card.setAttribute('role', 'button');
-                card.setAttribute('tabindex', '0');
-                card.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        card.click();
-                    }
-                });
-            });
-        }
-
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeProjectModal();
             }
         });
 
-        // ── 5. COPY EMAIL & TOAST NOTIFICATION ──
+        // ── 5. COPY EMAIL & TOAST ──
         const copyEmailBtn = document.getElementById('copyEmailBtn');
         const toast = document.getElementById('toast');
 
@@ -2977,14 +2131,14 @@
             }, 3000);
         }
 
-        // ── 6. SCROLLSPY HIGHLIGHTING ──
+        // ── 6. SCROLLSPY ──
         const navLinks = document.querySelectorAll('.nav-links a');
         const sections = document.querySelectorAll('section, footer');
 
         window.addEventListener('scroll', () => {
             let currentSec = '';
             sections.forEach(sec => {
-                const top = sec.offsetTop - 140;
+                const top = sec.offsetTop - 120;
                 if (window.scrollY >= top) {
                     const id = sec.getAttribute('id');
                     if (id) currentSec = id;
@@ -2997,59 +2151,6 @@
                     link.classList.add('active');
                 }
             });
-        });
-
-        // ── 7. MOBILE MENU DRAWER ──
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileNavDrawer = document.getElementById('mobileNavDrawer');
-        const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
-
-        if (mobileMenuBtn && mobileNavDrawer) {
-            mobileMenuBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const isOpen = mobileNavDrawer.classList.toggle('active');
-                mobileMenuBtn.classList.toggle('active', isOpen);
-                mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            });
-
-            // Close on nav item click
-            mobileNavItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    mobileNavDrawer.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                });
-            });
-
-            // Close when clicking outside drawer
-            document.addEventListener('click', (e) => {
-                if (mobileNavDrawer.classList.contains('active') && !mobileNavDrawer.contains(e.target) && e.target !== mobileMenuBtn) {
-                    mobileNavDrawer.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileNavDrawer.classList.contains('active')) {
-                    mobileNavDrawer.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && mobileNavDrawer && mobileNavDrawer.classList.contains('active')) {
-                mobileNavDrawer.classList.remove('active');
-                if (mobileMenuBtn) {
-                    mobileMenuBtn.classList.remove('active');
-                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                }
-            }
-            if (typeof resizeCanvas === 'function') {
-                resizeCanvas();
-            }
         });
     </script>
 </body>
